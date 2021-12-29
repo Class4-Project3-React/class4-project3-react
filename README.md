@@ -28,3 +28,5 @@ git push origin --delete 브랜치명
 2. git push 한번 더. 이후 원격에서 확인
 
 김진경 feature_branch 생성완료
+
+jaewon test
