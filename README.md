@@ -30,3 +30,5 @@ git push origin --delete 브랜치명
 김진경 feature_branch 생성완료
 
 jaewon test
+
+jaewon test22
