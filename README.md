@@ -23,8 +23,7 @@ team1
 
 깃 명령어
 
-현재 브랜치 확인하기  
-git branch  
+김진경 feature_branch 생성완료
 
 로컬에 브랜치 생성하기  
 git branch 브랜치명  
