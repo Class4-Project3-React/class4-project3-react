@@ -30,20 +30,23 @@ git push origin --delete 브랜치명
 
 깃 명령어
 
-현재 브랜치 확인하기
-git branch 
+현재 브랜치 확인하기  
+git branch  
 
-로컬에 브랜치 생성하기
-git branch 브랜치명
-한 브랜치에서 새로 브랜치 분기해서 생성
-git branch 생성할브랜치명 분기해나올브랜치명
-로컬의 브랜치 삭제하기
-git branch -d 브랜치명
+로컬에 브랜치 생성하기  
+git branch 브랜치명  
 
-로컬에 브랜치 이동
-git checkout
-로컬에 브랜치 생성하며 동시에 이동
-git checkout -b
+한 브랜치에서 새로 브랜치 분기해서 생성  
+git branch 생성할브랜치명 분기해나올브랜치명  
 
-로컬에서 원격에 브랜치 생성하기
-git push origin —delete 브랜치명
+로컬의 브랜치 삭제하기  
+git branch -d 브랜치명  
+
+로컬에 브랜치 이동  
+git checkout  
+
+로컬에 브랜치 생성하며 동시에 이동  
+git checkout -b  
+
+로컬에서 원격에 브랜치 생성하기  
+git push origin —delete 브랜치명  
