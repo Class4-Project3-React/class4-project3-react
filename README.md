@@ -23,5 +23,7 @@ team1
 깃 원격 브랜치를 로컬에서 삭제하는 명령어  
 git push origin --delete 브랜치명
 
-
-test
+로컬 브랜치 생성 후 원격에 반영하기
+1. $git push --set-upstream origin 브랜치명 
+2. 작성 후 푸쉬
+3. 원격에서 확인
