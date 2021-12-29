@@ -26,3 +26,5 @@ git push origin --delete 브랜치명
 로컬 브랜치 생성 후 원격에 반영하기
 1. $git push --set-upstream origin 브랜치명 
 2. git push 한번 더. 이후 원격에서 확인
+
+김진경 feature_branch 생성완료
