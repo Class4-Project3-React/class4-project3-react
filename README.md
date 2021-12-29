@@ -22,3 +22,6 @@ team1
 
 깃 원격 브랜치를 로컬에서 삭제하는 명령어  
 git push origin --delete 브랜치명
+
+
+test
