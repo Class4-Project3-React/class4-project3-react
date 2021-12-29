@@ -46,3 +46,5 @@ git push origin —delete 브랜치명
 
 원격의 브랜치를 로컬에 받기  
 git pull origin 원격브랜치명  
+
+
