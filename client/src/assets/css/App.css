@@ -1,4 +1,9 @@
 .App {
+  padding-top: 100px;
   text-align: center;
-  color: red; /* test용 나중에 지울 것 - 원현 */
+}
+
+.LoginButton {
+  width: 100px;
+  height: 50px;
 }
