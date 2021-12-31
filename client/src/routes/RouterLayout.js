@@ -3,16 +3,16 @@ import {Outlet, Link} from "react-router-dom";
 const RouterLayout = () => {
     return (
         <>
-            <nav>
-                <ul>
-                    <li>
+            <div>
+                <div>
+                    <div>
                         <Link to="/">Home</Link>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <Link to="/login">Login</Link>
-                    </li>
-                </ul>
-            </nav>
+                    </div>
+                </div>
+            </div>
 
             <Outlet />
         </>

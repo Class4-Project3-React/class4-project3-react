@@ -1,5 +1,5 @@
 import "./assets/css/App.css";
-import LogRegRouter from "./LogRegRouter";
+import LogRegRouter from "./routes/LogRegRouter";
 
 export default function App() {
   return (

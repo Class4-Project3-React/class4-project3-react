@@ -3,8 +3,8 @@
 import React from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import RouterLayout from "./RouterLayout";
-import Login from "./Login";
-import Register from "./Register";
+import Login from "../components/Login";
+import Register from "../components/Register";
 
 
 export default function LogRegRouter() {
