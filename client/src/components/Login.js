@@ -27,7 +27,6 @@ body {
 }
 
 .container {
-    margin-top: 40px;
     background-color: white;
     max-width: 450px;
     margin: 0 auto;
