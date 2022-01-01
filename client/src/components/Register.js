@@ -1,27 +1,172 @@
+// css
+import styled from "styled-components";
+// css
+const RegisterStyle = styled.div`
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-size: 16px;
+}
+
+body {
+    background-color: #f7f7f7;
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #222222;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    padding: 50px;
+}
+
+.container {
+    background-color: white;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 40px;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    border-radius: 3px;
+}
+
+.container h2 {
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.navbar-brand {
+    display: block;
+    text-align: center;
+    padding: 20px 4px 20px 0px;
+}
+
+input,
+button {
+    font-family: "Ubuntu", sans-serif;
+    outline: none;
+    font-size: 1rem;
+}
+
+.input {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
+}
+
+.input:hover {
+    border-color: #999999;
+}
+
+.input:focus {
+    border-color: black;
+}
+
+[type="submit"] {
+    background: #000000;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    padding: 12px 0;
+    cursor: pointer;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-top: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+[type="submit"]:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+label {
+    font-weight: bold;
+    font-size: 36px
+}
+
+.link {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.link a {
+    color: black;
+}
+
+.success-msg,
+.err-msg {
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.success-msg {
+    color: #ffffff;
+    background-color: #20c997;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile .img {
+    font-size: 50px;
+}
+
+.profile h2 {
+    margin-bottom: 3px;
+    text-transform: capitalize;
+}
+
+.profile span {
+    display: block;
+    margin-bottom: 20px;
+    color: #999999;
+}
+
+.profile a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    border-radius: 3px;
+}
+
+.profile a:hover {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: #dc3545;
+    color: #ffffff;
+}
+`
+
+
 
 // 회원가입 화면
 const Register = () => {
     return (
-        <>
-            <form>
-                <label>ID : </label>
-                <input type="text" placeholder="put id"></input>
-                <br />
-                <br />
-                <label>Password : </label>
-                <input type="password" placeholder="put password"></input>
-                <br />
-                <br />
-                <label>Email : </label>
-                <input type="text" placeholder="put email"></input>
-                <br />
-                <br />
-                <label>Address : </label>
-                <input type="text" placeholder="put address"></input>
-                <br />
-                <button type="submit">Submit</button>
-            </form>
-        </>
+        <RegisterStyle>
+            <div class="container">
+                <h1>Create an account</h1>
+                <form action="" method="POST">
+                    <input type="text" class="input" name="_name" autocomplete="off" id="user_name" placeholder="Enter your Username" />
+                    <input type="email" class="input" name="_email" autocomplete="off" id="user_email" placeholder="Enter your email" />
+                    <input type="password" class="input" name="_password" id="user_pass" placeholder="Enter new password" />
+                    <input type="submit" value="Sign Up" />
+                    <div class="link"><a href="./login">Login</a></div>
+                </form>
+            </div>
+        </RegisterStyle>
     )
 }
 
