@@ -8,12 +8,6 @@ const RegisterStyle = styled.div`
     box-sizing: border-box;
 }
 
-html {
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    font-size: 16px;
-}
-
 body {
     background-color: #f7f7f7;
     font-family: "Ubuntu", sans-serif;
@@ -39,12 +33,6 @@ body {
 .container h2 {
     margin: 0 0 20px 0;
     text-align: center;
-}
-
-.navbar-brand {
-    display: block;
-    text-align: center;
-    padding: 20px 4px 20px 0px;
 }
 
 input,
@@ -101,6 +89,7 @@ label {
     color: black;
 }
 
+/* 로그인 관련 에러메시지 */
 .success-msg,
 .err-msg {
     color: #dc3545;
@@ -113,40 +102,6 @@ label {
     color: #ffffff;
     background-color: #20c997;
     border-color: rgba(0, 0, 0, 0.1);
-}
-
-.profile {
-    text-align: center;
-}
-
-.profile .img {
-    font-size: 50px;
-}
-
-.profile h2 {
-    margin-bottom: 3px;
-    text-transform: capitalize;
-}
-
-.profile span {
-    display: block;
-    margin-bottom: 20px;
-    color: #999999;
-}
-
-.profile a {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    border: 1px solid #dc3545;
-    color: #dc3545;
-    border-radius: 3px;
-}
-
-.profile a:hover {
-    border-color: rgba(0, 0, 0, 0.1);
-    background-color: #dc3545;
-    color: #ffffff;
 }
 `
 
