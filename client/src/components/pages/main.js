@@ -14,7 +14,7 @@ class Main extends React.Component {
         .then(res => {
             console.log(res);
             console.log(typeof(res));
-            return res.json();
+            return res.text();
         })
         .then(res => console.log(res));
     };
