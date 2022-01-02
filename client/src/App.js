@@ -1,7 +1,10 @@
 import "./assets/css/App.css";
+import Main from "./components/pages/main";
 
 function App() {
-  return <div className="App">21.12.30 0425 이상 무 - 권원현</div>;
+  return (
+    <Main />
+  );
 }
 
 export default App;
