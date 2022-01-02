@@ -20,6 +20,9 @@ team1
 
 211229 김진경 브랜치 테스트 test  
 
+211230 안성준 dev => feature_asj 브랜치 test
+
+220102 권원현 git test
 
 깃 명령어
 

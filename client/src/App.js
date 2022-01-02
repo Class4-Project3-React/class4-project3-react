@@ -1,11 +1,9 @@
 import "./assets/css/App.css";
-import LogRegRouter from "./routes/LogRegRouter";
+import Main from "./components/pages/main";
 
-export default function App() {
+function App() {
   return (
-    <>
-      <LogRegRouter />
-    </>
-  )
+    <Main />
+  );
 }
 
