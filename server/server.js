@@ -8,4 +8,4 @@ app.use("/", router);
 
 const port = 3001;
 
-app.listen(port, () => console.log(`Node js Server ruuning at http://localhost:3001/`));
+app.listen(port, () => console.log(`Node js Server ruuning at http://localhost:${port}/`));
