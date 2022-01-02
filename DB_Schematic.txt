@@ -1,0 +1,16 @@
+★본인이 필요한 1)Table 이름 + 2)Column 이름(순서 중요) 적을 것
+
+ex)
+> 권원현
+    - table: contents_1
+        - column
+            1) id
+            2) videos
+            3) articles
+            4) date
+    - table: contents_2
+        - column
+            1) id
+            2) tools
+            3) desc
+            4) date
