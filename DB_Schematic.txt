@@ -11,5 +11,13 @@
             5) desc
             6) img
 
->
+> 안성준
+    - table: board
+        - column
+            1) writer
+            2) title
+            3) date
+            4) textContent
+            5) imgContent
+            
             
