@@ -20,4 +20,10 @@
             4) textContent
             5) imgContent
             
-            
+> 김진경
+    - table: user_info
+        - column
+            1) id(PRIMARY KEY)
+            2) name(사용자 이름)
+            3) email(사용자 이메일)
+            4) password(계정 비밀번호)
