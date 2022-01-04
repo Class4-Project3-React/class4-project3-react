@@ -70,7 +70,7 @@ function Mypage() {
                         <h4>test3</h4>
                         <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
                     </div>
-                    <div className="col-md-4">
+                    {/* <div className="col-md-4">
                         <h4>test4</h4>
                         <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
                     </div>
@@ -85,7 +85,7 @@ function Mypage() {
                     <div className="col-md-4">
                         <h4>test4</h4>
                         <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
@@ -99,7 +99,7 @@ function Mypage() {
 
 function Modal(props) { 
     return(
-      <>
+        <>
 
       <div className='Nav_modal'>
         <div className = "Nav_modalin">
