@@ -6,6 +6,6 @@ const models = require("../models/models")
 
 exports.TestControllers = (req, res) => {
     models.ReactTest().then((result) => {
-        res.send(result[0].email);
+        res.send(result[0].id);
     });
 };
