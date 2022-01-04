@@ -50,3 +50,5 @@ git push origin —delete 브랜치명
 git pull origin 원격브랜치명  
 
 승재 test
+
+tmdwo test1
