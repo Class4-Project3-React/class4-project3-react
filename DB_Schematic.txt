@@ -19,5 +19,14 @@
             3) date
             4) textContent
             5) imgContent
-            
+
+> 김진경
+    - table: users
+        -column
+            1) no (AI)
+            2) id (PRIMARY KEY)
+            3) name
+            4) email
+            5) password
+
             
