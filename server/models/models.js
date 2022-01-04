@@ -6,7 +6,7 @@ const modelExports = (module.exports = {});
 
 modelExports.ReactTest = () => {
     return new Promise((resolve, reject) => {
-        let sql = "SELECT * FROM users where id='wh_kwon';"; // 참고) test용이기 때문에 mysql에 dummy data 입력했고 그걸 호출하는 raw한 sql문임
+        let sql = "SELECT * FROM users where no='1';"; // 참고) test용이기 때문에 mysql에 dummy data 입력했고 그걸 호출하는 raw한 sql문임
         con.getConnection((err, connection) => {
             try {
                 if(err) throw err;

@@ -1,7 +1,7 @@
 {
-    "host" : "localhost",
-    "user" : "root",
-    "password" : "★비밀번호 입력★",
+    "host" : "54.180.117.235",
+    "user" : "admin",
+    "password" : "1234",
     "database" : "project3_react",
     "connectionLimit" : 100
 }
