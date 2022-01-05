@@ -1,5 +1,5 @@
 import "./assets/css/App.css";
-import Main from "./components/pages/main";
+// import Test from "./components/pages/Test";
 import { BrowserRouter, Route,Routes} from 'react-router-dom';
 import { Home, Contents, BordList, MyPage, User } from './components/pages';
 import Menu from './components/Menu';
