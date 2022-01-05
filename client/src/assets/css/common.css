@@ -1,0 +1,74 @@
+:root {
+    --commonColor_1st-color: #000957;
+    --commonColor_2nd-color: #344CB7;
+    --commonColor_3rd-color: #577BC1;
+    --commonColor_4th-color: #EBE645;
+
+    --testWidth-width: 300px;
+    --testheight-height: 150px;
+
+    --testBorderColor-color: white;
+
+    --commonMargin-margin: 10px;
+}
+
+/* 
+:root 내부에서 변수 네이밍방식 
+--변수이름-요소: 설정값;
+
+클래스에서 사용 방식
+color: var(변수이름);
+
+컬러 및 <main> 사이즈 확정 시 common.css 
+재수정 예정.
+
+assets/css 폴더 'rootTest.html' 파일
+라이브 실행 시 해당 변수들 적용 화면 확인가능.
+추후 삭제 예정.
+*/
+
+.colorTest1 {
+    margin-top: var(--commonMargin-margin);
+    width: var(--testWidth-width);
+    height: var(--testheight-height);
+    background-color: var(--commonColor_1st-color);
+}
+
+.colorTest2 {
+    margin-top: var(--commonMargin-margin);
+    width: var(--testWidth-width);
+    height: var(--testheight-height);
+    background-color: var(--commonColor_2nd-color);
+}
+
+.colorTest3 {
+    margin-top: var(--commonMargin-margin);
+    width: var(--testWidth-width);
+    height: var(--testheight-height);
+    background-color: var(--commonColor_3rd-color);
+}
+
+.colorTest4 {
+    margin-top: var(--commonMargin-margin);
+    width: var(--testWidth-width);
+    height: var(--testheight-height);
+    background-color: var(--commonColor_4th-color);
+}
+
+.footer {
+    background-color: lightgray;
+    height: 75px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-top: solid black 1px;
+}
+
+.footer-content {
+    background-color: rgb(119, 119, 119);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+}

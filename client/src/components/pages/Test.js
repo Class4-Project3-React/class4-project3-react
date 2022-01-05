@@ -1,12 +1,12 @@
+// ★AWS Test 위한 임시 component - 권원현
+// 실행 후 button 클릭하여 console.log 확인해볼 것
 import React from "react";
 
-// 220102_client+server연동 test 위한 임시 component - 권원현
-// 실행 후 button 클릭하여 console.log 확인해볼 것
-class Main extends React.Component {
+class Test extends React.Component {
 
     getServerData = () => {
 
-        fetch("http://localhost:3001/", {
+        fetch("http://54.180.117.235:3001/", {
             method : "GET",
             headers : { "Content-Type" : "application/json" },
             mode : "cors"
@@ -28,4 +28,4 @@ class Main extends React.Component {
     };
 };
 
-export default Main;
+export default Test;

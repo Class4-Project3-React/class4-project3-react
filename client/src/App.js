@@ -1,10 +1,10 @@
 import "./assets/css/App.css";
-import Main from "./components/pages/main";
-import { BrowserRouter, Route,Routes} from 'react-router-dom';
-import { Home, Contents, BordList, MyPage, User } from './components/pages';
+// import Test from "./components/pages/Test";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home, Contents, BordList, User, Footer } from './components/pages';
 import Menu from './components/Menu';
-import Login from "./components/Login";
-
+import Login from './components/Login';
+import Mypage from "./components/Mypage";
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
               <Route exact path="/" element={<Home/>}/>
               <Route path="/contents" element={<Contents/>}/>
               <Route path="/bordlist" element={<BordList/>}/>
-              <Route path="/mypage" element={<MyPage/>}/>
+              <Route path="/mypage" element={<Mypage/>}/>
               <Route path="/user" element={<User/>}/>
               <Route path="/login" component={Login}/>
             </Routes>
@@ -25,4 +25,3 @@ function App() {
 }
 
 export default App;
-
