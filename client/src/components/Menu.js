@@ -53,7 +53,7 @@ const Menu = () => {
                   <li><NavLink to="/contents" ><p>Contents</p></NavLink></li>
                   <li><NavLink to="/login" ><p>Login</p></NavLink></li>
                   <li><NavLink to="/bordList" ><p>Board</p></NavLink></li>
-                  <li><NavLink to="/myPage" ><p>MyPage</p></NavLink></li>
+                  <li><NavLink to="/mypage" ><p>Mypage</p></NavLink></li>
                 </ul>
               </nav>
               <br/>

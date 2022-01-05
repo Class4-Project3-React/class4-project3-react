@@ -5,12 +5,11 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import Test from "./components/pages/Test"; // 권원현 aws 테스트용 지우지 말 것
 
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
-      <Test />
+      {/* <Test /> */}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

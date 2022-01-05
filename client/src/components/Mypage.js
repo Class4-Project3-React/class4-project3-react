@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Link, Route } from 'react-router-dom';
-import '../../components/Mypage.css'
+import './Mypage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 <link
