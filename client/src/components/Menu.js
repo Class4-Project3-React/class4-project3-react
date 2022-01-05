@@ -49,7 +49,7 @@ const Menu = () => {
               <nav>
                 <ul>
                   <img src={logo} width={200}/>
-                  <li><NavLink to="/" activeStyle={activeStyle}><p>Home</p></NavLink></li>
+                  <li><NavLink to="/" ><p>Home</p></NavLink></li>
                   <li><NavLink to="/contents" ><p>Contents</p></NavLink></li>
                   <li><NavLink to="/login" ><p>Login</p></NavLink></li>
                   <li><NavLink to="/bordList" ><p>Board</p></NavLink></li>

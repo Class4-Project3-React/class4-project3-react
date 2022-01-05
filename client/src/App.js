@@ -11,20 +11,16 @@ function App() {
   return (
     <>
       {/* <Main/> */}
-        <Menu>
-          <BrowserRouter>
+        <Menu />
             <Routes>
-              <Route exact path="/" component={Home}/>
-              <Route path="/contents" component={Contents}/>
-              <Route path="/bordlist" component={BordList}/>
-              <Route path="/mypage" component={Mypage}/>
-              <Route path="/user" component={User}/>
+              <Route exact path="/" element={<Home/>}/>
+              <Route path="/contents" element={<Contents/>}/>
+              <Route path="/bordlist" element={<BordList/>}/>
+              <Route path="/mypage" element={<Mypage/>}/>
+              <Route path="/user" element={<User/>}/>
               <Route path="/login" component={Login}/>
-            </Routes>                 
-          </BrowserRouter>
-        </Menu>
-
-        <Footer />
+            </Routes>
+          <Footer/>
     </>
   );
 }
