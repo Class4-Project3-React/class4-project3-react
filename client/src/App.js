@@ -5,7 +5,7 @@ import Likepage from "./components/Likepage";
 
 import { Link, Route } from 'react-router-dom';
 
-import { Home, Contents, BordList, MyPage, User } from './components/pages';
+import { Home, Contents, BordList, User } from './components/pages';
 import Menu from './components/Menu';
 
 
@@ -21,21 +21,22 @@ function App() {
     {/* <Login />
     <Register /> */}
 
-    <Route exact path="/mypage">
+    {/* <Route exact path="/mypage">
         <Mypage />
     </Route>
 
 
     <Route exact path="/like">
         <Likepage />
-    </Route>
+    </Route> */}
     
       {/* <Main/> */}
     <Menu />
       <Route exact path="/" component={Home}/>
       <Route path="/contents" component={Contents}/>
       <Route path="/bordlist" component={BordList}/>
-      <Route path="/mypage" component={MyPage}/>
+      <Route path="/mypage" component={Mypage}/>
+      <Route path="/like" component={Likepage}/>
       <Route path="/user" component={User}/>
 
     </>
