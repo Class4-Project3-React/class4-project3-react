@@ -12,3 +12,4 @@
     - routes: RESTful API를 위한 용도(하나의 routes.js에서 모두가 공동 사용할 것)
     - utils: models의 mysql을 사용하기 위한 db 환경변수 관리 폴더
     - server.js: 백엔드 Server용 (port: 3001 사용할 것. 변경 X)
+    qkrrmdwo
