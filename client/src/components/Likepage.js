@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Link, Route } from 'react-router-dom';
-import '../../components/Mypage.css'
+import './Mypage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 <link
@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   crossorigin="anonymous"
 />
 
-function Mypage() {
+function Likepage() {
 
     const [modal, setModal] = useState(false);  // 모달창을 켜고 닫는 스위치
 
@@ -26,9 +26,8 @@ function Mypage() {
         <div className='body'>
             <div className='body1'> 
                 <div className='body1_1'>
-                    mypage test page <br/>
-                    여기에 내가 입력한데이터  <br/>
-                    useState로 만들고 수정해보기
+                    like test page <br/>
+                    일단 mypage와 같음  <br/>
                 </div>
 
                 <div className='body1_2'>
@@ -62,7 +61,7 @@ function Mypage() {
                         <p>근데 이미지가 안들어감. why?</p>
                     </div>
                     <div className="col-md-4">
-                        <img src='https://codingapple1.github.io/shop/shoes1.jpg' width='100%/'></img>
+                        {/* <img src='https://codingapple1.github.io/shop/shoes1.jpg' width='100%/'></img> */}
                         <h4>test2</h4>
                         <p>외부링크만 들어가지는데 왜그런지 모륵겠다. 그렇다는건 .. 이거를 직접 코드짜서 구조를 잡아야할듯</p>
                     </div>
@@ -70,9 +69,13 @@ function Mypage() {
                         <h4>test3</h4>
                         <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
                     </div>
-                    {/* <div className="col-md-4">
+                    <div className="col-md-4">
                         <h4>test4</h4>
                         <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
+                    </div>
+                    <div className="col-md-4">
+                        <h4>test4</h4>
+                        <p>여기는 다른페이지 입니다</p>
                     </div>
                     <div className="col-md-4">
                         <h4>test4</h4>
@@ -82,10 +85,6 @@ function Mypage() {
                         <h4>test4</h4>
                         <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
                     </div>
-                    <div className="col-md-4">
-                        <h4>test4</h4>
-                        <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
-                    </div> */}
                 </div>
             </div>
         </div>
@@ -112,4 +111,4 @@ function Modal(props) {
     )
   }
 
-export default Mypage;
+export default Likepage;

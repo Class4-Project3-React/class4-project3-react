@@ -54,3 +54,21 @@ assets/css 폴더 'rootTest.html' 파일
     height: var(--testheight-height);
     background-color: var(--commonColor_4th-color);
 }
+
+.footer {
+    background-color: lightgray;
+    height: 75px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-top: solid black 1px;
+}
+
+.footer-content {
+    background-color: rgb(119, 119, 119);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+}
