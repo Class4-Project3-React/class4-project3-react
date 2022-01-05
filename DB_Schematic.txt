@@ -9,6 +9,17 @@
             3) email
             4) password
 
+            - 테이블 작성 sql문
+    
+            CREATE TABLE users
+            (
+                id VARCHAR(255) NOT NULL, 
+                name VARCHAR(255) NOT NULL, 
+                email VARCHAR(255) NOT NULL, 
+                password VARCHAR(255) NOT NULL, 
+                PRIMARY KEY (id)
+            );
+            
 > 안성준
     - table: board
         - column
