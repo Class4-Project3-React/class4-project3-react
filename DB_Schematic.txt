@@ -4,11 +4,22 @@
 > 김진경
     - table: users
         -column
-            1) id (PRIMARY KEY)
-            2) name
-            3) email
-            4) password
+            1) no (AI)
+            2) id (PRIMARY KEY)
+            3) name
+            4) email
+            5) password
 
+            - 테이블 작성 sql문
+    
+            CREATE TABLE users
+            (
+                id VARCHAR(255) NOT NULL, 
+                name VARCHAR(255) NOT NULL, 
+                email VARCHAR(255) NOT NULL, 
+                password VARCHAR(255) NOT NULL, 
+                PRIMARY KEY (id)
+            );
 > 안성준
     - table: board
         - column
