@@ -20,6 +20,7 @@ function App() {
               <Route path="/user" element={<User/>}/>
               <Route path="/login" component={Login}/>
             </Routes>
+          <Footer/>
     </>
   );
 }
