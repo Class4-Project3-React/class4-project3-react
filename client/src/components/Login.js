@@ -117,7 +117,7 @@ const Login = () => {
                 <input type="email" class="input" name="_email" autocomplete="off" id="user_email" placeholder="Enter your email" />
                 <input type="password" class="input" name="_password" id="user_pass" placeholder="Enter new password" />
                 <input type="submit" value="Sign in" />
-                <div class="link"><a href="./Register">Create Account</a></div>
+                <div class="link"><a href="./register">Create Account</a></div>
             </form>
             </div>
         </LoginStyle>
