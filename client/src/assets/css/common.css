@@ -80,7 +80,7 @@ assets/css 폴더 'rootTest.html' 파일
 1. 아래 3줄을 return 파트에 태그로 입력한다.
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
 
 2. 폰트적용을 원하는 class 혹은 폰트에 css로 아래 font-family를 입력한다
@@ -94,8 +94,8 @@ font-family: 'Roboto', sans-serif;
 
 1. 아래 3줄을 return 파트에 태그로 입력한다.
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Roboto:wght@900&display=swap" rel="stylesheet">
 
 2. 폰트적용을 원하는 class 혹은 폰트에 css로 아래 font-family를 입력한다
