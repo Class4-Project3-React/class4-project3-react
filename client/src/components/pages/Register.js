@@ -1,6 +1,7 @@
+// css
 import styled from "styled-components";
 // css
-const LoginStyle = styled.div`
+const RegisterStyle = styled.div`
 *,
 *::before,
 *::after {
@@ -27,6 +28,8 @@ body {
     padding: 40px;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
     border-radius: 3px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .container h2 {
@@ -105,24 +108,23 @@ label {
 `
 
 
-// 로그인 화면
-const Login = () => {
+
+// 회원가입 화면
+const Register = () => {
     return (
-        <LoginStyle>
+        <RegisterStyle>
             <div class="container">
-            <form action="" method="POST">
-                <label for="user_email">Login</label>
-                <br />
-                <br />
-                <input type="email" class="input" name="_email" autocomplete="off" id="user_email" placeholder="Enter your email" />
-                <input type="password" class="input" name="_password" id="user_pass" placeholder="Enter new password" />
-                <input type="submit" value="Sign in" />
-                <div class="link"><a href="./register">Create Account</a></div>
-            </form>
+                <h1>Create an account</h1>
+                <form action="" method="POST">
+                    <input type="text" class="input" name="_name" autoComplete="off" id="user_name" placeholder="Enter your Username" />
+                    <input type="email" class="input" name="_email" autoComplete="off" id="user_email" placeholder="Enter your email" />
+                    <input type="password" class="input" name="_password" id="user_pass" placeholder="Enter new password" />
+                    <input type="submit" value="Sign Up" />
+                    <div class="link"><a href="./login">Login</a></div>
+                </form>
             </div>
-        </LoginStyle>
+        </RegisterStyle>
     )
 }
 
-export default Login;
-
+export default Register
