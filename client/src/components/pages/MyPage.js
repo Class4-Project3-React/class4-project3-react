@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Link, Route } from 'react-router-dom';
-import '../../components/Mypage.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
 
 <link
   rel="stylesheet"
@@ -10,6 +10,100 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   crossorigin="anonymous"
 />
 
+const MyPageCSS = styled.div`
+
+    .body{
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    div {
+        text-align: center;
+    }
+
+
+    .body1 {
+        width: 100%;
+        height: 200px;
+        background-color: lightsteelblue;
+        /* font-family: 'Gothic A1', sans-serif; */
+    }
+
+    .body1_1 {
+        width: 50%;
+        display: inline-block;
+    }
+
+    .body1_2 {
+        width: 50%;
+        display: inline-block;
+    }
+
+    .option {
+        /* background-color: cadetblue; */
+        height: 50px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-top: solid lightgray 1px;
+    }
+    .option1 {
+        padding: 25px;
+        color: black;
+        display: block;
+        margin-left: auto;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .option2 {
+        padding: 25px;
+        color: black;
+        display: block;
+        margin-right: auto;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+        padding: 30px;
+        /* margin: 150px; */
+        background-color: rgb(226, 226, 226);
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .col-md-4 {
+        margin-bottom: 30px;
+    }
+
+
+    /* .Nav_modal {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    position: fixed;
+    opacity: 0.9;
+    }
+
+    .Nav_modalin {
+        width: 186px;
+        height: 186px;
+        background-color: white;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        position: fixed;
+        border-radius: 14px;
+        font-family: "Jalnan";
+    }
+    
+    .Nav_modbtn {
+        border: 0px;
+        background-color: white;
+    } */
+    
+`
 
 function MyPage() {
 
@@ -31,6 +125,7 @@ function MyPage() {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
 
+        <MyPageCSS>
         <div className='body'>
             <div className='body1'> 
                 <div className='body1_1'>
@@ -67,12 +162,10 @@ function MyPage() {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                        <img src='./test2.jpg' width='100%'></img>
                         <h4>test1</h4>
                         <p>근데 이미지가 안들어감. why?</p>
                     </div>
                     <div className="col-md-4">
-                        <img src='https://codingapple1.github.io/shop/shoes1.jpg' width='100%/'></img>
                         <h4>test2</h4>
                         <p>외부링크만 들어가지는데 왜그런지 모륵겠다. 그렇다는건 .. 이거를 직접 코드짜서 구조를 잡아야할듯</p>
                     </div>
@@ -80,25 +173,19 @@ function MyPage() {
                         <h4>test3</h4>
                         <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
                     </div>
-                    {/* <div className="col-md-4">
-                        <h4>test4</h4>
-                        <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
-                    </div>
                     <div className="col-md-4">
                         <h4>test4</h4>
-                        <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
+                        <p>text test</p>
                     </div>
                     <div className="col-md-4">
-                        <h4>test4</h4>
+                        <h4>test5</h4>
                         <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
                     </div>
-                    <div className="col-md-4">
-                        <h4>test4</h4>
-                        <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
-                    </div> */}
+
                 </div>
             </div>
         </div>
+        </MyPageCSS>
 
         </>
     )

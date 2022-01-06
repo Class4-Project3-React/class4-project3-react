@@ -1,25 +1,55 @@
 import React from 'react';
 import styled from "styled-components";
+import fav from '../src/assets/img/fav.ico'
 
 const Foot = styled.div`
     
+    margin-left: 10%;
+    margin-right: 10%;
+    
     .footer {
-        background-color: lightgray;
+        /* background-color: lightgray; */
         height: 75px;
         vertical-align: middle;
         display: flex;
         align-items: center;
         position: relative;
-        border-top: solid black 1px;
+        border-top: solid lightgray 1px;
+        margin-top: 15px;
+        color: gray;
+        font-size: 13px;
+    } 
+
+    .footer a {
+        text-decoration: none;
+        color: gray;
+    }
+
+    .footer a:link{
+        text-decoration: none;
+        color: gray;
+    }
+    
+    .footer a:visited{
+        text-decoration: none;
+        color: gray;
+    }
+
+    .footer-ico{
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+        
+    }
+
+    .footer-logo{
+        margin-right: auto;
     }
 
     .footer-content {
-        background-color: rgb(119, 119, 119);
-        color: white;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 12px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 `
 
@@ -27,7 +57,13 @@ const Footer = () => (
 
     <Foot>
         <div className="footer">
-            <div className="footer-content">© BUILDING BOYZ. & 추가내용 들어가기 or ul,li 활용</div>
+            <img className='footer-ico' src={fav}></img>
+            <div className="footer-logo"><a href='/'>© 2022 BUILDING BOYZ, Inc.</a></div>
+            <div className="footer-content"><a href='/'>회사소개</a></div>
+            <div className="footer-content"><a href='/'>이용약관</a></div>
+            <div className="footer-content"><a href='/'>개인정보이용방침</a></div>
+            <div className="footer-content"><a href='/'>안내</a></div>
+            <div className="footer-content"><a href='/'>고객센터</a></div>
         </div>
     </Foot>
 

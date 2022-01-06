@@ -1,9 +1,8 @@
 import "./assets/css/App.css";
 // import Test from "./components/pages/Test";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, Contents, BordList, User, Login, Register } from './components/pages';
+import { Home, Contents, BordList, User, Login, Register, MyPage, LikePage } from './components/pages';
 import Menu from './components/Menu';
-import Mypage from "./components/Mypage";
 
 // import Card from "./components/pages/Card";
 
