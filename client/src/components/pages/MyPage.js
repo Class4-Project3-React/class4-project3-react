@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import { Link, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
+import img1 from '../../assets/img/my_test1.png';
+import img2 from '../../assets/img/my_test2.png';
+import img3 from '../../assets/img/my_test3.png';
 
 <link
   rel="stylesheet"
@@ -26,18 +29,44 @@ const MyPageCSS = styled.div`
         width: 100%;
         height: 200px;
         background-color: lightsteelblue;
-        /* font-family: 'Gothic A1', sans-serif; */
+        display: flex;
+        align-items: center;
+        position: relative;
     }
 
     .body1_1 {
-        width: 50%;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 50px;
+        /* padding: 50px; */
+    }
+
+    .body1_1 img {
+        border: solid #344CB7 2px;
+        border-radius: 50%;
+    }
+    
+    .body1_2 {
+        border: solid black 2px;
+        width: 70%;
         display: inline-block;
     }
 
-    .body1_2 {
-        width: 50%;
-        display: inline-block;
+    .body1_2 p{
+        /* margin-left: 0; */
     }
+
+    .body1_2_content {
+        display: inline-block;
+        border: solid black 5px;
+    }
+    
+    /* .body1_2_modal {
+        display: inline-block;
+        border: solid black 5px;
+    } */
 
     .option {
         /* background-color: cadetblue; */
@@ -73,7 +102,6 @@ const MyPageCSS = styled.div`
     .col-md-4 {
         margin-bottom: 30px;
     }
-
 
     /* .Nav_modal {
     width: 100vw;
@@ -129,22 +157,26 @@ function MyPage() {
         <div className='body'>
             <div className='body1'> 
                 <div className='body1_1'>
-                    mypage test page <br/>
-                    여기에 내가 입력한데이터  <br/>
-                    useState로 만들고 수정해보기
+                    <img src={img1} width='100%'></img>
                 </div>
 
                 <div className='body1_2'>
-                <button onClick={modalChange}>Modal</button>
-                {/* 버튼 클릭하면 나오고 다시 없애는거 해보기 */}
-
-                {
-                modal === true
-                ? <Modal modalChange={modalChange}/>
-                : null  // 텅빙 html 이라는 뜻
-                // if 대신 삼항연산자 JSX안의 {} 내에서 쓰기 가능
-                // 조건식 ? 참일때 실행할 코드 : 거짓일때 실행할 코드
-                }
+                    <div className='body1_2_content'>
+                        <p> 이름 : <input /></p>
+                        <p> 관심운동 : <input /></p>
+                        <p> 이런식? : <input /></p>
+                    </div>
+                        <button onClick={modalChange}>Modal</button>
+                
+                    <div className='body1_2_modal'>
+                        {
+                        modal === true
+                        ? <Modal modalChange={modalChange}/>
+                        : null  // 텅빙 html 이라는 뜻
+                        // if 대신 삼항연산자 JSX안의 {} 내에서 쓰기 가능
+                        // 조건식 ? 참일때 실행할 코드 : 거짓일때 실행할 코드
+                        }
+                    </div>
                 </div>
             </div>
 
@@ -198,6 +230,12 @@ function Modal(props) {
       <div className='Nav_modal'>
         <div className = "Nav_modalin">
             <p>Modal test</p>
+            <p>옆 페이지 수정</p>
+            <p>옆 페이지 수정</p>
+            <p>옆 페이지 수정</p>
+            <p>옆 페이지 수정</p>
+            <p>옆 페이지 수정</p>
+            <p>옆 페이지 수정</p>
             <p>옆 페이지 수정</p>
             <button onClick={props.modalChange}className="Nav_modbtn">X</button>
         </div>

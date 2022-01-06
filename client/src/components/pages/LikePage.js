@@ -24,17 +24,27 @@ const LikePageCSS = styled.div`
         text-align: center;
     }
 
-
     .body1 {
         width: 100%;
         height: 200px;
         background-color: lightsteelblue;
-        /* font-family: 'Gothic A1', sans-serif; */
+        display: flex;
+        align-items: center;
+        position: relative;
     }
 
     .body1_1 {
-        width: 50%;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
         display: inline-block;
+        margin: 50px;
+        /* padding: 50px; */
+    }
+
+    .body1_1 img {
+        border: solid #344CB7 2px;
+        border-radius: 50%;
     }
 
     .body1_2 {
@@ -126,8 +136,7 @@ function MyPage() {
         <div className='body'>
             <div className='body1'> 
                 <div className='body1_1'>
-                    Like Page Test!
-            
+                    <img src={img1} width='100%'></img>
                 </div>
 
                 <div className='body1_2'>
