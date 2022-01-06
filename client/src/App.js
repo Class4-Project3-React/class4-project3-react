@@ -1,7 +1,7 @@
 import "./assets/css/App.css";
 // import Test from "./components/pages/Test";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, Contents, BordList, User, MyPage, LikePage, Footer } from './components/pages';
+import { Home, Contents, BordList, User, MyPage, LikePage } from './components/pages';
 import Menu from './components/Menu';
 import Login from './components/Login';
 
@@ -22,7 +22,6 @@ function App() {
               <Route path="/user" element={<User/>}/>
               <Route path="/login" element={<Login />}/>
             </Routes>
-          <Footer/>
     </>
   );
 }
