@@ -12,14 +12,14 @@ function App() {
   return (
     <>
       {/* <Main/> */}
-      <Menu />
+      {/* <Menu /> */}
             <Routes>
               <Route exact path="/" element={<Home/>}/>
               <Route path="/contents" element={<Contents/>}/>
               <Route path="/bordlist" element={<BordList/>}/>
               <Route path="/mypage" element={<Mypage/>}/>
               <Route path="/user" element={<User/>}/>
-              <Route path="/login" component={Login}/>
+              <Route path="/login" element={<Login />}/>
             </Routes>
           <Footer/>
     </>
