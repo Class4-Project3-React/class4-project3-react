@@ -47,7 +47,7 @@ const MyPageCSS = styled.div`
         border: solid #344CB7 2px;
         border-radius: 50%;
     }
-    
+
     .body1_2 {
         border: solid black 2px;
         width: 70%;
@@ -233,10 +233,7 @@ function Modal(props) {
             <p>옆 페이지 수정</p>
             <p>옆 페이지 수정</p>
             <p>옆 페이지 수정</p>
-            <p>옆 페이지 수정</p>
-            <p>옆 페이지 수정</p>
-            <p>옆 페이지 수정</p>
-            <p>옆 페이지 수정</p>
+    
             <button onClick={props.modalChange}className="Nav_modbtn">X</button>
         </div>
       </div>
