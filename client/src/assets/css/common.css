@@ -67,6 +67,7 @@ assets/css 폴더 'rootTest.html' 파일
 
 .footer-content {
     background-color: rgb(119, 119, 119);
+    color: white;
     display: block;
     margin-left: auto;
     margin-right: auto;

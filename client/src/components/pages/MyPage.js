@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   crossorigin="anonymous"
 />
 
-function Mypage() {
+function MyPage() {
 
     const [modal, setModal] = useState(false);  // 모달창을 켜고 닫는 스위치
 
@@ -20,9 +20,7 @@ function Mypage() {
 
     return (
         <>
-        <header>
-        Header
-        </header>
+
         <div className='body'>
             <div className='body1'> 
                 <div className='body1_1'>
@@ -90,9 +88,6 @@ function Mypage() {
             </div>
         </div>
 
-        <footer>
-            footer
-        </footer>
         </>
     )
 }
@@ -112,4 +107,4 @@ function Modal(props) {
     )
   }
 
-export default Mypage;
+export default MyPage;
