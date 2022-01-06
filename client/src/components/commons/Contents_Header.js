@@ -4,26 +4,32 @@ import ReactPlayer from "react-player";
 
 const Container = styled.div`
     background-color: mediumaquamarine;
-    color: red;
-    width: 100%; /* 임시 */
-    padding: 10px; /* 임시 */
+    padding: 10px;
+    margin: 5vw 0;
 `;
 
 const ParentDiv = styled.div`
   background-color: moccasin;
-  text-align: center;
   align-items: center;
   display: flex;
 `;
 
 const ChildDiv_1 = styled.div`
   background-color: yellow;
-  width: 60%;
+  text-align: center;
+  width: 60vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vw;
+  font-weight: bold;
 `;
 
 const ChildDiv_2 = styled.div`
   background-color: pink;
-  width: 40%;
+  width: 40vw;
+  height: 50vh;
 `;
 
 function ContentsHeader() {
@@ -31,10 +37,8 @@ function ContentsHeader() {
         <Container>
             <ParentDiv>
                 <ChildDiv_1>
-                    <h1>
                         Go beyond your Limit, <br />
                         Shut up and Lift.
-                    </h1>
                 </ChildDiv_1>
                 <ChildDiv_2>
                     <ReactPlayer

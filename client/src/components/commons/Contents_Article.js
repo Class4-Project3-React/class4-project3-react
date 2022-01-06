@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Modal from "react-modal";
 
 const Container = styled.div`
   background-color: mediumaquamarine;
-  width: 100%; /* position: absolute 주고 left: 0 주면 root 무시하고 꽉 차게 가능 */
-  padding: 2%;
-  margin-top: 5%;
+  margin: 10vw;
+  padding: 10px;
+  text-align: center;
 `;
 
 const ParentDiv = styled.div`
   background-color: moccasin;
+  width: 100%;
   display: flex;
   align-items: center;
   text-align: center;
@@ -26,46 +28,73 @@ const GroupDiv = styled.div`
 `;
 
 const ChildDiv = styled.div`
-  background-color: yellow;
-  width: 33%;
+  background-color: green;
+  width: 33vw;
+  height: 50vh;
+  overflow: hidden;
 `;
 
+Modal.setAppElement("#root");
+
 function ContentsArticle() {
+  const [show, setShow] = useState(false);
+
+  const handle = () => {
+    setShow(!show);
+  };
+
+  const ClickAndESC = () => {
+    setShow(false);
+  };
+
   return (
     <Container>
+      <h1>Article</h1>
       <ParentDiv>
         <GroupDiv>
           <ChildDiv>
-            <button type="submit" href="#">
-              기사 이미지 클릭
-            </button>
+            <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
+            <img
+              src={require("../../assets/img/leejung.jpg")}
+              onClick={() => handle()}
+            />
           </ChildDiv>
           <ChildDiv>
-            <button type="submit" href="#">
-              기사 이미지 클릭
-            </button>
+          <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
+            <img
+              src={require("../../assets/img/leejung.jpg")}
+              onClick={() => handle()}
+            />
           </ChildDiv>
           <ChildDiv>
-            <button type="submit" href="#">
-              기사 이미지 클릭
-            </button>
+          <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
+            <img
+              src={require("../../assets/img/leejung.jpg")}
+              onClick={() => handle()}
+            />
           </ChildDiv>
         </GroupDiv>
         <GroupDiv>
           <ChildDiv>
-            <button type="submit" href="#">
-              기사 이미지 클릭
-            </button>
+          <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
+            <img
+              src={require("../../assets/img/leejung.jpg")}
+              onClick={() => handle()}
+            />
           </ChildDiv>
           <ChildDiv>
-            <button type="submit" href="#">
-              기사 이미지 클릭
-            </button>
+          <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
+            <img
+              src={require("../../assets/img/leejung.jpg")}
+              onClick={() => handle()}
+            />
           </ChildDiv>
           <ChildDiv>
-            <button type="submit" href="#">
-              기사 이미지 클릭
-            </button>
+          <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
+            <img
+              src={require("../../assets/img/leejung.jpg")}
+              onClick={() => handle()}
+            />
           </ChildDiv>
         </GroupDiv>
       </ParentDiv>
