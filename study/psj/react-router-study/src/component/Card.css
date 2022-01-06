@@ -1,0 +1,70 @@
+.card-container{
+    padding: 10;
+    margin-top: 100px;
+    margin-left: 50px;
+    width: 300px;
+    overflow: hidden;
+    box-sizing: 0px 0px 15px -5px;
+    transition: 0.3s;
+    /* 애니메이션 추가 */
+    animation: ease-in;
+    background-color: lightblue;
+}
+
+.card-container:hover{
+    transform: scale (1.1);
+    box-sizing: 0px 0px 15px 0px;
+
+}
+
+.image-container img{
+    overflow: hidden;
+    height: 200px;
+}
+
+.Image img{
+ background-color: red;
+ width: 100%;
+ height: 600px;
+}
+
+.card-contetnt{
+    margin-left: 10rem;
+    margin-top: 0.5rem;
+}
+
+h3,p{
+     margin: 0;
+     padding: 0;
+}
+
+.card-title{
+    margin-bottom: 0.5rem;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn button{
+    padding: 0.5rem;
+    background-color: white;
+    /* border: none;  */
+    transition: 0.2s;
+    /* transition: 0.2s; */
+    margin-bottom: 0.5rem;
+}
+
+.btn:hover{
+    background: gray;
+    transform:scale(1.2)
+}
+
+a{
+    text-transform: uppercase;
+    color: blueviolet;
+    /* 밑줄 지우기 */
+    text-decoration: none;
+
+}

@@ -6,7 +6,6 @@
     "express": "^4.17.2",
     "mypage": "^1.0.0",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.15",
-    "react-create-app": "^2.0.6"
+    "nodemon": "^2.0.15"
   }
 }
