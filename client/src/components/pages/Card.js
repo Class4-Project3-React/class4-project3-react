@@ -1,8 +1,8 @@
 import React from "react";
-import scr from './img/scr.png';
 // import "./Card.css"
-import realman from './img/realman.png'
+import realman from '../../assets/img/realman.png'
 import styled from "styled-components";
+import scr from '../../assets/img/pushup.png'
 
 
 const MainNav = styled.div`
@@ -90,7 +90,7 @@ const imgData ={
 
 //경로  public img에 되어있음
 const MyImages = imgData.images.map( img =>{
-    return <img src={'./img/' + img +'.png'} />
+    return <img src={require('../../assets/img/' + img +'.png')} />
 })
 
     
