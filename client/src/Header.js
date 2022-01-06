@@ -22,7 +22,7 @@ const HeaderNav = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-around;
-      font-size: 24px;
+      font-size: 20px;
       padding-top: 12px
   }
 
@@ -37,9 +37,6 @@ const HeaderNav = styled.div`
     color: white;
   }
 
-  .LogoImg{
-      padding-top: 8px;
-  }
 
   /* 폰트 */
   font-family: 'Roboto', sans-serif;
