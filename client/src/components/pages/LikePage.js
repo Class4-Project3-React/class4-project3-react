@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import { Link, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import img1 from '../../assets/img/my_test1.png';
+import img2 from '../../assets/img/my_test2.png';
+import img3 from '../../assets/img/my_test3.png';
 
 <link
   rel="stylesheet"
@@ -10,7 +13,7 @@ import styled from 'styled-components';
   crossorigin="anonymous"
 />
 
-const MyPageCSS = styled.div`
+const LikePageCSS = styled.div`
 
     .body{
         margin-left: 20%;
@@ -74,7 +77,6 @@ const MyPageCSS = styled.div`
         margin-bottom: 30px;
     }
 
-
     /* .Nav_modal {
     width: 100vw;
     height: 100vh;
@@ -115,23 +117,17 @@ function MyPage() {
 
     return (
         <>
-        {/* 한글폰트 링크 */}
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Roboto:wght@900&display=swap" rel="stylesheet"></link> */}
-
         {/* 영문폰트 링크 */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
 
-        <MyPageCSS>
+        <LikePageCSS>
         <div className='body'>
             <div className='body1'> 
                 <div className='body1_1'>
-                    mypage test page <br/>
-                    여기에 내가 입력한데이터  <br/>
-                    useState로 만들고 수정해보기
+                    Like Page Test!
+            
                 </div>
 
                 <div className='body1_2'>
@@ -149,7 +145,7 @@ function MyPage() {
             </div>
 
             <br />
-
+            
             {/* ==================== */}
 
             <div className='option'>
@@ -162,30 +158,42 @@ function MyPage() {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                        <h4>test1</h4>
-                        <p>근데 이미지가 안들어감. why?</p>
-                    </div>
-                    <div className="col-md-4">
-                        <h4>test2</h4>
-                        <p>외부링크만 들어가지는데 왜그런지 모륵겠다. 그렇다는건 .. 이거를 직접 코드짜서 구조를 잡아야할듯</p>
-                    </div>
-                    <div className="col-md-4">
-                        <h4>test3</h4>
-                        <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
-                    </div>
-                    <div className="col-md-4">
-                        <h4>test4</h4>
-                        <p>text test</p>
-                    </div>
-                    <div className="col-md-4">
-                        <h4>test5</h4>
-                        <p>이제 여기 이미지에 db이미지를 넣고 클릭했을때 해당 db가 떠야하는거네</p>
+                        <img src={img1} width='100%'></img>
                     </div>
 
+                    <div className="col-md-4">
+                        <img src={img1} width='100%'></img>
+                    </div>
+
+                    <div className="col-md-4">
+                        <img src={img1} width='100%'></img>
+                    </div>
+
+                    <div className="col-md-4">
+                        <img src={img2} width='100%'></img>
+                    </div>
+
+                    <div className="col-md-4">
+                        <img src={img2} width='100%'></img>
+                    </div>
+
+                    <div className="col-md-4">
+                        <img src={img2} width='100%'></img>
+                    </div>
+
+                    <div className="col-md-4">
+                        <img src={img3} width='100%'></img>
+                    </div>
+                    <div className="col-md-4">
+                        <img src={img3} width='100%'></img>
+                    </div>
+                    <div className="col-md-4">
+                        <img src={img3} width='100%'></img>
+                    </div>
                 </div>
             </div>
         </div>
-        </MyPageCSS>
+        </LikePageCSS>
 
         </>
     )
