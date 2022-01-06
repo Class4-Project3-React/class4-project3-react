@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       {/* <Main/> */}
-      <Menu />
+      {/* <Menu /> */}
             <Routes>
               <Route exact path="/" element={<Home/>}/>
               <Route path="/contents" element={<Contents/>}/>
@@ -20,7 +20,7 @@ function App() {
               <Route path="/mypage" element={<MyPage/>}/>
               <Route path="/like" element={<LikePage/>}/>
               <Route path="/user" element={<User/>}/>
-              <Route path="/login" component={Login}/>
+              <Route path="/login" element={<Login />}/>
             </Routes>
           <Footer/>
     </>
