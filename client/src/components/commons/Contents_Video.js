@@ -4,9 +4,8 @@ import ReactPlayer from "react-player";
 
 const Container = styled.div`
   background-color: mediumaquamarine;
-  width: 100%; /* position: absolute 주고 left: 0 주면 root 무시하고 꽉 차게 가능 */
-  padding: 2%;
-  margin-top: 5%;
+  padding: 10px;
+  margin: 10vw;
 `;
 
 const ParentDiv1 = styled.div`
@@ -18,12 +17,14 @@ const ParentDiv1 = styled.div`
 
 const ChildDiv_1_1 = styled.div`
   background-color: yellow;
-  width: 30%;
+  width: 30vw;
+  height: 30vh;
 `;
 
 const ChildDiv_1_2 = styled.div`
   background-color: pink;
-  width: 70%;
+  width: 70vw;
+  height: 30vh;
 `;
 
 const ParentDiv2 = styled.div`
