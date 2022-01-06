@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Link, Route } from 'react-router-dom';
-import './Mypage.css';
+import '../../components/Mypage.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 <link
@@ -10,7 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   crossorigin="anonymous"
 />
 
-function Mypage() {
+
+function MyPage() {
 
     const [modal, setModal] = useState(false);  // 모달창을 켜고 닫는 스위치
 
@@ -20,15 +21,16 @@ function Mypage() {
 
     return (
         <>
-        <header>
-        Header
-        </header>
+        {/* 영문폰트 링크 */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
+
         <div className='body'>
             <div className='body1'> 
                 <div className='body1_1'>
-                    mypage test page <br/>
-                    여기에 내가 입력한데이터  <br/>
-                    useState로 만들고 수정해보기
+                    Like Page Test!
+            
                 </div>
 
                 <div className='body1_2'>
@@ -46,13 +48,15 @@ function Mypage() {
             </div>
 
             <br />
+            
+            {/* ==================== */}
 
-            <div >
-                <Link className='option1' style={{ textDecoration: 'none' }} to="/mypage">📑</Link>
-                <Link className='option2' style={{ textDecoration: 'none' }} to="/like">❤️</Link>
+            <div className='option'>
+                <Link className='option1' style={{ textDecoration: 'none' }} to="/mypage">📑 Mine</Link>
+                <Link className='option2' style={{ textDecoration: 'none' }} to="/like">❤️ Like</Link>
             </div>
 
-            <br />
+            {/* ==================== */}
 
             <div className="container">
                 <div className="row">
@@ -90,9 +94,6 @@ function Mypage() {
             </div>
         </div>
 
-        <footer>
-            footer
-        </footer>
         </>
     )
 }
@@ -112,4 +113,4 @@ function Modal(props) {
     )
   }
 
-export default Mypage;
+export default MyPage;

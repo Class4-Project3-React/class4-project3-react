@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   crossorigin="anonymous"
 />
 
+
 function MyPage() {
 
     const [modal, setModal] = useState(false);  // 모달창을 켜고 닫는 스위치
@@ -20,6 +21,15 @@ function MyPage() {
 
     return (
         <>
+        {/* 한글폰트 링크 */}
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Roboto:wght@900&display=swap" rel="stylesheet"></link> */}
+
+        {/* 영문폰트 링크 */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
 
         <div className='body'>
             <div className='body1'> 
@@ -45,12 +55,14 @@ function MyPage() {
 
             <br />
 
-            <div >
-                <Link className='option1' style={{ textDecoration: 'none' }} to="/mypage">📑</Link>
-                <Link className='option2' style={{ textDecoration: 'none' }} to="/like">❤️</Link>
+            {/* ==================== */}
+
+            <div className='option'>
+                <Link className='option1' style={{ textDecoration: 'none' }} to="/mypage">📑 Mine</Link>
+                <Link className='option2' style={{ textDecoration: 'none' }} to="/like">❤️ Like</Link>
             </div>
 
-            <br />
+            {/* ==================== */}
 
             <div className="container">
                 <div className="row">
