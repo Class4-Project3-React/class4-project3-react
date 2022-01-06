@@ -5,13 +5,14 @@ import { Home, Contents, BordList, User, Footer } from './components/pages';
 import Menu from './components/Menu';
 import Login from './components/Login';
 import Mypage from "./components/Mypage";
+// import Card from "./components/pages/Card";
 
 
 function App() {
   return (
     <>
       {/* <Main/> */}
-        <Menu />
+      <Menu />
             <Routes>
               <Route exact path="/" element={<Home/>}/>
               <Route path="/contents" element={<Contents/>}/>
