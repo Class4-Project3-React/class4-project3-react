@@ -1,11 +1,16 @@
 import React from 'react';
+import ContentsArticle from '../commons/Contents_Article';
+import ContentsHeader from '../commons/Contents_Header';
+import ContentsVideo from '../commons/Contents_Video';
 
-const Contents = () => {
+function Contents() {
     return (
-        <div>
-            <h2>Contents</h2>
-        </div>
+        <>
+            <ContentsHeader />
+            <ContentsVideo />
+            <ContentsArticle />
+        </>
     );
 };
 
-export default Contents;
+export default Contents
