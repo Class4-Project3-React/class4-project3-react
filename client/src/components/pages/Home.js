@@ -1,16 +1,33 @@
 import React from 'react';
 import Card from './Card';
+import realman from '../../assets/img/realman.png'
+import styled from 'styled-components';
 
 const Home = () => {
+
+    const MainStory = styled.div`
+    .Image img{
+        background-color: red;
+        width: 100%;
+        height: 400px;
+       }
+    `;
+    
     return (
-        <div>
-            <Card 
-            title='HomeTranining'
-            img=''
-            body='카드 내용은 여기서 확인하시면 됩니다 짜장면 탕수육 마라탕 치킨 햄버거 육회 스시 콩나물 해장국 선지해장국 뼈다귀 해장국 워터 워털 털수세미'
-            />
+        <>
+            <div>
+            <MainStory>
+
+                <div className="Image">
+                    <img src={realman} />
+                </div>
+            </MainStory>
+
+            <Card/>
+            
             
         </div>
+    </>
     );
 };
 
