@@ -9,3 +9,17 @@ exports.TestControllers = (req, res) => {
         res.send(result[0].id);
     });
 };
+
+exports.ifNotLoggedin = (req, res, next) => {
+    if(!req.session.userID){
+        return res.redirect('/login');
+    }
+    next();
+}
+
+exports.ifLoggedin = (req,res,next) => {
+    if(req.session.userID){
+        return res.redirect('/');
+    }
+    next();
+}

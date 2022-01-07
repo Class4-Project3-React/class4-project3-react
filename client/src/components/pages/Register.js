@@ -114,7 +114,7 @@ const Register = () => {
     return (
         <RegisterStyle>
             <div class="container">
-                <h1>Create an account</h1>
+                <h1>Create Account</h1>
                 <form action="" method="POST">
                     <input type="text" class="input" name="_name" autoComplete="off" id="user_name" placeholder="Enter your Username" />
                     <input type="email" class="input" name="_email" autoComplete="off" id="user_email" placeholder="Enter your email" />
