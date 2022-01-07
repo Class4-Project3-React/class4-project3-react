@@ -20,7 +20,7 @@ const ParentDiv = styled.div`
 
 const GroupDiv = styled.div`
   background-color: yellow;
-  width: 900px;
+  width: 80vw;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -37,7 +37,50 @@ const ChildDiv = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  cursor: pointer;
 `;
+
+const ModalConDesign = {
+  backgroundColor: 'white',
+  top: '3vw',
+  bottom: '3vw',
+  left: '10vw',
+  right: '10vw',
+  display: 'flex',
+  justifyContent: 'center'
+};
+
+const ModalDiv = styled.div`
+  background-color: papayawhip;
+  width: 70vw;
+`
+const Art_Media = styled.div`
+  background-color: red;
+`
+
+const Art_Title = styled.div`
+  background-color: orange;
+`
+
+const Art_Date = styled.div`
+  background-color: yellow;
+`
+
+const Art_Editor = styled.div`
+  background-color: green;
+`
+
+const Art_Image = styled.div`
+  background-color: blue;
+`
+
+const Art_Desc = styled.div`
+  background-color: navy;
+`
+
+const Art_Comments = styled.div`
+  background-color: purple;
+`
 
 // 더미데이터
 const dummyData = [
@@ -74,7 +117,17 @@ function ContentsArticle() {
 
   return (
     <Container>
-      <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
+      <Modal isOpen={show} onRequestClose={() => ClickAndESC()} style={{content: ModalConDesign}}>
+        <ModalDiv>
+          <Art_Media>Media</Art_Media>
+          <Art_Title>Title</Art_Title>
+          <Art_Date>Date</Art_Date>
+          <Art_Editor>Editor</Art_Editor>
+          <Art_Image>Image</Art_Image>
+          <Art_Desc>Desc</Art_Desc>
+          <Art_Comments>댓글</Art_Comments>
+        </ModalDiv>
+      </Modal>
       <h1>Article</h1>
       <ParentDiv>
         <GroupDiv>
