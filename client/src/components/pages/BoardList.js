@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BordList = () => {
+const BoardList = () => {
     return (
         <div>
             <h2>BordList</h2>
@@ -8,4 +8,4 @@ const BordList = () => {
     );
 };
 
-export default BordList;
+export default BoardList;

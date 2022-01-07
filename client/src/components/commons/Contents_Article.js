@@ -20,19 +20,44 @@ const ParentDiv = styled.div`
 
 const GroupDiv = styled.div`
   background-color: yellow;
-  width: 100%;
+  width: 900px;
   display: flex;
-  align-items: center;
-  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
   margin-top: 2%;
 `;
 
 const ChildDiv = styled.div`
   background-color: green;
-  width: 33vw;
-  height: 50vh;
+  width: calc(900px/3);
+  height: calc(900px/3);
   overflow: hidden;
 `;
+
+const Image = styled.img`
+  width: 100%;
+`;
+
+// 더미데이터
+const dummyData = [
+  {
+    id: 1,
+    img: "../../assets/img/leejung1.jpg",
+  },
+  {
+    id: 2,
+    img: "../../assets/img/leejung2.jpg",
+  },
+  {
+    id: 3,
+    img: "../../assets/img/leejung3.jpg",
+  },
+  {
+    id: 4,
+    img: "../../assets/img/leejung4.jpg",
+  },
+];
 
 Modal.setAppElement("#root");
 
@@ -49,50 +74,34 @@ function ContentsArticle() {
 
   return (
     <Container>
+      <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
       <h1>Article</h1>
       <ParentDiv>
         <GroupDiv>
           <ChildDiv>
-            <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
-            <img
-              src={require("../../assets/img/leejung.jpg")}
+            <Image
+              src={require("../../assets/img/leejung1.jpg")}
               onClick={() => handle()}
             />
           </ChildDiv>
           <ChildDiv>
-          <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
-            <img
-              src={require("../../assets/img/leejung.jpg")}
+            <Image
+              src={require("../../assets/img/leejung2.jpg")}
               onClick={() => handle()}
             />
           </ChildDiv>
           <ChildDiv>
-          <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
-            <img
-              src={require("../../assets/img/leejung.jpg")}
+            <Image
+              src={require("../../assets/img/leejung3.jpg")}
               onClick={() => handle()}
             />
           </ChildDiv>
+
         </GroupDiv>
         <GroupDiv>
-          <ChildDiv>
-          <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
-            <img
-              src={require("../../assets/img/leejung.jpg")}
-              onClick={() => handle()}
-            />
-          </ChildDiv>
-          <ChildDiv>
-          <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
-            <img
-              src={require("../../assets/img/leejung.jpg")}
-              onClick={() => handle()}
-            />
-          </ChildDiv>
-          <ChildDiv>
-          <Modal isOpen={show} onRequestClose={() => ClickAndESC()} />
-            <img
-              src={require("../../assets/img/leejung.jpg")}
+        <ChildDiv>
+            <Image
+              src={require("../../assets/img/leejung4.jpg")}
               onClick={() => handle()}
             />
           </ChildDiv>
