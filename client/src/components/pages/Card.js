@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import "./Card.css"
 // import realman from '../../assets/img/realman.png'
 import styled from "styled-components";
@@ -81,6 +81,11 @@ a{
 
 }
 
+/* .search-results{
+    width: 300px;
+    height: 100px;
+} */
+
 `
 const ImgDataHome ={
     "images" : [
@@ -125,6 +130,7 @@ const MyImagesC = ImgDataCross.images.map( img =>{
 
 function Card({title,body}) {
     
+    
 
     const Results = () => (
         <div id="results" className="search-results">
@@ -146,14 +152,14 @@ function Card({title,body}) {
     )
 
 
-      const [showResults, setShowResults] = React.useState(false)
-      const onClick = () => setShowResults(true)
+      const [showResults, setShowResults] = useState(0);
+      const onClick = () => setShowResults(!showResults)
 
       const [showResults1, setShowResults1] = React.useState(false)
-      const onClick1 = () => setShowResults1(true)
+      const onClick1 = () => setShowResults1(!showResults1)
 
       const [showResults2, setShowResults2] = React.useState(false)
-      const onClick2 = () => setShowResults2(true)
+      const onClick2 = () => setShowResults2(!showResults2)
         
       
     
@@ -182,8 +188,8 @@ function Card({title,body}) {
 
                     <div className="btn">
                     <div>
-                        <input type="submit" value="Search" onClick={onClick} />
-                        { showResults ? <Results /> : null }
+                        <input type="submit" value="누르면 이미지" onClick={onClick} />
+                        { showResults === true ? <Results /> : null }
                         </div>
                         
                     </div>
@@ -207,7 +213,7 @@ function Card({title,body}) {
                     <div className="btn">
                         <div>
                         <input type="submit" value="Search" onClick={onClick1} />
-                        { showResults1 ? <Results1 /> : null }
+                        { showResults1 ===true ? <Results1 /> : null }
                         </div>
                     </div>
                 </div>
@@ -231,7 +237,7 @@ function Card({title,body}) {
                     <div className="btn">
                         <div>
                         <input type="submit" value="Search" onClick={onClick2} />
-                        { showResults2 ? <Results2 /> : null }
+                        { showResults2 ===true ? <Results2 /> : null }
                         </div>
                     </div>
                 </div>
