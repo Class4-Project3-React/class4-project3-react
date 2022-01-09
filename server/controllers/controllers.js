@@ -4,9 +4,17 @@ const express = require("express");
 const app = express();
 const models = require("../models/models")
 
+// 권원현 contents 테스트 용
 exports.TestControllers = (req, res) => {
     models.ReactTest().then((result) => {
-        res.send(result[0].id);
+        res.send({
+            media: result[0].media,
+            editor: result[0].editor,
+            date: result[0].date,
+            title: result[0].title,
+            desc: result[0].desc,
+            img: result[0].img,
+        });
     });
 };
 
