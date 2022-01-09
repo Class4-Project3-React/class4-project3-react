@@ -2,30 +2,34 @@
 // 실행 후 button 클릭하여 console.log 확인해볼 것
 import React from "react";
 
-class Test extends React.Component {
+function Test() {
+    
+    const getServerData = () => {
+        
+        const url = "http://localhost:3001/contents";
+        const option = {
+            method : "GET",
+            headers : { "Content-Type" : "application/json" },
+            mode : "cors"
+        };
 
-    getServerData = () => {
-
-        fetch("http://54.180.117.235:3001/", {
+        fetch("http://localhost:3001/", {
             method : "GET",
             headers : { "Content-Type" : "application/json" },
             mode : "cors"
         })
         .then(res => {
             console.log(res);
-            console.log(typeof(res));
-            return res.text();
+            return res.json();
         })
-        .then(res => console.log(res));
+        .then(res => console.log(res + "이거 맞음?"));
     };
 
-    render() {
-        return (
-            <div>
-                <button onClick={this.getServerData}>Click Here for Test</button>
-            </div>
-        );
-    };
+    return (
+        <div>
+            <button onClick={getServerData}>Click Here for Test</button>
+        </div>
+    );
 };
 
 export default Test;

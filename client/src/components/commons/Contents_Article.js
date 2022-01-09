@@ -22,17 +22,19 @@ const GroupDiv = styled.div`
   background-color: yellow;
   width: 80vw;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
   flex-direction: row-reverse;
-  margin-top: 2%;
+  margin-top: 2vw;
+  word-break: break-all;
+  word-wrap: break-word;
 `;
 
 const ChildDiv = styled.div`
   background-color: green;
-  width: calc(900px/3);
-  height: calc(900px/3);
+  width: calc(80vw/3);
+  height: calc(80vw/3);
   overflow: hidden;
+  padding: 2vw;
+  float: right;
 `;
 
 const Image = styled.img`
@@ -40,6 +42,7 @@ const Image = styled.img`
   cursor: pointer;
 `;
 
+// 모달 Container
 const ModalConDesign = {
   backgroundColor: 'white',
   top: '3vw',
@@ -50,6 +53,7 @@ const ModalConDesign = {
   justifyContent: 'center'
 };
 
+// 모달 inner
 const ModalDiv = styled.div`
   background-color: papayawhip;
   width: 70vw;
@@ -106,9 +110,22 @@ Modal.setAppElement("#root");
 
 function ContentsArticle() {
   const [show, setShow] = useState(false);
+  const [article, setArticle] = useState("");
 
   const handle = () => {
     setShow(!show);
+
+    const url = "http://localhost:3001/contents";
+    const option = {
+      method : "GET",
+      headers : { "content-Type" : "application/json" },
+      MODE : "cors"
+    };
+
+    fetch(url, option)
+      .then(res => res.json())
+      .then(data => setArticle(data))
+      .catch(error => console.error(error))
   };
 
   const ClickAndESC = () => {
@@ -119,15 +136,16 @@ function ContentsArticle() {
     <Container>
       <Modal isOpen={show} onRequestClose={() => ClickAndESC()} style={{content: ModalConDesign}}>
         <ModalDiv>
-          <Art_Media>Media</Art_Media>
-          <Art_Title>Title</Art_Title>
-          <Art_Date>Date</Art_Date>
-          <Art_Editor>Editor</Art_Editor>
-          <Art_Image>Image</Art_Image>
-          <Art_Desc>Desc</Art_Desc>
+          <Art_Media>{article.media}</Art_Media>
+          <Art_Title>{article.title}</Art_Title>
+          <Art_Date>{article.date}</Art_Date>
+          <Art_Editor>{article.editor}</Art_Editor>
+          <Art_Image><Image src={article.img}/></Art_Image>
+          <Art_Desc>{article.desc}</Art_Desc>
           <Art_Comments>댓글</Art_Comments>
         </ModalDiv>
       </Modal>
+
       <h1>Article</h1>
       <ParentDiv>
         <GroupDiv>
@@ -149,10 +167,7 @@ function ContentsArticle() {
               onClick={() => handle()}
             />
           </ChildDiv>
-
-        </GroupDiv>
-        <GroupDiv>
-        <ChildDiv>
+          <ChildDiv>
             <Image
               src={require("../../assets/img/leejung4.jpg")}
               onClick={() => handle()}
@@ -164,4 +179,5 @@ function ContentsArticle() {
   );
 }
 
+// console.log(element.childElementCount);
 export default ContentsArticle;
