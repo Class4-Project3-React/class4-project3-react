@@ -47,7 +47,7 @@ const ModalConDesign = {
 };
 
 // 모달 inner
-const ModalDiv = styled.div`
+const ModalContainer = styled.div`
   background-color: papayawhip;
   width: 70vw;
 `;
@@ -67,7 +67,7 @@ const Art_Image = styled.div`
   background-color: blue;
 `;
 const Art_Desc = styled.div`
-  background-color: navy;
+  background-color: white;
 `;
 const Art_Comments = styled.div`
   background-color: purple;
@@ -75,24 +75,41 @@ const Art_Comments = styled.div`
 
 Modal.setAppElement("#root");
 
-const CardDiv = React.memo(function CardDiv({ todos, onView }) {
+const ModalDiv = React.memo(function ModalDiv({ show, autoClose, todo }) {
+  return (
+    <Modal
+      isOpen={show}
+      onRequestClose={autoClose}
+      style={{ content: ModalConDesign }}
+    >
+      <ModalContainer>
+        {/* <Art_Image>
+            <Image src={todos[0].img} />
+          </Art_Image>
+          <Art_Media>{todos[0].media}</Art_Media>
+          <Art_Title>{todos[0].img}</Art_Title>
+          <Art_Date>{todos[0].date}</Art_Date>
+          <Art_Editor>{todos[0].editor}</Art_Editor> */}
+        <Art_Desc>{todo.desc}</Art_Desc>
+        <Art_Comments>댓글</Art_Comments>
+      </ModalContainer>
+    </Modal>
+  );
+});
+
+const CardDiv = React.memo(function CardDiv({ todos, onDetail }) {
   const [show, setShow] = useState(false);
+  const [data, setData] = useState([{ img: "leejung4" }]);
 
   const handle = () => {
     setShow(!show);
-    onView()
 
-    // axios
-    //   .post("http://localhost:3001/contents", {
-    //     userId: "1234",
-    //     userPassword: "4567",
-    //   })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.response);
-    //   });
+    axios
+      .get("http://localhost:3001/contents")
+      .then((res) => setData(res.data.result))
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const ClickAndESC = () => {
@@ -100,45 +117,34 @@ const CardDiv = React.memo(function CardDiv({ todos, onView }) {
   };
 
   return (
-    <>
-      <Modal
-        isOpen={show}
-        onRequestClose={() => ClickAndESC()}
-        style={{ content: ModalConDesign }}
-      >
-        <ModalDiv>
-          {/* <Art_Image>
-            <Image src={todos[0].img} />
-          </Art_Image>
-          <Art_Media>{todos[0].media}</Art_Media>
-          <Art_Title>{todos[0].img}</Art_Title>
-          <Art_Date>{todos[0].date}</Art_Date>
-          <Art_Editor>{todos[0].editor}</Art_Editor>
-          <Art_Desc>{todos[0].desc}</Art_Desc> */}
-          <Art_Comments>댓글</Art_Comments>
-        </ModalDiv>
-      </Modal>
-      <il>
-        {todos.map((todo) => (
+    <il>
+      {data.map((todo) => (
+        <>
           <Image
             key={todo.no}
             src={require(`../../assets/img/${todo.img}.jpg`)}
             onClick={() => handle()}
           />
-        ))}
-      </il>
-    </>
+          <ModalDiv
+            key={todo.no}
+            show={show}
+            autoClose={() => ClickAndESC()}
+            todo={todo}
+          />
+        </>
+      ))}
+    </il>
   );
 });
 
-function ContentsArticle({ todos, onView }) {
+function ContentsArticle({ todos, onDetail }) {
   return (
     <Container>
       <h1>Article</h1>
       <ParentDiv>
         <ChildDiv>
           <ul>
-            <CardDiv todos={todos} onView={onView}/>
+            <CardDiv todos={todos} onDetail={onDetail} />
           </ul>
         </ChildDiv>
       </ParentDiv>
