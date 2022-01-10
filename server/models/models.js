@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 // 권원현 contents 테스트 용
 modelExports.ReactTest = () => {
     return new Promise((resolve, reject) => {
-        let sql = "SELECT * FROM users where no='1';";
+        let sql = "SELECT * FROM article where no_article='1';";
         con.getConnection((err, connection) => {
             try {
                 if(err) throw err;
