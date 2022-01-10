@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import img1 from '../../assets/img/my_test1.png';
