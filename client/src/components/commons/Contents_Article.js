@@ -88,24 +88,7 @@ const Art_Comments = styled.div`
 `;
 
 // 더미데이터
-const dummyData = [
-  {
-    id: 1,
-    img: "../../assets/img/leejung1.jpg",
-  },
-  {
-    id: 2,
-    img: "../../assets/img/leejung2.jpg",
-  },
-  {
-    id: 3,
-    img: "../../assets/img/leejung3.jpg",
-  },
-  {
-    id: 4,
-    img: "../../assets/img/leejung4.jpg",
-  },
-];
+
 
 Modal.setAppElement("#root");
 
