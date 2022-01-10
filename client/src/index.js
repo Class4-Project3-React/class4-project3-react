@@ -3,19 +3,22 @@ import ReactDOM from 'react-dom';
 import './assets/css/index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import Test from "./components/pages/Test"; // 권원현 aws 테스트용 지우지 말 것
 import Header from "./Header";
 import Footer from "./Footer";
+import { createStore } from "redux";
+import rootReducer from "./modules";
+import { Provider } from "react-redux";
+
+const store = createStore(rootReducer);
+console.log(store.getState());
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <BrowserRouter>
       <Header />
       <App />
       <Footer />
-      {/* <Test /> */}
     </BrowserRouter>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
-
