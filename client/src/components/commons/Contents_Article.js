@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
+import axios from "axios";
 
 const Container = styled.div`
   background-color: mediumaquamarine;
@@ -30,8 +31,8 @@ const GroupDiv = styled.div`
 
 const ChildDiv = styled.div`
   background-color: green;
-  width: calc(80vw/3);
-  height: calc(80vw/3);
+  width: calc(80vw / 3);
+  height: calc(80vw / 3);
   overflow: hidden;
   padding: 2vw;
   float: right;
@@ -44,47 +45,47 @@ const Image = styled.img`
 
 // 모달 Container
 const ModalConDesign = {
-  backgroundColor: 'white',
-  top: '3vw',
-  bottom: '3vw',
-  left: '10vw',
-  right: '10vw',
-  display: 'flex',
-  justifyContent: 'center'
+  backgroundColor: "white",
+  top: "3vw",
+  bottom: "3vw",
+  left: "10vw",
+  right: "10vw",
+  display: "flex",
+  justifyContent: "center",
 };
 
 // 모달 inner
 const ModalDiv = styled.div`
   background-color: papayawhip;
   width: 70vw;
-`
+`;
 const Art_Media = styled.div`
   background-color: red;
-`
+`;
 
 const Art_Title = styled.div`
   background-color: orange;
-`
+`;
 
 const Art_Date = styled.div`
   background-color: yellow;
-`
+`;
 
 const Art_Editor = styled.div`
   background-color: green;
-`
+`;
 
 const Art_Image = styled.div`
   background-color: blue;
-`
+`;
 
 const Art_Desc = styled.div`
   background-color: navy;
-`
+`;
 
 const Art_Comments = styled.div`
   background-color: purple;
-`
+`;
 
 // 더미데이터
 const dummyData = [
@@ -110,37 +111,37 @@ Modal.setAppElement("#root");
 
 function ContentsArticle() {
   const [show, setShow] = useState(false);
+  // const [no_article, setArticleNum] = useState("");
   const [article, setArticle] = useState("");
 
   const handle = () => {
+    // setArticle();
     setShow(!show);
 
-    const url = "http://localhost:3001/contents";
-    const option = {
-      method : "GET",
-      headers : { "content-Type" : "application/json" },
-      MODE : "cors"
-    };
-
-    fetch(url, option)
-      .then(res => res.json())
-      .then(data => setArticle(data))
-      .catch(error => console.error(error))
+    axios.post('http://localhost:3001/contents', { userId : "1234", userPassword : "4567" })
+    .then(function(response) { console.log(response) })
+    .catch(error => { console.log(error.response) });
   };
-
   const ClickAndESC = () => {
     setShow(false);
   };
+  
 
   return (
     <Container>
-      <Modal isOpen={show} onRequestClose={() => ClickAndESC()} style={{content: ModalConDesign}}>
+      <Modal
+        isOpen={show}
+        onRequestClose={() => ClickAndESC()}
+        style={{ content: ModalConDesign }}
+      >
         <ModalDiv>
           <Art_Media>{article.media}</Art_Media>
           <Art_Title>{article.title}</Art_Title>
           <Art_Date>{article.date}</Art_Date>
           <Art_Editor>{article.editor}</Art_Editor>
-          <Art_Image><Image src={article.img}/></Art_Image>
+          <Art_Image>
+            <Image src={article.img} />
+          </Art_Image>
           <Art_Desc>{article.desc}</Art_Desc>
           <Art_Comments>댓글</Art_Comments>
         </ModalDiv>
@@ -167,17 +168,10 @@ function ContentsArticle() {
               onClick={() => handle()}
             />
           </ChildDiv>
-          <ChildDiv>
-            <Image
-              src={require("../../assets/img/leejung4.jpg")}
-              onClick={() => handle()}
-            />
-          </ChildDiv>
         </GroupDiv>
       </ParentDiv>
     </Container>
   );
 }
 
-// console.log(element.childElementCount);
 export default ContentsArticle;
