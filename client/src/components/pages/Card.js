@@ -240,4 +240,23 @@ function Card({title,body}) {
     )
 }
 
+function Modal(props) { 
+    return(
+        <>
+
+      <div className='Nav_modal'>
+        <div className = "Nav_modalin">
+            <p>Modal test</p>
+            <p>옆 페이지 수정</p>
+            <p>옆 페이지 수정</p>
+            <p>옆 페이지 수정</p>
+    
+            <button onClick={props.modalChange}className="Nav_modbtn">X</button>
+        </div>
+      </div>
+      </>
+    )
+  }
+
+
 export default Card;

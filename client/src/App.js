@@ -2,7 +2,6 @@ import "./assets/css/App.css";
 // import Test from "./components/pages/Test";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home, Contents, BoardList, User, Login, Register, MyPage, LikePage } from './components/pages';
-import Menu from './components/Menu';
 
 // import Card from "./components/pages/Card";
 

@@ -7,7 +7,6 @@ const Home = () => {
 
     const MainStory = styled.div`
     .Image img{
-        background-color: red;
         width: 100%;
         height: 400px;
        }

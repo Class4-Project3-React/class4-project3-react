@@ -27,10 +27,11 @@ const LikePageCSS = styled.div`
     .body1 {
         width: 100%;
         height: 200px;
-        background-color: lightsteelblue;
+        /* background-color: lightsteelblue; */
         display: flex;
         align-items: center;
         position: relative;
+        /* font-family: 'Gothic A1', sans-serif; */
     }
 
     .body1_1 {
@@ -127,6 +128,11 @@ function MyPage() {
 
     return (
         <>
+        {/* 한글폰트 링크 */}
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Roboto:wght@900&display=swap" rel="stylesheet"></link> */}
+
         {/* 영문폰트 링크 */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -216,6 +222,7 @@ function Modal(props) {
         <div className = "Nav_modalin">
             <p>Modal test</p>
             <p>옆 페이지 수정</p>
+            <p>한글폰트 적용test</p>
             <button onClick={props.modalChange}className="Nav_modbtn">X</button>
         </div>
       </div>
