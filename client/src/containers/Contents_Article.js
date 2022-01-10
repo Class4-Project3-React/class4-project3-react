@@ -7,9 +7,9 @@ function ArticleContainer() {
     const todos = useSelector(state => state.contArticle);
     const dispatch = useDispatch();
 
-    const onView = () => dispatch(detail_article());
+    const onDetail = () => dispatch(detail_article());
 
-    return <ContentsArticle todos={todos} onView={onView} />
+    return <ContentsArticle todos={todos} onDetail={onDetail} />
 };
 
 export default ArticleContainer

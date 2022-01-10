@@ -12,7 +12,7 @@ const controllers = require("../controllers/controllers");
 
 router.get('/contents', controllers.TestControllers);
 router.post('/contents', (req, res) => {
-    console.log(req.body);
+    console.log(req.body, "여긴가?");
 });
 
 // //  로그인
