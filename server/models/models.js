@@ -1,13 +1,15 @@
 const con = require("../utils/db");
 const modelExports = (module.exports = {});
+const controllers = require("../controllers/controllers");
 // 로그인/회원가입을 위한 모듈
 const { validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs');
+require("express");
 
-// 권원현 contents 테스트 용
-modelExports.ReactTest = () => {
+// contents_article_list
+modelExports.contents_Article_List_DB = () => {
     return new Promise((resolve, reject) => {
-        let sql = "SELECT * FROM article where no_article='1';";
+        let sql = "SELECT * FROM article;";
         con.getConnection((err, connection) => {
             try {
                 if(err) throw err;
@@ -21,6 +23,37 @@ modelExports.ReactTest = () => {
                             console.error("DB response NOT Found");
                         } else {
                             resolve(result);
+                            console.log("Read data OK");
+                        }
+                    }
+                });
+                connection.release();
+            } catch(err) {
+                console.error("pool Test Error");
+            };
+        });
+    });
+};
+
+// contents_article_modal
+modelExports.contents_Article_Detail_DB = () => {
+    return new Promise((resolve, reject) => {
+        let detailNum = controllers.detailNum;
+        let sql = `SELECT * FROM article where no="${detailNum}";`;
+        con.getConnection((err, connection) => {
+            try {
+                if(err) throw err;
+                console.log("Connection Success");
+
+                connection.query(sql, (err, result, fields) => {
+                    if(err) {
+                        console.log("SELECT Error");
+                    } else {
+                        if(result.length === 0) {
+                            console.error("DB response NOT Found");
+                        } else {
+                            resolve(result);
+                            // console.log(detailNums);
                             console.log("Read data OK");
                         }
                     }
