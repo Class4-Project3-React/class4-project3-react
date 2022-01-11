@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from "styled-components";
 // css
 const LoginStyle = styled.div`
@@ -59,7 +61,7 @@ button {
     border-color: black;
 }
 
-[type="submit"] {
+[type="button"] {
     background: #000000;
     color: white;
     border: 1px solid rgba(0, 0, 0, 0);
@@ -89,38 +91,44 @@ label {
 .link a {
     color: black;
 }
-
-/* 로그인 관련 에러메시지 */
-.success-msg,
-.err-msg {
-    color: #dc3545;
-    border: 1px solid #dc3545;
-    padding: 10px;
-    border-radius: 3px;
-}
-
-.success-msg {
-    color: #ffffff;
-    background-color: #20c997;
-    border-color: rgba(0, 0, 0, 0.1);
-}
 `
 
 
 // 로그인 화면
 const Login = () => {
+
+    const [inputId, setInputId] = useState('')
+    const [inputPw, setInputPw] = useState('')
+    // input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
+    const handleInputId = (e) => {
+        setInputId(e.target.value)
+    }
+    const handleInputPw = (e) => {
+        setInputPw(e.target.value)
+    }
+    // login 버튼 클릭 이벤트
+    const onClickLogin = () => {
+        console.log('click login')
+    }
+    // 1.페이지가 처음 렌더링 후 무조건 한번 실행됨.
+    // 2. useEffect에 배열로 지정한 useState의 값이 변경되면 실행된다.
+    // https://ko-de-dev-green.tistory.com/18
+    useEffect(() => {
+        axios.get('/user_inform/login')
+        .then(res => console.log(res))
+        .catch()
+    },[]) // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
+
     return (
         <LoginStyle>
             <div class="container">
-            <form action="" method="POST">
                 <label for="user_email">Login</label>
                 <br />
                 <br />
-                <input type="email" class="input" name="_email" autoComplete="off" id="user_email" placeholder="Enter your email" />
-                <input type="password" class="input" name="_password" id="user_pass" placeholder="Enter new password" />
-                <input type="submit" value="Sign in" />
+                <input type='text' className="input" name='input_id' value={inputId} onChange={handleInputId} placeholder="Enter your ID" />
+                <input type='password' className="input" name='input_pw' value={inputPw} onChange={handleInputPw} placeholder="Enter your Password"  />
+                <button type='button' onClick={onClickLogin}>Login</button>
                 <div class="link"><a href="./register">Create Account</a></div>
-            </form>
             </div>
         </LoginStyle>
     )
