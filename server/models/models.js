@@ -3,9 +3,6 @@
 
 const con = require("../utils/db");
 const modelExports = (module.exports = {});
-// 로그인/회원가입을 위한 모듈
-const { validationResult } = require("express-validator");
-const bcrypt = require('bcryptjs');
 
 modelExports.ReactTest = () => {
     return new Promise((resolve, reject) => {
