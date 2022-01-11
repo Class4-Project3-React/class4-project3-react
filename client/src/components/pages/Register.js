@@ -116,9 +116,10 @@ const Register = () => {
             <div class="container">
                 <h1>Create Account</h1>
                 <form action="" method="POST">
-                    <input type="text" class="input" name="_name" autoComplete="off" id="user_name" placeholder="Enter your Username" />
+                    <input type="text" class="input" name="_id" autoComplete="off" id="user_id" placeholder="Enter your ID" />
+                    <input type="text" class="input" name="_name" autoComplete="off" id="user_name" placeholder="Enter your name" />
                     <input type="email" class="input" name="_email" autoComplete="off" id="user_email" placeholder="Enter your email" />
-                    <input type="password" class="input" name="_password" id="user_pass" placeholder="Enter new password" />
+                    <input type="password" class="input" name="_password" id="user_pass" placeholder="Enter password" />
                     <input type="submit" value="Sign Up" />
                     <div class="link"><a href="./login">Login</a></div>
                 </form>
