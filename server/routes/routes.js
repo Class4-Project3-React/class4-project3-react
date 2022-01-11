@@ -10,10 +10,8 @@ const controllers = require("../controllers/controllers");
 //     loginPage,
 // } = models
 
-router.get('/contents', controllers.TestControllers);
-router.post('/contents', (req, res) => {
-    console.log(req.body, "여긴가?");
-});
+router.get('/contents', controllers.contents_Article_List);
+router.post('/contents', controllers.contents_Article_Detail);
 
 // //  로그인
 // router.get('/', controllers.ifNotLoggedin, homePage);

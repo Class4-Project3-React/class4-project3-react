@@ -4,7 +4,7 @@ import ContentsArticle from "../components/commons/Contents_Article";
 import { detail_article } from "../modules/Contents_Article";
 
 function ArticleContainer() {
-    const todos = useSelector(state => state.contArticle);
+    const todos = useSelector(state => state.ContArticle);
     const dispatch = useDispatch();
 
     const onDetail = () => dispatch(detail_article());
