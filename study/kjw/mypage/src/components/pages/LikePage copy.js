@@ -6,12 +6,12 @@ import img1 from '../../assets/img/my_test1.png';
 import img2 from '../../assets/img/my_test2.png';
 import img3 from '../../assets/img/my_test3.png';
 
-{/* <link
+<link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
   crossorigin="anonymous"
-/>  */}
+/> 
 
 const LikePageCSS = styled.div`
 
@@ -78,7 +78,7 @@ const LikePageCSS = styled.div`
     }
 
     .container {
-        /* padding: 30px; */
+        padding: 30px;
         /* margin: 150px; */
         background-color: rgb(226, 226, 226);
         font-family: 'Roboto', sans-serif;
@@ -86,7 +86,6 @@ const LikePageCSS = styled.div`
 
     .col-md-4 {
         margin-bottom: 30px;
-        border: solid black 2px;
     }
 
     /* .Nav_modal {
@@ -173,23 +172,18 @@ function MyPage() {
 
             <div className="container">
                 <div className="row">
-                    <div className="col">
+                    <div className="col-md-4">
                         <img src={img1} width='100%'></img>
                     </div>
 
-                    <div className="col">
+                    <div className="col-md-4">
                         <img src={img1} width='100%'></img>
                     </div>
 
-                    <div className="col">
-                        <div>
-                            <h3>asdf</h3>
-                            <p>sdfsadf</p>
-                            <button>ff</button>
-                        </div>
-                        {/* <img src={img1} width='100%'></img> */}
+                    <div className="col-md-4">
+                        <img src={img1} width='100%'></img>
                     </div>
-{/* 
+
                     <div className="col-md-4">
                         <img src={img2} width='100%'></img>
                     </div>
@@ -210,7 +204,7 @@ function MyPage() {
                     </div>
                     <div className="col-md-4">
                         <img src={img3} width='100%'></img>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>

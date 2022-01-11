@@ -65,7 +65,7 @@ function Test() {
         <label>관심운동</label>
         <input type='text' name='favorite'  onChange={ (e) => {setFavorite(e.target.value)}} />
 
-        <button onClick={submitReview}>수정하기</button>
+        <button onClick={submitReview}>제출하기</button>
 
         {mypage.map( (val, i) => {
           return (
