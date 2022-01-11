@@ -55,9 +55,9 @@ const Header = () => {
             <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
             <nav>
               <ul>
-                <a>
-                  <NavLink to="/" ><img className="LogoImg" src={logo} width={240}/></NavLink>
-                </a>
+                
+                  <NavLink to="/" ><img alt="test" className="LogoImg" src={logo} width={240}/></NavLink>
+                
                 <li><NavLink to="/contents" ><p>Contents</p></NavLink></li>
                 <li><NavLink to="/bordList" ><p>Board</p></NavLink></li>
                 <li><NavLink to="/mypage" ><p>MySchedule</p></NavLink></li>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from "styled-components";
+import { NavLink } from 'react-router-dom';
 // css
 const LoginStyle = styled.div`
 *,
@@ -108,27 +109,35 @@ const Login = () => {
     }
     // login 버튼 클릭 이벤트
     const onClickLogin = () => {
-        console.log('click login')
+        axios.post('http://localhost:3001/onLogin', null, {
+            params: {
+            'user_id': inputId,
+            'user_pw': inputPw
+            }
+        })
+        .then(res => console.log(res))
+        .catch()
     }
-    // 1.페이지가 처음 렌더링 후 무조건 한번 실행됨.
+    // 1. 페이지가 처음 렌더링 후 무조건 한번 실행됨.
     // 2. useEffect에 배열로 지정한 useState의 값이 변경되면 실행된다.
     // https://ko-de-dev-green.tistory.com/18
     useEffect(() => {
-        axios.get('/user_inform/login')
+        axios.get('http://localhost:3001/login') 
+        // 404 에러해결 : 서버의 포트에서 받아와야 하는데 그냥 /login이라고 하면 클라이언트의 포트(localhost:3000/login)으로 받아온다. 실제론 localhost:3001/login에서 받아와야 함
         .then(res => console.log(res))
         .catch()
     },[]) // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
 
     return (
         <LoginStyle>
-            <div class="container">
-                <label for="user_email">Login</label>
+            <div className="container">
+                <label htmlFor="user_email">Login</label>
                 <br />
                 <br />
                 <input type='text' className="input" name='input_id' value={inputId} onChange={handleInputId} placeholder="Enter your ID" />
                 <input type='password' className="input" name='input_pw' value={inputPw} onChange={handleInputPw} placeholder="Enter your Password"  />
                 <button type='button' onClick={onClickLogin}>Login</button>
-                <div class="link"><a href="./register">Create Account</a></div>
+                <div className="link"><NavLink to="/register">Create Account</NavLink></div>
             </div>
         </LoginStyle>
     )
