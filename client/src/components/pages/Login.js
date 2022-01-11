@@ -109,13 +109,43 @@ const Login = () => {
     }
     // login 버튼 클릭 이벤트
     const onClickLogin = () => {
-        axios.post('http://localhost:3001/onLogin', null, {
+        console.log('click login')
+        console.log('ID : ', inputId)
+        console.log('PW : ', inputPw)
+        axios.post('http://localhost:3001/onLogin', null, { //axios 모듈에서 .post 는 아래와 같이 매개변수 3개이고, params 를 config 로 전달해야 하기 때문에 중간에 data 값을 null 로 넣어 주었다.
             params: {
             'user_id': inputId,
             'user_pw': inputPw
             }
         })
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res)
+            console.log('res.data.userId :: ', res.data.userId)
+            console.log('res.data.msg :: ', res.data.msg)
+            if(res.data.userId === undefined){
+                // id 일치하지 않는 경우 userId = undefined, msg = '입력하신 id 가 일치하지 않습니다.'
+                console.log('======================',res.data.msg)
+                alert('입력하신 id 가 일치하지 않습니다.')
+            } else if(res.data.userId === null){
+                // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
+                console.log('======================','입력하신 비밀번호 가 일치하지 않습니다.')
+                alert('입력하신 비밀번호 가 일치하지 않습니다.')
+            } else if(res.data.userId === inputId) {
+                // id, pw 모두 일치 userId = userId1, msg = undefined
+                console.log('======================','로그인 성공')
+                // Window.sessionStorage. 
+                // sessionStorage 읽기 전용 속성은 현재 출처 세션의 Storage 객체에 접근합니다. 
+                // sessionStorage는 localStorage와 비슷하지만, localStorage의 데이터는 만료되지 않고, sessionStorage의 데이터는 페이지 세션이 끝날 때 제거되는 차이가 있습니다.
+                // https://developer.mozilla.org/ko/docs/Web/API/Window/sessionStorage
+
+                // .setItem() 
+                // The setItem() method of the Storage interface, when passed a key name and value, will add that key to the given Storage object, or update that key's value if it already exists.
+                // https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem
+                sessionStorage.setItem('user_id', inputId)
+            }
+            // 작업 완료 되면 페이지 이동(새로고침)
+            document.location.href = '/'
+        })
         .catch()
     }
     // 1. 페이지가 처음 렌더링 후 무조건 한번 실행됨.
