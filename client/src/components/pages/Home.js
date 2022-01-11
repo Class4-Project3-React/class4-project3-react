@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import realman from '../../assets/img/realman.png'
 import styled from 'styled-components';
 import {Modal} from '../commons/Modal'
+import {Modal2} from '../commons/Modal2'
+// import { SliderData } from '../commons/SliderData';
 // import { GlobalStyle } from './globalStyles';
 // import Card from './Card';
 
@@ -70,12 +72,36 @@ const MainStory = styled.div`
 
 
 function Home() {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+  const [showModal3, setShowModal3] = useState(false);
+  const [showModal4, setShowModal4] = useState(false);
+  const [showModal5, setShowModal5] = useState(false);
+  const [showModal6, setShowModal6] = useState(false);
 
-  const openModal = () => {
-    setShowModal(prev => !prev);
+  const openModal1 = () => {
+    setShowModal1(prev => !prev);
   };
 
+  const openModal2 = () => {
+    setShowModal2(prev => !prev);
+  };
+
+  const openModal3 = () => {
+    setShowModal3(prev => !prev);
+  };
+
+  const openModal4 = () => {
+    setShowModal4(prev => !prev);
+  };
+
+  const openModal5 = () => {
+    setShowModal5(prev => !prev);
+  };
+
+  const openModal6 = () => {
+    setShowModal6(prev => !prev);
+  };
   
 
   return (
@@ -88,7 +114,7 @@ function Home() {
                 </div> */}
 
                     <div className='containerbutton' >
-                        <div className="Image" onClick={openModal}>
+                        <div className="Image" onClick={openModal1}>
                             <img src={realman} width="100%" height="100%" />
                             
                         </div>
@@ -96,11 +122,11 @@ function Home() {
                             HOME_T
                         </div>
                     </div>
-                <Modal showModal={showModal} setShowModal={setShowModal} />
+                <Modal showModal={showModal1} setShowModal={setShowModal1} />
 
                 {/* 크로스핏 */}
                 <div className='containerbutton' >
-                    <div className="Image" onClick={openModal}>
+                    <div className="Image" onClick={openModal2}>
                         <img src={require('../../assets/img/CrossfitMain.png')} width="100%" height="100%" />
                         
                     </div>
@@ -108,11 +134,11 @@ function Home() {
                         Crossfit
                     </div>
                 </div>
-                <Modal showModal={showModal} setShowModal={setShowModal} />
+                <Modal2 showModal={showModal2} setShowModal={setShowModal2} />
 
                 {/* sport */}
                 <div className='containerbutton' >
-                    <div className="Image" onClick={openModal}>
+                    <div className="Image" onClick={openModal3}>
                         <img src={require('../../assets/img/SportMain.png')} width="100%" height="100%" />
                         
                     </div>
@@ -120,12 +146,12 @@ function Home() {
                         Sport
                     </div>
                 </div>
-                <Modal showModal={showModal} setShowModal={setShowModal} />
+                <Modal showModal={showModal3} setShowModal={setShowModal3} />
 
 
                 {/* climbing */}
                 <div className='containerbutton' >
-                    <div className="Image" onClick={openModal}>
+                    <div className="Image" onClick={openModal4}>
                         <img src={require('../../assets/img/climbing1.png')} width="100%" height="100%" />
                         
                     </div>
@@ -133,11 +159,11 @@ function Home() {
                     climbing
                     </div>
                 </div>
-                <Modal showModal={showModal} setShowModal={setShowModal} />
+                <Modal showModal={showModal4} setShowModal={setShowModal4} />
                 
                 {/* hiking */}
                 <div className='containerbutton' >
-                    <div className="Image" onClick={openModal}>
+                    <div className="Image" onClick={openModal5}>
                         <img src={require('../../assets/img/hiking1.png')} width="100%" height="100%" />
                         
                     </div>
@@ -145,11 +171,11 @@ function Home() {
                         hiking
                     </div>
                 </div>
-                <Modal showModal={showModal} setShowModal={setShowModal} />
+                <Modal showModal={showModal5} setShowModal={setShowModal5} />
 
                 {/* lesure */}
                 <div className='containerbutton' >
-                    <div className="Image" onClick={openModal}>
+                    <div className="Image" onClick={openModal6}>
                         <img src={require('../../assets/img/leisure1.png')} width="100%" height="100%" />
                         
                     </div>
@@ -157,7 +183,7 @@ function Home() {
                         leisure
                     </div>
                 </div>
-                <Modal showModal={showModal} setShowModal={setShowModal} />
+                <Modal showModal={showModal6} setShowModal={setShowModal6} />
             </div>
         </MainStory>
     </>

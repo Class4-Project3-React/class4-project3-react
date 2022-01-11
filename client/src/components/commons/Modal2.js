@@ -118,9 +118,9 @@ const SliderHomeData ={
 
 const SliderCrossfitData ={
   "images" : [
-      "crossfit1",
-      "crossfit2",
-      "crossfit3"
+      "sport1",
+      "sport2",
+      "sport3"
       
   ]
 }
@@ -188,7 +188,7 @@ const SliderLeisure = SliderLeisureData.images.map( img =>{
 
 
 
-export const Modal = ({showModal, setShowModal  }) => {
+export const Modal2 = ({showModal, setShowModal  }) => {
     
     const modalRef = useRef()
 
@@ -235,7 +235,7 @@ export const Modal = ({showModal, setShowModal  }) => {
             <Background ref={modalRef} onClick={closeModal}>
               {/* <animated.div style={animation}> */}
                 <ModalWrapper showModal={showModal}>
-                  <ImageSlider slides={SliderHome} className="ImageSlider" />
+                  <ImageSlider slides={SliderCross} className="ImageSlider" />
                   <ModalContent>
                     <h1>Just Do</h1>
                     <p>Get your life more fresh</p>
