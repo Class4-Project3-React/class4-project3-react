@@ -22,21 +22,21 @@ const Todo_modal = styled.div`
     }
 `
 
-function Modal() { 
+function TodoModal() { 
     
-    const [name, setName] = useState('');
-    const [profile, setProfile] = useState('');
+    const [title, setTitle] = useState('');
+    const [contents, setContents] = useState('');
     const [mypage, setMypage] = useState([]);
 
     const submitReview = () => {
         Axios.post('http://localhost:3001/api/insert', {
-            name : name, 
-            profile : profile 
+            title : title, 
+            contents : contents 
         });
         
         setMypage([...mypage, {
-            name : name, 
-            profile : profile}, 
+            title : title, 
+            contents : contents}, 
             ]);
     };        
 
@@ -49,7 +49,7 @@ function Modal() {
                         <FormControl
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
-                        onChange={ (e) => {setName(e.target.value)}}
+                        onChange={ (e) => {setTitle(e.target.value)}}
                         />
                     </InputGroup>
             
@@ -58,7 +58,7 @@ function Modal() {
                         <FormControl
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
-                        onChange={ (e) => {setProfile(e.target.value)}}
+                        onChange={ (e) => {setContents(e.target.value)}}
                         />
                     </InputGroup>
                     
@@ -69,4 +69,4 @@ function Modal() {
     )
 }
 
-export default Modal;
+export default TodoModal;

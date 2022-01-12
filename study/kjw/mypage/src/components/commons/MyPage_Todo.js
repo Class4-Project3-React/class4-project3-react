@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import styled from "styled-components";
 import { Button } from 'react-bootstrap';
-import Modal from "./MyPage_Modal";
+import TodoModal from "./MyPage_TodoModal";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 <link
@@ -49,9 +49,8 @@ function MyPageTodo() {
 
     const [modal, setModal] = useState(false);  // 모달창을 켜고 닫는 스위치
 
-    const [name, setName] = useState('');
-    const [profile, setProfile] = useState('');
-    const [favorite, setFavorite] = useState('');
+    const [title, setTitle] = useState('');
+    const [contents, setContents] = useState('');
     const [mypage, setMypage] = useState([]);
 
     useEffect( () => {
@@ -61,8 +60,8 @@ function MyPageTodo() {
         })
       }, [])
     
-    const deleteReview = (name) => {
-    Axios.delete(`http://localhost:3001/api/delete/${name}`);
+    const deleteReview = (title) => {
+    Axios.delete(`http://localhost:3001/api/delete/${title}`);
     }
 
     function modalChange() {
@@ -88,7 +87,7 @@ function MyPageTodo() {
                 <div>
                     {
                     modal === true
-                    ? <Modal modalChange={modalChange}/>
+                    ? <TodoModal modalChange={modalChange}/>
                     : null  // 텅빙 html 이라는 뜻
                     // if 대신 삼항연산자 JSX안의 {} 내에서 쓰기 가능
                     // 조건식 ? 참일때 실행할 코드 : 거짓일때 실행할 코드
@@ -103,9 +102,9 @@ function MyPageTodo() {
                                     <>
                                     <div className="col-md-4" key={i}>
                                         <div className="item">
-                                            <h4>{val.name}</h4>
-                                            <p>{val.profile}</p>
-                                            <Button className='x_button' size="sm" variant="outline-dark" onClick={ () => {deleteReview(val.name)}}>X</Button>
+                                            <h4>{val.title}</h4>
+                                            <p>{val.contents}</p>
+                                            <Button className='x_button' size="sm" variant="outline-dark" onClick={ () => {deleteReview(val.title)}}>X</Button>
                                         </div>
                                     </div>
                                     </>

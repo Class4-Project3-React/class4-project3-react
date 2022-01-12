@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import img1 from '../../assets/img/my_test1.png'
-
+import ProfileModal from "./MyPage_ProfileModal";
 
 const ProfileCSS = styled.div`
 
@@ -10,6 +11,7 @@ const ProfileCSS = styled.div`
         margin-left: 20%;
         margin-right: 20%;
         text-align: center;
+        font-family: 'Roboto', sans-serif;
     }
 
     .container {
@@ -17,7 +19,7 @@ const ProfileCSS = styled.div`
     }
 
     .col-md-4 {
-        background-color: lightcoral;
+        /* background-color: lightcoral; */
         height: 200px;
         display: flex;
         align-items: center;
@@ -40,52 +42,20 @@ const ProfileCSS = styled.div`
     }
 
     .col-md-8 {
-        background-color: lightgreen;
+        /* background-color: lightgreen; */
         height: 200px;
-    }
-
-    .body1 {
-        width: 100%;
-        height: 200px;
-        background-color: lightsteelblue;
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        position: relative;
+        
+    }
+    .profile_text {
+        text-align: left;
     }
 
-    .body1_1 {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        display: inline-block;
-        margin: 50px;
-        /* padding: 50px; */
+    .profile_text h4{
+        padding: 5px;
     }
-
-    .body1_1 img {
-        border: solid #344CB7 2px;
-        border-radius: 50%;
-    }
-
-    .body1_2 {
-        border: solid black 2px;
-        width: 70%;
-        display: inline-block;
-    }
-
-    .body1_2 p{
-        /* margin-left: 0; */
-    }
-
-    .body1_2_content {
-        display: inline-block;
-        border: solid black 5px;
-    }
-    
-    /* .body1_2_modal {
-        display: inline-block;
-        border: solid black 5px;
-    } */
 
     .option {
         /* background-color: cadetblue; */
@@ -114,11 +84,21 @@ const ProfileCSS = styled.div`
 
 function MyPageProfile() {
 
-    const [modal, setModal] = useState(false);  // 모달창을 켜고 닫는 스위치
+    const [openModal, setOpenModal] =useState(false);
 
-    function modalChange() {
-        setModal (!modal);   //! 느낌표 기호는 true 왼쪽에 붙이면 false로 바꿔주고, false왼쪽에선 true
-      }  
+    const [name, setName] = useState('');
+    const [profile, setProfile] = useState('');
+    const [favorite, setFavorite] = useState('');
+    const [mypage, setMypage] = useState([]);
+
+    // const [newprofile, setNewprofile] = useState('');
+
+    useEffect( () => {
+        Axios.get('http://localhost:3001/api/test/get').then((response)=>{
+          // console.log(response.data);
+          setMypage(response.data);
+        })
+      }, [])
 
     return (
         <>
@@ -141,7 +121,25 @@ function MyPageProfile() {
                                 <img src={img1} width='100%'></img>
                             </div>
                         </div>
-                        <div className="col-md-8">asdf</div>
+
+                        {mypage.map( (val,i) => {
+                            return(
+                                <>                                
+                                <div className="col-md-8">
+                                    <div className="profile_text">
+                                        <h4>Name : {val.name} </h4>
+                                        <h4>Profile : {val.profile}</h4>
+                                        <h4>Favorite : {val.favorite}</h4>
+                                    </div>
+                                    <div className="profile_btn">
+                                        <button onClick={ () => setOpenModal(true)}>Edit</button>
+                                    </div>
+                                    {openModal && <ProfileModal closeModal={setOpenModal} />}
+                                </div>
+                                </>
+                            )
+                        })}
+
                     </div>
                 </div>
                 <br/>
@@ -156,23 +154,5 @@ function MyPageProfile() {
         </>
         )
     }
-        
-    function Modal(props) { 
-        return(
-            <>
-    
-            <div className='Nav_modal'>
-            <div className = "Nav_modalin">
-                <p>Modal test</p>
-                <p>옆 페이지 수정</p>
-                <p>옆 페이지 수정</p>
-                <p>옆 페이지 수정</p>
-        
-                <button onClick={props.modalChange}className="Nav_modbtn">X</button>
-            </div>
-            </div>
-            </>
-        )
-        }
     
     export default MyPageProfile;

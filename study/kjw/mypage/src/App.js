@@ -18,7 +18,7 @@ function App() {
               <Route path="/boardlist" element={<BoardList/>}/> */}
               <Route path="/mypage" element={<MyPage/>}/>
               <Route path="/like" element={<LikePage/>}/>
-              <Route path="/test" element={<Test/>}/>
+              {/* <Route path="/test" element={<Test/>}/> */}
 
               {/* <Route path="/user" element={<User/>}/>
               <Route path="/login" element={<Login />}/>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import styled from "styled-components";
 import { Button } from 'react-bootstrap';
-import Modal from "./MyPage_Modal";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import img1 from '../../assets/img/my_test1.png'
 import img2 from '../../assets/img/my_test2.png'

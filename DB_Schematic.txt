@@ -42,13 +42,15 @@
             7) no_article
 
 > 김재원
-    - table: profile
+    - table: mypage_profile
         - column
             1) id
             2) name
             3) profile
             4) favorite
 
-    - table: todolist
+    - table: mypage_todo
         - column
-            1) list
+            1) id
+            2) title
+            3) contents
