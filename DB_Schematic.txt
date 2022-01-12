@@ -14,16 +14,16 @@
             CREATE TABLE user_inform
             (
                 user_id VARCHAR(255) NOT NULL, 
-                user_pw VARCHAR(255) NOT NULL, 
+                user_name VARCHAR(255) NOT NULL, 
                 user_email VARCHAR(255) NOT NULL, 
-                user_address VARCHAR(255) NOT NULL, 
+                user_pw VARCHAR(255) NOT NULL, 
                 PRIMARY KEY (user_id)
             );
             
             - 더미 데이터 입력
             
-            insert into user_inform (user_id, user_pw, user_email, user_address) value ('userId1', 'userPw1', 'kjk', 'test@test.com')
-            
+            insert into user_inform (user_id, user_name, user_email, user_pw) value ('userId1', 'kjk', 'test@test.com', 'userPw1')
+
 > 안성준
     - table: board
         - column

@@ -75,7 +75,7 @@ button {
     width: 100%;
 }
 
-[type="submit"]:hover {
+[type="button"]:hover {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 

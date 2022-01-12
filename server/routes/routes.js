@@ -50,6 +50,16 @@ router.post('/onLogin', (req, res) => {
     })
 });
 
+// 회원가입 라우터
+router.get('/register', (req, res) => {
+	// 임시로 값을 넣어 주었다.
+    res.send({data: 'data'})
+});
+
+router.post('/onRegister', (req, res) => {
+    const user_id = req.query.user_id
+    console.log('유저 아이디', user_id)
+})
 
 
 module.exports = router;

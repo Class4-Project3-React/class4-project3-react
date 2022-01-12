@@ -1,5 +1,7 @@
 // css
 import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 // css
 const RegisterStyle = styled.div`
 *,
@@ -60,7 +62,7 @@ button {
     border-color: black;
 }
 
-[type="submit"] {
+[type="button"] {
     background: #000000;
     color: white;
     border: 1px solid rgba(0, 0, 0, 0);
@@ -73,7 +75,7 @@ button {
     width: 100%;
 }
 
-[type="submit"]:hover {
+[type="button"]:hover {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
@@ -111,17 +113,60 @@ label {
 
 // 회원가입 화면
 const Register = () => {
+    const [inputId, setInputId] = useState('')
+    const [inputName, setInputName] = useState('')
+    const [inputEmail, setInputEmail] = useState('')
+    const [inputPw, setInputPw] = useState('')
+    // input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
+    const handleInputId = (e) => {
+        setInputId(e.target.value)
+    }
+    const handleInputName = (e) => {
+        setInputName(e.target.value)
+    }
+    const handleInputEmail = (e) => {
+        setInputEmail(e.target.value)
+    }
+    const handleInputPw = (e) => {
+        setInputPw(e.target.value)
+    }
+    const onClickRegister = () => {
+        console.log('click register')
+        console.log('ID : ', inputId)
+        console.log('Name : ', inputName)
+        console.log('Email : ', inputEmail)
+        console.log('PW : ', inputPw)
+        axios.post('http://localhost:3001/onRegister', null, {
+            params: {
+                'user_id': inputId,
+                'user_name' : inputName,
+                'user_email': inputEmail,
+                'user_pw': inputPw
+            }
+        })
+        .then(res => {
+            console.log('레스', res)
+            console.log('레스.데이터.유저아이디: ', res.data.userId)
+        })
+        .catch()
+    }
+    useEffect(() => {
+        axios.get('http://localhost:3001/register')
+        .then(res => console.log(res))
+        .catch()
+    }, [])
+
     return (
         <RegisterStyle>
-            <div class="container">
+            <div className="container">
                 <h1>Create Account</h1>
                 <form action="" method="POST">
-                    <input type="text" class="input" name="_id" autoComplete="off" id="user_id" placeholder="Enter your ID" />
-                    <input type="text" class="input" name="_name" autoComplete="off" id="user_name" placeholder="Enter your name" />
-                    <input type="email" class="input" name="_email" autoComplete="off" id="user_email" placeholder="Enter your email" />
-                    <input type="password" class="input" name="_password" id="user_pass" placeholder="Enter password" />
-                    <input type="submit" value="Sign Up" />
-                    <div class="link"><a href="./login">Login</a></div>
+                    <input type="text" className="input" name="input_id" autoComplete="off" id="user_id" value={inputId} onChange={handleInputId} placeholder="Enter your ID" />
+                    <input type="text" className="input" name="input_name" autoComplete="off" id="user_name" value={inputName} onChange={handleInputName} placeholder="Enter your name" />
+                    <input type="email" className="input" name="input_email" autoComplete="off" id="user_email" value={inputEmail} onChange={handleInputEmail} placeholder="Enter your email" />
+                    <input type="password" className="input" name="input_pw" id="user_pass" value={inputPw} onChange={handleInputPw} placeholder="Enter password" />
+                    <button type='button' onClick={onClickRegister}>Register</button>
+                    <div className="link"><a href="./login">Login</a></div>
                 </form>
             </div>
         </RegisterStyle>
