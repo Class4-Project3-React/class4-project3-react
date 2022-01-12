@@ -69,42 +69,65 @@ const Art_Image = styled.div`
 const Art_Desc = styled.div`
   background-color: white;
 `;
-const Art_Comments = styled.div`
-  background-color: purple;
-`;
+
+// 댓글
+const Comm_Container = styled.div`
+  background-color: lightgray;
+`
+const Comm_Id = styled.div`
+  background-color: green;
+`
+const Comm_Desc = styled.div`
+  background-color: khaki;
+`
+const Comm_date = styled.div`
+  background-color: lavender;
+`
 
 Modal.setAppElement("#root");
 
-// const ModalDiv = React.memo(function ModalDiv({ show, autoClose, todo }) {
-//   return (
-//     <Modal
-//       isOpen={show}
-//       onRequestClose={autoClose}
-//       style={{ content: ModalConDesign }}
-//     >
-//       <ModalContainer>
-//         {/* <Art_Image>
-//             <Image src={todos[0].img} />
-//           </Art_Image>
-//           <Art_Media>{todos[0].media}</Art_Media>
-//           <Art_Title>{todos[0].img}</Art_Title>
-//           <Art_Date>{todos[0].date}</Art_Date>
-//           <Art_Editor>{todos[0].editor}</Art_Editor> */}
-//         {/* <Art_Desc>{todo.desc}</Art_Desc> */}
-//         <Art_Comments>댓글</Art_Comments>
-//       </ModalContainer>
-//     </Modal>
-//   );
-// });
+const CommentDiv = React.memo(function CommentDiv({ comm }) {
+  return (
+    <Comm_Container>
+      <Comm_Id>id</Comm_Id>
+      <Comm_Desc>내용</Comm_Desc>
+      <Comm_date>날짜</Comm_date>
+    </Comm_Container>
+  );
+});
 
-const CardDiv = React.memo(function CardDiv({ todos, onDetail }) {
+const ModalDiv = React.memo(function ModalDiv({ show, autoClose, todo }) {
+  return (
+    <Modal
+      isOpen={show}
+      onRequestClose={autoClose}
+      style={{ content: ModalConDesign }}
+    >
+      <ModalContainer>
+        <Art_Image>
+            <Image src={`../../assets/img/${todo.img}.jpg`} />
+          </Art_Image>
+          <Art_Media>{todo.media}</Art_Media>
+          <Art_Title>{todo.title}</Art_Title>
+          <Art_Date>{todo.date}</Art_Date>
+          <Art_Editor>{todo.editor}</Art_Editor>
+        <Art_Desc>{todo.desc}</Art_Desc>
+        <CommentDiv/>
+      </ModalContainer>
+    </Modal>
+  );
+});
+
+const CardDiv = React.memo(function CardDiv({}) {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([{ img: "leejung4" }]);
   const [detail, setDetail] = useState([{}]);
 
+  // console.log("data: ", data.no);
+  // console.log("detail: ", detail);
+
   const handle = (no) => {
     setShow(!show);
-    onDetail(no);
 
     axios
       .get("http://localhost:3001/contents")
@@ -120,7 +143,6 @@ const CardDiv = React.memo(function CardDiv({ todos, onDetail }) {
         console.log(error);
       });
 
-    console.log(detail.no);
   };
 
   const ClickAndESC = () => {
@@ -136,26 +158,23 @@ const CardDiv = React.memo(function CardDiv({ todos, onDetail }) {
           onClick={() => handle(todo.no)}
         />
       ))}
-      {/* {detail.map((todo) => (
         <ModalDiv
-          key={todo.no}
           show={show}
           autoClose={() => ClickAndESC()}
-          todo={todo}
+          todo={detail}
         />
-      ))} */}
     </il>
   );
 });
 
-function ContentsArticle({ todos, onDetail }) {
+function ContentsArticle({}) {
   return (
     <Container>
       <h1>Article</h1>
       <ParentDiv>
         <ChildDiv>
           <ul>
-            <CardDiv todos={todos} onDetail={onDetail} />
+            <CardDiv />
           </ul>
         </ChildDiv>
       </ParentDiv>
