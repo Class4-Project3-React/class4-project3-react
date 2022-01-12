@@ -2,7 +2,7 @@
 
 const express = require("express");
 const app = express();
-const models = require("../models/models")
+const models = require("../models/Login_models")
 
 exports.TestControllers = (req, res) => {
     models.ReactTest().then((result) => {
