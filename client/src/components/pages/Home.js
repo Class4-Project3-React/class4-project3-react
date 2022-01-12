@@ -1,8 +1,13 @@
 import React,{useState} from 'react';
 import realman from '../../assets/img/realman.png'
 import styled from 'styled-components';
-import {Modal} from '../commons/Modal'
-import {Modal2} from '../commons/Modal2'
+import {ModalHome} from '../commons/seungjae/ModalHome'
+import {ModalCross} from '../commons/seungjae/ModalCross'
+import {ModalSport} from '../commons/seungjae/ModalSport'
+import {ModalClimbing} from '../commons/seungjae/ModalClimbing'
+import {ModalHiking} from '../commons/seungjae/ModalHiking'
+import {ModalLeisure} from '../commons/seungjae/ModalLeisure'
+
 // import { SliderData } from '../commons/SliderData';
 // import { GlobalStyle } from './globalStyles';
 // import Card from './Card';
@@ -109,10 +114,6 @@ function Home() {
       {/* <Container> */}
         <MainStory >
             <div className='container11'>
-                {/* <div className='container22'>
-                    <img src={require('../../assets/img/workout.png')}  width="100%" height="500px"/>
-                </div> */}
-
                     <div className='containerbutton' >
                         <div className="Image" onClick={openModal1}>
                             <img src={realman} width="100%" height="100%" />
@@ -122,7 +123,7 @@ function Home() {
                             HOME_T
                         </div>
                     </div>
-                <Modal showModal={showModal1} setShowModal={setShowModal1} />
+                <ModalHome showModal={showModal1} setShowModal={setShowModal1} />
 
                 {/* 크로스핏 */}
                 <div className='containerbutton' >
@@ -134,7 +135,7 @@ function Home() {
                         Crossfit
                     </div>
                 </div>
-                <Modal2 showModal={showModal2} setShowModal={setShowModal2} />
+                <ModalCross showModal={showModal2} setShowModal={setShowModal2} />
 
                 {/* sport */}
                 <div className='containerbutton' >
@@ -146,7 +147,7 @@ function Home() {
                         Sport
                     </div>
                 </div>
-                <Modal showModal={showModal3} setShowModal={setShowModal3} />
+                <ModalSport showModal={showModal3} setShowModal={setShowModal3} />
 
 
                 {/* climbing */}
@@ -159,7 +160,7 @@ function Home() {
                     climbing
                     </div>
                 </div>
-                <Modal showModal={showModal4} setShowModal={setShowModal4} />
+                <ModalClimbing showModal={showModal4} setShowModal={setShowModal4} />
                 
                 {/* hiking */}
                 <div className='containerbutton' >
@@ -171,7 +172,7 @@ function Home() {
                         hiking
                     </div>
                 </div>
-                <Modal showModal={showModal5} setShowModal={setShowModal5} />
+                <ModalHiking showModal={showModal5} setShowModal={setShowModal5} />
 
                 {/* lesure */}
                 <div className='containerbutton' >
@@ -183,7 +184,7 @@ function Home() {
                         leisure
                     </div>
                 </div>
-                <Modal showModal={showModal6} setShowModal={setShowModal6} />
+                <ModalLeisure showModal={showModal6} setShowModal={setShowModal6} />
             </div>
         </MainStory>
     </>

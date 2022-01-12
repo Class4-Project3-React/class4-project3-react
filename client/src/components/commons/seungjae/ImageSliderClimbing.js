@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 // import { SliderData } from './SliderData';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import styled from 'styled-components';
-import Img1 from '../../assets/img/sport1.png'
-import Img2 from '../../assets/img/leisure2.png'
-import Img3 from '../../assets/img/leisure3.png'
-import Img4 from '../../assets/img/smallsquat.png'
-import Img5 from '../../assets/img/smallyoga.png'
+import Img1 from '../../../assets/img/climbing1.png'
+import Img2 from '../../../assets/img/climbing2.png'
+import Img3 from '../../../assets/img/climbing3.png'
+import Img4 from '../../../assets/img/climbing4.png'
+import Img5 from '../../../assets/img/climbing5.png'
 
 const Main11 = styled.div`
 .right-arrow {
@@ -35,7 +35,7 @@ const Main11 = styled.div`
 
 
 
-const ImageSlider2 = ({ slides }) => {
+const ImageSliderClimbing = ({ slides }) => {
 
     const SliderData = [
         {
@@ -103,4 +103,4 @@ const ImageSlider2 = ({ slides }) => {
   );
 };
 
-export default ImageSlider2;
+export default ImageSliderClimbing;

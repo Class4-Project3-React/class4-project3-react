@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 // import { SliderData } from './SliderData';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import styled from 'styled-components';
-import Img1 from '../../assets/img/sport1.png'
-import Img2 from '../../assets/img/sport2.png'
-import Img3 from '../../assets/img/sport3.png'
-import Img4 from '../../assets/img/crossfit1.png'
-import Img5 from '../../assets/img/crossfit2.png'
+import Img1 from '../../../assets/img/hometraining1.png'
+import Img2 from '../../../assets/img/hometraining2.png'
+import Img3 from '../../../assets/img/hometraining3.png'
+import Img4 from '../../../assets/img/hometraining4.png'
+import Img5 from '../../../assets/img/hometraining5.png'
 
 
 
-const ImageSlider = ({ slides }) => {
+const ImageSliderHome = ({ slides }) => {
 
     const SliderData = [
         {
@@ -30,7 +30,7 @@ const ImageSlider = ({ slides }) => {
         }
       ];
 
-      
+
     // const ImgDataCross ={
     //     "images" : [
     //         "crossfit1",
@@ -71,7 +71,7 @@ const ImageSlider = ({ slides }) => {
             <>
                 <div className={index === current ? 'slide active' : 'slide' } key={index} >
                 {index === current && (
-                  <img src={slide.image} alt='travel imge' className='image' />
+                  <img src={slide.image} alt='travel imge' className='image' width="100%"/>
                 )}
                 </div>
             </>
@@ -81,4 +81,4 @@ const ImageSlider = ({ slides }) => {
   );
 };
 
-export default ImageSlider;
+export default ImageSliderHome;

@@ -1,14 +1,7 @@
 import React, {useRef, useEffect, useCallback} from "react";
-import {useSpring, animated} from 'react-spring'
 import styled from "styled-components";
 import {MdClose} from 'react-icons/md'
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
-// import { SliderData } from './SliderData';
-import ImageSlider from "./ImageSlider";
-// import ImageSlider1 from "./ImageSlider1";
-
-
-// import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import ImageSliderClimbing from "./ImageSliderClimbing";
 
 
 const Background = styled.div`
@@ -19,6 +12,8 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+
 `;
 
 const ModalWrapper = styled.div`
@@ -65,16 +60,6 @@ const ModalWrapper = styled.div`
   
 `;
 
-// 모달 이미지 설정 해보기
-const ImageSlider1  = styled.slides`
-  width: 100%;
-  height: 100%;
-  border-radius: 10px 0 0 10px;
-  background: #000;
-  background-color: grey;
-`;
-
-
 const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -105,105 +90,25 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 // 이미지 데이터
-const SliderHomeData ={
-  "images" : [
-      "crossfit1",
-      "crossfit2",
-      "crossfit3",
-      "climbing1",
-      "ski2"
-      
-  ]
-}
-
-const SliderCrossfitData ={
-  "images" : [
-      "sport1",
-      "sport2",
-      "sport3"
-      
-  ]
-}
-
-const SliderSportData ={
-  "images" : [
-      "crossfit1",
-      "crossfit2",
-      "crossfit3"
-      
-  ]
-}
 
 const SliderClimbingData ={
   "images" : [
-      "crossfit1",
-      "crossfit2",
-      "crossfit3"
+      "climbing1",
+      "climbing2",
+      "climbing3"
       
   ]
 }
 
-const SliderHikingData ={
-  "images" : [
-      "crossfit1",
-      "crossfit2",
-      "crossfit3"
-      
-  ]
-}
-
-const SliderLeisureData ={
-  "images" : [
-      "crossfit1",
-      "crossfit2",
-      "crossfit3"
-      
-  ]
-}
-
-
-const SliderHome = SliderHomeData.images.map( img =>{
-  return <img src={require('../../assets/img/' + img +'.png')} />
-})
-
-const SliderCross = SliderCrossfitData.images.map( img =>{
-  return <img src={require('../../assets/img/' + img +'.png')} />
-})
-
-const SliderSport = SliderSportData.images.map( img =>{
-  return <img src={require('../../assets/img/' + img +'.png')} />
-})
 
 const SliderClimbing = SliderClimbingData.images.map( img =>{
-  return <img src={require('../../assets/img/' + img +'.png')} />
-})
-
-const SliderHiking = SliderHikingData.images.map( img =>{
-  return <img src={require('../../assets/img/' + img +'.png')} />
-})
-
-const SliderLeisure = SliderLeisureData.images.map( img =>{
-  return <img src={require('../../assets/img/' + img +'.png')} />
+  return <img src={require('../../../assets/img/' + img +'.png')} />
 })
 
 
-
-export const Modal2 = ({showModal, setShowModal  }) => {
+export const ModalClimbing = ({showModal, setShowModal  }) => {
     
     const modalRef = useRef()
-
-
-    // 애니메이션 가쟈오기, 구성
-    const animation = useSpring({
-        config: {
-            duration: 250
-        },
-        // 모달 표시 아니면 0
-        // true or false
-        opacity: showModal ? 1:0,
-        transform: showModal? `translateY(0%)` : `translateY(-100%)`
-
-    })
 
     // 모달 바깥 부분 클릭시 clsoe
     const closeModal = e => {
@@ -231,11 +136,13 @@ export const Modal2 = ({showModal, setShowModal  }) => {
     
     return (
         <>
+        {/* 삼항 연산자로 배경화면 클릭 or 메인내용 클릭 */}
           {showModal ? (
+            // 백그라운드 클릭시 클로우즈 모달 실행
             <Background ref={modalRef} onClick={closeModal}>
-              {/* <animated.div style={animation}> */}
+                {/* 이미지 데이터 가져오기 */}
                 <ModalWrapper showModal={showModal}>
-                  <ImageSlider slides={SliderCross} className="ImageSlider" />
+                  <ImageSliderClimbing slides={SliderClimbing} className="ImageSlider" />
                   <ModalContent>
                     <h1>Just Do</h1>
                     <p>Get your life more fresh</p>
@@ -248,7 +155,6 @@ export const Modal2 = ({showModal, setShowModal  }) => {
                     onClick={() => setShowModal(prev => !prev)}
                   />
                 </ModalWrapper>
-              {/* </animated.div> */}
             </Background>
           ) : null}
           
