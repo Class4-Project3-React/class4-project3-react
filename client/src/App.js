@@ -1,7 +1,7 @@
 import "./assets/css/App.css";
 // import Test from "./components/pages/Test";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, Contents, BordList, User, Login, Register, MyPage, LikePage } from './components/pages';
+import { Home, Contents, BordList, User, Login, Logout, Register, MyPage, LikePage } from './components/pages';
 import Menu from './components/Menu';
 // import Card from "./components/pages/Card";
 import { useEffect, useState } from 'react';
@@ -40,6 +40,7 @@ function App() {
               <Route path="/like" element={<LikePage/>}/>
               <Route path="/user" element={<User/>}/>
               <Route path="/login" element={<Login />}/>
+              <Route path="/logout" element={<Logout />}/>
               <Route path="/register" element={<Register />}/>
             </Routes>
     </>

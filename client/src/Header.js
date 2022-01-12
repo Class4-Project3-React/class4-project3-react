@@ -62,6 +62,7 @@ const Header = () => {
                 <li><NavLink to="/bordList" ><p>Board</p></NavLink></li>
                 <li><NavLink to="/mypage" ><p>MySchedule</p></NavLink></li>
                 <li><NavLink to="/login" ><p>Login</p></NavLink></li>
+                <li><NavLink to="/logout" ><p>Logout</p></NavLink></li>
               </ul>
             </nav>
           </HeaderNav>
