@@ -11,7 +11,8 @@ const controllers = require("../controllers/controllers");
 // } = models
 
 router.get('/contents', controllers.contents_Article_List);
-router.post('/contents', controllers.contents_Article_Detail);
+router.post('/contents/articles', controllers.contents_Article_Detail);
+router.post('/contents/articles/comments', controllers.contents_Article_AddComment);
 
 // //  로그인
 // router.get('/', controllers.ifNotLoggedin, homePage);

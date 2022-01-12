@@ -6,67 +6,6 @@ const { validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs');
 require("express");
 
-// contents_article_list
-modelExports.contents_Article_List_DB = () => {
-    return new Promise((resolve, reject) => {
-        let sql = "SELECT * FROM article;";
-        con.getConnection((err, connection) => {
-            try {
-                if(err) throw err;
-                console.log("Connection Success");
-
-                connection.query(sql, (err, result, fields) => {
-                    if(err) {
-                        console.log("SELECT Error");
-                    } else {
-                        if(result.length === 0) {
-                            console.error("DB response NOT Found");
-                        } else {
-                            resolve(result);
-                            console.log("Read data OK");
-                        }
-                    }
-                });
-                connection.release();
-            } catch(err) {
-                console.error("pool Test Error");
-            };
-        });
-    });
-};
-
-// contents_article_modal
-modelExports.contents_Article_Detail_DB = () => {
-    return new Promise((resolve, reject) => {
-        let detailNum = controllers.detailNum;
-        let sql = `SELECT * FROM article where no="${detailNum}";`;
-        con.getConnection((err, connection) => {
-            try {
-                if(err) throw err;
-                console.log("Connection Success");
-
-                connection.query(sql, (err, result, fields) => {
-                    if(err) {
-                        console.log("SELECT Error");
-                    } else {
-                        if(result.length === 0) {
-                            console.error("DB response NOT Found");
-                        } else {
-                            resolve(result);
-                            // console.log(detailNums);
-                            console.log("Read data OK");
-                        }
-                    }
-                });
-                connection.release();
-            } catch(err) {
-                console.error("pool Test Error");
-            };
-        });
-    });
-};
-
-
 //  로그인, 회원가입
 
 // Home Page
