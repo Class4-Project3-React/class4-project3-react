@@ -1,16 +1,18 @@
 import axios from "axios";
 
 // 1) action type
-const DETAIL_ARTICLE = "contents/article/DETAIL_ARTICLE";
+const ADD_COMMENT = "contents/article/ADD_COMMENT";
 
 // 2) action creator
-export const detail_article = (no) => ({
-  type: DETAIL_ARTICLE,
+export const add_comment = (text, no) => ({
+  type: ADD_COMMENT,
+  text,
   no,
 });
 
 const initialState = [
   {
+    text: '모듈쪽 초기값',
     no: 1,
   },
 ];
@@ -18,12 +20,12 @@ const initialState = [
 // 3) reducer
 export default function ContArticle(state = initialState, action) {
   switch (action.type) {
-    case DETAIL_ARTICLE:
+    case ADD_COMMENT:
       return state
-      //   axios
-      //     .post("http://localhost:3001/contents",
+      // axios
+      //     .post("http://localhost:3001/contents/articles/comments",
       //     {
-      //       state : action.no
+      //       no: "testNumber"
       //     })
       //     .then(function (response) {
       //       console.log(response + "test");
@@ -31,8 +33,6 @@ export default function ContArticle(state = initialState, action) {
       //     .catch((error) => {
       //       console.log(error.response);
       //     })
-      // );
-          
     default:
       return state;
     };
