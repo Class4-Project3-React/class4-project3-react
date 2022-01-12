@@ -12,6 +12,8 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+
 `;
 
 const ModalWrapper = styled.div`
@@ -25,16 +27,38 @@ const ModalWrapper = styled.div`
   position: relative;
   z-index: 10;
   border-radius: 10px;
-`;
 
-const ModalImg = styled.img`
-  width: 100%;
+  .right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  color: black;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  }
+
+  .left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  color: black;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  }
+
+  .ImgSlider slides{
+    width: 100%;
   height: 100%;
   border-radius: 10px 0 0 10px;
   background: #000;
-  /* background-color: grey; */
+  background-color: grey;
+  }
+  
 `;
-
 
 const ModalContent = styled.div`
   display: flex;
@@ -65,11 +89,26 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
+// 이미지 데이터
 
-export const ModalHome = ({showModal, setShowModal, }) => {
+const SliderHomeData ={
+  "images" : [
+      "climbing1",
+      "climbing2",
+      "climbing3"
+      
+  ]
+}
+
+
+const SliderHome = SliderHomeData.images.map( img =>{
+  return <img src={require('../../../assets/img/' + img +'.png')} />
+})
+
+
+export const ModalHome = ({showModal, setShowModal  }) => {
     
     const modalRef = useRef()
-
 
     // 모달 바깥 부분 클릭시 clsoe
     const closeModal = e => {
@@ -87,7 +126,6 @@ export const ModalHome = ({showModal, setShowModal, }) => {
         }
     },[setShowModal,showModal]);
 
-
     // 함수호출
     // 위에 함수가 100번이라도 재호출 되면 짜증나므로
     useEffect(() => {
@@ -95,16 +133,21 @@ export const ModalHome = ({showModal, setShowModal, }) => {
         return () => document.removeEventListener('keydown',keyPress);
     },[keyPress])
 
+    
     return (
         <>
+        {/* 삼항 연산자로 배경화면 클릭 or 메인내용 클릭 */}
           {showModal ? (
+            // 백그라운드 클릭시 클로우즈 모달 실행
             <Background ref={modalRef} onClick={closeModal}>
-              {/* <animated.div style={animation}> */}
+                {/* 이미지 데이터 가져오기 */}
                 <ModalWrapper showModal={showModal}>
-                  <ImageSliderHome src={require('../../../assets/img/sport1.png')} alt='camera' />
+                  <ImageSliderHome slides={SliderHome} className="ImageSlider" />
                   <ModalContent>
                     <h1>Just Do</h1>
                     <p>Get your life more fresh</p>
+                    <br/>
+                    <br/>
                     <button>Click me (누르면 이동 사이트)? </button>
                   </ModalContent>
                   <CloseModalButton
@@ -112,9 +155,9 @@ export const ModalHome = ({showModal, setShowModal, }) => {
                     onClick={() => setShowModal(prev => !prev)}
                   />
                 </ModalWrapper>
-              {/* </animated.div> */}
             </Background>
           ) : null}
+          
         </>
       );
     };
