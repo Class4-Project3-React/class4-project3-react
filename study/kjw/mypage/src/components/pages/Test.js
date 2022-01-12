@@ -12,7 +12,7 @@ function Test() {
   const [newprofile, setNewprofile] = useState('');
 
   useEffect( () => {
-    Axios.get('http://localhost:3001/api/get').then((response)=>{
+    Axios.get('http://localhost:3001/api/test/get').then((response)=>{
       // console.log(response.data);
       setMypage(response.data);
     })

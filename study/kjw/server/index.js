@@ -31,6 +31,13 @@ app.get("/api/get", (req, res) => {
     });
 });
 
+app.get("/api/test/get", (req, res) => {
+    const sqlSelect = "SELECT * FROM test;"
+    db.query(sqlSelect, (err, result) => {
+        res.send(result);
+    });
+});
+
 app.post("/api/insert", (req, res) => {
 
     const name = req.body.name;
