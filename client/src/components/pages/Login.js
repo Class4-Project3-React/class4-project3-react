@@ -142,9 +142,9 @@ const Login = () => {
                 // The setItem() method of the Storage interface, when passed a key name and value, will add that key to the given Storage object, or update that key's value if it already exists.
                 // https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem
                 sessionStorage.setItem('user_id', inputId)
+                // 작업 완료 되면 페이지 이동(새로고침)
+                document.location.href = '/'
             }
-            // 작업 완료 되면 페이지 이동(새로고침)
-            document.location.href = '/'
         })
         .catch()
     }
