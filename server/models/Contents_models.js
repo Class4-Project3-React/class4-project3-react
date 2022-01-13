@@ -1,5 +1,5 @@
 const con = require("../utils/db");
-const modelExports = (module.exports = {});
+const modelExports = module.exports = {};
 const controllers = require("../controllers/controllers");
 require("express");
 
@@ -20,13 +20,13 @@ modelExports.contents_Article_List_DB = () => {
                             console.error("DB response NOT Found");
                         } else {
                             resolve(result);
-                            console.log("READ Success");
+                            console.log("READ Article List Success");
                         }
                     }
                 });
                 connection.release();
             } catch(err) {
-                console.error("pool Error");
+                console.error("pool Error: Article_List", err);
             };
         });
     });
@@ -50,13 +50,13 @@ modelExports.contents_Article_Detail_DB = () => {
                             console.error("DB response NOT Found");
                         } else {
                             resolve(result);
-                            console.log("READ Success");
+                            console.log("READ Article Detail Success");
                         }
                     }
                 });
                 connection.release();
             } catch(err) {
-                console.error("pool Error");
+                console.error("pool Error: Article_Detail");
             };
         });
     });
@@ -81,13 +81,13 @@ modelExports.contents_Article_AddCommentt = () => {
                             console.error("DB response NOT Found");
                         } else {
                             resolve(result);
-                            console.log("INSERT Success");
+                            console.log("INSERT Comment in table Success");
                         }
                     }
                 });
                 connection.release();
             } catch(err) {
-                console.error("pool Error");
+                console.error("pool Error: Add Comment");
             };
         });
     });
