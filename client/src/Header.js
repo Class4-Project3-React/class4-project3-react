@@ -6,37 +6,47 @@ import { useEffect, useState } from 'react';
 
 
 const HeaderNav = styled.div`
+
+  nav {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
   ul {
-    /* background-color: skyblue;  */
     display: flex;
     height: 48px;
     justify-content: space-around;
     align-items: center;
-    padding-left: 0;
   }
 
   li {
-      background-color: #070b4a;
+      background-color: white;
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-around;
-      font-size: 20px;
-      padding-top: 12px
+      font-size: 24px;
+      padding-top: 12px;
   }
 
   li:hover {
-      background-color: white;
+      background-color: #070b4a;
+      transform: scale(1.1);
+      transition: all 0.1s linear;
       p {
-        color: #070b4a;
+        color: white;
       }
   }
 
   p {
-    color: white;
+    color: #070b4a;
   }
 
+  /* 밑줄 제거 */
+  a {
+    text-decoration: none;
+  }
 
   /* 폰트 */
   font-family: 'Roboto', sans-serif;
@@ -70,11 +80,9 @@ const Header = () => {
             <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
             <nav>
               <ul>
-                
                   <NavLink to="/" ><img alt="test" className="LogoImg" src={logo} width={240}/></NavLink>
-                
                 <li><NavLink to="/contents" ><p>Contents</p></NavLink></li>
-                <li><NavLink to="/bordList" ><p>Board</p></NavLink></li>
+                <li><NavLink to="/boardList" ><p>Board</p></NavLink></li>
                 <li><NavLink to="/mypage" ><p>MySchedule</p></NavLink></li>
                 <li style={ isLogin ? { display: 'none' } : { display: 'inline-flex' }}><NavLink to="/login" ><p>Login</p></NavLink></li>
                 <li style={ isLogin ? { display: 'inline-flex' } : { display: 'none' }}><NavLink to="/logout" ><p>Logout</p></NavLink></li>
