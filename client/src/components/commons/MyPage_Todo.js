@@ -54,14 +54,14 @@ function MyPageTodo() {
     const [mypage, setMypage] = useState([]);
 
     useEffect( () => {
-        Axios.get('http://54.180.117.235:3001/api/get').then((response)=>{
+        Axios.get('http://localhost:3001/api/get').then((response)=>{
           // console.log(response.data);
           setMypage(response.data);
         })
       }, [])
     
     const deleteReview = (title) => {
-    Axios.delete(`http://54.180.117.235:3001/api/delete/${title}`);
+    Axios.delete(`http://54.localhost:3001/api/delete/${title}`);
     }
 
     function modalChange() {
