@@ -14,7 +14,7 @@ function App() {
       {/* <Menu /> */}
             <Routes>
               {/* <Route exact path="/" element={<Home/>}/> */}
-              <Route path="/contents" element={<Contents/>}/>
+              {/* <Route path="/contents" element={<Contents/>}/> */}
               {/* <Route path="/boardlist" element={<BoardList/>}/> */}
               <Route path="/mypage" element={<MyPage/>}/>
               <Route path="/like" element={<LikePage/>}/>
