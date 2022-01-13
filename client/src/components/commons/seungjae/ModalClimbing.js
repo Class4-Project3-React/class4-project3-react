@@ -13,7 +13,7 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-
+  top:0;
 `;
 
 const ModalWrapper = styled.div`
@@ -95,7 +95,8 @@ const SliderClimbingData ={
   "images" : [
       "climbing1",
       "climbing2",
-      "climbing3"
+      "climbing3",
+      "climbing4"
       
   ]
 }
