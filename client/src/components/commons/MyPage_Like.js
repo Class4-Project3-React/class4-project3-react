@@ -18,8 +18,8 @@ import img3 from '../../assets/img/my_test3.png'
 const LikeCSS = styled.div`
 
     .body{
-        margin-left: 20%;
-        margin-right: 20%;
+        padding-left: 20%;
+        padding-right: 20%;
         text-align: center;
     }
 

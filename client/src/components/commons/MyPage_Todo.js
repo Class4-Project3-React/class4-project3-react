@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import styled from "styled-components";
-import { Button } from 'react-bootstrap';
+import { CloseButton, Button } from 'react-bootstrap';
 import TodoModal from "./MyPage_TodoModal";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,14 +15,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const TodoCSS = styled.div`
 
     .body{
-        margin-left: 20%;
-        margin-right: 20%;
+        padding-left: 20%;
+        padding-right: 20%;
         text-align: center;
+        font-family: 'Roboto', sans-serif;
     }
 
     .container {
         /* background-color: rgb(226, 226, 226); */
-        font-family: 'Roboto', sans-serif;
     }
 
     .col-md-4 {
@@ -30,19 +30,26 @@ const TodoCSS = styled.div`
     }
 
     .item {
-        background-color: rgb(226, 226, 226);
-        border-radius: 15px;
-        border: solid gray 1px;
+        border-radius: 12px;
+        border: solid #000957 1px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: white;
         margin : 10px;
+        padding-left: 15px;
+        padding-right: 15px;
         /* height: 150px; */
     }
 
     .item h4 {
-        margin: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .x_button{
-        margin: 10px;
+        margin-bottom: 15px;
+        display: flex;
+        margin-left: auto;
+        
     }
 `
 function MyPageTodo() {
@@ -100,11 +107,12 @@ function MyPageTodo() {
                             {mypage.map( (val, i) => {
                                 return (
                                     <>
-                                    <div className="col-md-4" key={i}>
+                                    <div className="col-md-3" key={i}>
                                         <div className="item">
                                             <h4>{val.title}</h4>
                                             <p>{val.contents}</p>
-                                            <Button className='x_button' size="sm" variant="outline-dark" onClick={ () => {deleteReview(val.title)}}>X</Button>
+                                            <CloseButton className='x_button' size="sm" variant="outline-dark" onClick={ () => {deleteReview(val.title)}} />
+                                            
                                         </div>
                                     </div>
                                     </>
