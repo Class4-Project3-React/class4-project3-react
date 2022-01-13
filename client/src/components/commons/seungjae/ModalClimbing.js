@@ -28,28 +28,6 @@ const ModalWrapper = styled.div`
   z-index: 10;
   border-radius: 10px;
 
-  .right-arrow {
-  position: absolute;
-  top: 50%;
-  right: 32px;
-  font-size: 3rem;
-  color: black;
-  z-index: 10;
-  cursor: pointer;
-  user-select: none;
-  }
-
-  .left-arrow {
-  position: absolute;
-  top: 50%;
-  left: 32px;
-  font-size: 3rem;
-  color: black;
-  z-index: 10;
-  cursor: pointer;
-  user-select: none;
-  }
-
   .ImgSlider slides{
     width: 100%;
   height: 100%;
@@ -78,6 +56,13 @@ const ModalContent = styled.div`
   }
 `;
 
+const ModalImg = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background: #000;
+`;
+
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
   position: absolute;
@@ -96,7 +81,8 @@ const SliderClimbingData ={
       "climbing1",
       "climbing2",
       "climbing3",
-      "climbing4"
+      "climbing4",
+      "climbing5"
       
   ]
 }
@@ -143,6 +129,7 @@ export const ModalClimbing = ({showModal, setShowModal  }) => {
             <Background ref={modalRef} onClick={closeModal}>
                 {/* 이미지 데이터 가져오기 */}
                 <ModalWrapper showModal={showModal}>
+                  {/* <ModalImg src={require('../../../assets/img/hiking1.png')} /> */}
                   <ImageSliderClimbing slides={SliderClimbing} className="ImageSlider" />
                   <ModalContent>
                     <h1>Just Do</h1>

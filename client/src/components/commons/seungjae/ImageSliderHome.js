@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { SliderData } from './SliderData';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import styled from 'styled-components';
 import Img1 from '../../../assets/img/hometraining1.png'
@@ -9,6 +8,29 @@ import Img4 from '../../../assets/img/hometraining4.png'
 import Img5 from '../../../assets/img/hometraining5.png'
 
 
+const Main11 = styled.div`
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  color: black;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  }
+
+  .left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  color: black;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+`
 
 const ImageSliderHome = ({ slides }) => {
 
@@ -63,21 +85,23 @@ const ImageSliderHome = ({ slides }) => {
   }
 
   return (
-    <div className='slider'>
-      <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
-      <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
-      {SliderData.map((slide, index) => {
-        return (
-            <>
-                <div className={index === current ? 'slide active' : 'slide' } key={index} >
-                {index === current && (
-                  <img src={slide.image} alt='travel imge' className='image' width="100%"/>
-                )}
-                </div>
-            </>
-        )          
-      })}
-    </div>
+    <Main11>
+      <div className='slider'>
+        <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
+        <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+        {SliderData.map((slide, index) => {
+          return (
+              <>
+                  <div className={index === current ? 'slide active' : 'slide' } key={index} >
+                  {index === current && (
+                    <img src={slide.image} alt='travel imge' className='image' width="100%"/>
+                  )}
+                  </div>
+              </>
+          )          
+        })}
+      </div>
+    </Main11>
   );
 };
 
