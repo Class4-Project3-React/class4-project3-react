@@ -5,33 +5,41 @@ import axios from "axios";
 
 const Container = styled.div`
   background-color: mediumaquamarine;
-  margin: 100px;
   h1 {
     text-align: center;
   }
+  font-family: "Roboto", sans-serif;
+  padding-left: 120px;
+  padding-right: 120px;
 `;
 
 const ParentDiv = styled.div`
   background-color: moccasin;
-  width: 100%;
+  width: calc(100vw-120px);
   display: flex;
 `;
 
 const ChildDiv = styled.div`
   background-color: yellow;
-  width: 1440px;
+  width: 100%;
   height: 500px;
   display: flex;
+  float: left;
   justify-content: center;
+  flex-direction: row;
   margin-top: 2vw;
   overflow: scroll;
+  ul {
+    width: 100%;
+    padding-right: 2rem;
+  };
 `;
 
 const Image = styled.img`
-  width: calc(1440px / 6);
-  height: calc(1440px / 6);
-  margin-right: 10px;
+  width: calc(100%/4); /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
+  height: calc(1440px/5); /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
   margin-top: 10px;
+  margin-right: 10px; /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
   cursor: pointer;
 `;
 
@@ -73,61 +81,59 @@ const Art_Desc = styled.div`
 // 댓글
 const Comm_Container = styled.div`
   background-color: lightgray;
-`
+`;
 const Comm_Id = styled.div`
   background-color: green;
-`
+`;
 const Comm_Desc = styled.div`
   background-color: khaki;
-`
+`;
 const Comm_Date = styled.div`
   background-color: lavender;
-`
+`;
 const Comm_Input = styled.div`
   background-color: ivory;
-`
+`;
 
 Modal.setAppElement("#root");
 
 const CommentDiv = React.memo(function CommentDiv({ comm }) {
   return (
-    <Comm_Container> 여기는 나중에 db에 받은 값만 적는 곳
-      <Comm_Id>id</Comm_Id>
-      <Comm_Desc>내용</Comm_Desc>
-      <Comm_Date>날짜</Comm_Date>
+    <Comm_Container>
+      <Comm_Id>{comm.id}</Comm_Id>
+      <Comm_Desc>{comm.text}</Comm_Desc>
+      <Comm_Date>{comm.date_comment}</Comm_Date>
     </Comm_Container>
   );
 });
 
 export function CommentWrite({ addComment, page_no }) {
-  const [addtext, setText] = useState('초기값');
-  // console.log(addtext);
-  // console.log(page_no);
-  const onSubmit = e => {
-    // setText(test);
-    const no = page_no
-    // const comment = e.target.value;
-    // e.perventDefault(); // 기능 안될 때, 나중에 삭제 고려해볼 것
-    
+  const [addtext, setText] = useState('');
+  
+  const onChange = (e) => setText(e.target.value)
+  const onSubmit = () => {
+    const no = page_no;
+
     axios
-    .post("http://localhost:3001/contents/articles/comments", { text : "test1", no : no })
-    .then(res => setText("잘가져오는가?", res))
-    .catch((error) => 
-    console.log("addComment Error: ", error));
-    
-    setText(''); // input 초기화
-  }
+      .post("http://localhost:3001/contents/articles/comments", {
+        text: addtext,
+        no: no,
+      })
+      .then((res) => setText(res))
+      .catch((error) => console.log("addComment Error: ", error));
+
+    setText(""); // input 초기화
+  };
 
   return (
     <Comm_Input>
-      <input
-        value="test"
-        placeholder="댓글을 작성해주세요!"
-      />
-      <button type="submit" onClick={onSubmit}>등록</button>
+      <input value={addtext} placeholder="댓글을 작성해주세요!" onChange={onChange}/>
+      <button type="submit" onClick={onSubmit}>
+        등록
+      </button>
     </Comm_Input>
   );
-};
+}
 
 const ModalDiv = React.memo(function ModalDiv({ show, autoClose, detail }) {
   return (
@@ -138,15 +144,15 @@ const ModalDiv = React.memo(function ModalDiv({ show, autoClose, detail }) {
     >
       <ModalContainer>
         <Art_Image>
-            <Image src={`../../assets/img/${detail.img}.jpg`} />
-          </Art_Image>
-          <Art_Media>{detail.media}</Art_Media>
-          <Art_Title>{detail.title}</Art_Title>
-          <Art_Date>{detail.date}</Art_Date>
-          <Art_Editor>{detail.editor}</Art_Editor>
-        <Art_Desc>{detail.desc}</Art_Desc>
-        {/* <CommentDiv/> */}
-        <CommentWrite page_no={detail.no}/>
+          <Image src={`../../assets/img/${detail.img}.jpg`} />
+        </Art_Image>
+        <Art_Media>{detail[0].media}</Art_Media>
+        <Art_Title>{detail[0].title}</Art_Title>
+        <Art_Date>{detail[0].date_article}</Art_Date>
+        <Art_Editor>{detail[0].editor}</Art_Editor>
+        <Art_Desc>{detail[0].desc}</Art_Desc>
+        {detail.map(todo => (<CommentDiv key={todo.no} comm={todo} />))}
+        <CommentWrite page_no={detail[0].no} />
       </ModalContainer>
     </Modal>
   );
@@ -172,11 +178,11 @@ const CardDiv = React.memo(function CardDiv({}) {
 
     axios
       .post("http://localhost:3001/contents/articles", { no: no })
-      .then((res) => setDetail(res.data.result))
+      .then((res) => {setDetail(res.data.result); console.log(res.data.result)})
       .catch((error) => {
         console.log("Post Article Detail Error", error);
       });
-      // ★여기다가 댓글 get용 axios get 작성
+    // ★여기다가 댓글 get용 axios get 작성
   };
 
   const ClickAndESC = () => {
@@ -192,11 +198,7 @@ const CardDiv = React.memo(function CardDiv({}) {
           onClick={() => handle(todo.no)}
         />
       ))}
-        <ModalDiv
-          show={show}
-          autoClose={() => ClickAndESC()}
-          detail={detail}
-        />
+      <ModalDiv show={show} autoClose={() => ClickAndESC()} detail={detail} />
     </il>
   );
 });
@@ -216,4 +218,4 @@ function ContentsArticle({ addComment }) {
   );
 }
 
-export default ContentsArticle
+export default ContentsArticle;
