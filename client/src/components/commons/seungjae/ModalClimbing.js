@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {MdClose} from 'react-icons/md'
 import ImageSliderClimbing from "./ImageSliderClimbing";
+import { NavLink } from "react-router-dom";
 
 
 const Background = styled.div`
@@ -29,7 +30,7 @@ const ModalWrapper = styled.div`
   border-radius: 10px;
 
   .ImgSlider slides{
-    width: 100%;
+  width: 100%;
   height: 100%;
   border-radius: 10px 0 0 10px;
   background: #000;
@@ -54,6 +55,14 @@ const ModalContent = styled.div`
     color: #fff;
     border: none;
   }
+
+  a{
+    text-decoration: none;
+    color: white;
+  }
+
+
+
 `;
 
 const ModalImg = styled.img`
@@ -62,6 +71,7 @@ const ModalImg = styled.img`
   border-radius: 10px 0 0 10px;
   background: #000;
 `;
+
 
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
@@ -94,7 +104,8 @@ const SliderClimbing = SliderClimbingData.images.map( img =>{
 
 
 export const ModalClimbing = ({showModal, setShowModal  }) => {
-    
+    // 스크롤바 위치를 가져오거나 설정해야된다던지, 또는 포커스를 설정해줘야된다던지 등 정말 다양한 상황
+    // hooks
     const modalRef = useRef()
 
     // 모달 바깥 부분 클릭시 clsoe
@@ -115,7 +126,9 @@ export const ModalClimbing = ({showModal, setShowModal  }) => {
 
     // 함수호출
     // 위에 함수가 100번이라도 재호출 되면 짜증나므로
+    // componentDidMount, componentDidUpdate와 같은 방식으로
     useEffect(() => {
+        // 브라우저 API를 이용하여 key를 업데이트합니다.
         document.addEventListener('keydown', keyPress);
         return () => document.removeEventListener('keydown',keyPress);
     },[keyPress])
@@ -136,8 +149,8 @@ export const ModalClimbing = ({showModal, setShowModal  }) => {
                     <p>Get your life more fresh</p>
                     <br/>
                     <br/>
-                    <button>Click me (누르면 이동 사이트)? </button>
-                  </ModalContent>
+                    <button><NavLink to="/login" ><a>Join us</a></NavLink></button>
+                    </ModalContent>
                   <CloseModalButton
                     aria-label='Close modal'
                     onClick={() => setShowModal(prev => !prev)}

@@ -1,11 +1,8 @@
 import React, {useRef, useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {MdClose} from 'react-icons/md'
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import ImageSliderSport from "./ImageSliderSport";
-
-// import {useSpring, animated} from 'react-spring'
-// import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import { NavLink } from "react-router-dom";
 
 
 const Background = styled.div`
@@ -39,17 +36,12 @@ const ModalWrapper = styled.div`
   background: #000;
   background-color: grey;
   }
+  a{
+    text-decoration: none;
+    color: white;
+  }
   
 `;
-
-// // 모달 이미지 설정 해보기
-// const ImageSlider1  = styled.slides`
-//   width: 100%;
-//   height: 100%;
-//   border-radius: 10px 0 0 10px;
-//   background: #000;
-//   background-color: grey;
-// `;
 
 
 const ModalContent = styled.div`
@@ -137,7 +129,7 @@ export const ModalSport = ({showModal, setShowModal  }) => {
                     <p>Get your life more fresh</p>
                     <br/>
                     <br/>
-                    <button>Click me (누르면 이동 사이트)? </button>
+                    <button><NavLink to="/login" ><a>Join us</a></NavLink></button>
                   </ModalContent>
                   <CloseModalButton
                     aria-label='Close modal'
