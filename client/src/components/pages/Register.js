@@ -1,7 +1,8 @@
-// css
+
 import styled from "styled-components";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import { NavLink } from 'react-router-dom';
 // css
 const RegisterStyle = styled.div`
 *,
@@ -93,20 +94,10 @@ label {
     color: black;
 }
 
-/* 로그인 관련 에러메시지 */
-.success-msg,
-.err-msg {
-    color: #dc3545;
-    border: 1px solid #dc3545;
-    padding: 10px;
-    border-radius: 3px;
+.registerText {
+    color: white;
 }
 
-.success-msg {
-    color: #ffffff;
-    background-color: #20c997;
-    border-color: rgba(0, 0, 0, 0.1);
-}
 `
 
 
@@ -165,8 +156,8 @@ const Register = () => {
                     <input type="text" className="input" name="input_name" autoComplete="off" id="user_name" value={inputName} onChange={handleInputName} placeholder="Enter your name" />
                     <input type="email" className="input" name="input_email" autoComplete="off" id="user_email" value={inputEmail} onChange={handleInputEmail} placeholder="Enter your email" />
                     <input type="password" className="input" name="input_pw" id="user_pass" value={inputPw} onChange={handleInputPw} placeholder="Enter password" />
-                    <button type='button' onClick={onClickRegister}>Register</button>
-                    <div className="link"><a href="./login">Login</a></div>
+                    <button type='button' onClick={onClickRegister}><NavLink to="/login" className="registerText">Register</NavLink></button>
+                    <div className="link"><NavLink to="/login">Login</NavLink></div>
                 </form>
             </div>
         </RegisterStyle>
