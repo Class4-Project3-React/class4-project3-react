@@ -27,7 +27,7 @@ const MainStory = styled.div`
   }
 
   .containerbutton{
-    width: 300px;
+    width: 200px;
     margin: auto;
     /* background-color: red; */
     display: flex;
@@ -35,6 +35,13 @@ const MainStory = styled.div`
     align-items: center;
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .containerbutton:hover{
+    transform: scale(1.1);
+    /* 지정한 사이즈에서 키우기 */
+    /* box-sizing: 0px 0px 15px 10px; */
   }
 
 
@@ -54,6 +61,10 @@ const MainStory = styled.div`
     justify-content: center;
     align-items: center;
     }
+  
+  .Image:hover{
+    background: silver;
+  }
 
   
 
@@ -67,6 +78,8 @@ const MainStory = styled.div`
     font-size: 24px;
     cursor: pointer;
   }
+  font-family: 'Roboto', sans-serif;
+
 `;
 
 
@@ -108,95 +121,89 @@ function Home() {
     <>
       {/* <Container> */}
         <MainStory >
-            <div className='container11'>
-                    <div className='containerbutton' >
-                        <div className="Image" onClick={openModal1}>
-                            <img src={realman} width="100%" height="100%" />
-                            
-                        </div>
-                        <div className='containertext'>
-                            HOME_T
-                        </div>
-                    </div>
-                <ModalHome showModal={showModal1} setShowModal={setShowModal1} />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
+              <div className='container11'>
+                      <div className='containerbutton' >
+                          <div className="Image" onClick={openModal1}>
+                              <img src={realman} width="100%" height="100%" />
+                              
+                          </div>
+                          <div className='containertext'>
+                              Home_T
+                          </div>
+                      </div>
+                  <ModalHome showModal={showModal1} setShowModal={setShowModal1} />
 
-                {/* 크로스핏 */}
-                <div className='containerbutton' >
-                    <div className="Image" onClick={openModal2}>
-                        <img src={require('../../assets/img/CrossfitMain.png')} width="100%" height="100%" />
-                        
-                    </div>
-                    <div className='containertext'>
-                        Crossfit
-                    </div>
-                </div>
-                <ModalCross showModal={showModal2} setShowModal={setShowModal2} />
+                  {/* 크로스핏 */}
+                  <div className='containerbutton' >
+                      <div className="Image" onClick={openModal2}>
+                          <img src={require('../../assets/img/CrossfitMain.png')} width="100%" height="100%" />
+                          
+                      </div>
+                      <div className='containertext'>
+                          Crossfit
+                      </div>
+                  </div>
+                  <ModalCross showModal={showModal2} setShowModal={setShowModal2} />
 
-                {/* sport */}
-                <div className='containerbutton' >
-                    <div className="Image" onClick={openModal3}>
-                        <img src={require('../../assets/img/SportMain.png')} width="100%" height="100%" />
-                        
-                    </div>
-                    <div className='containertext'>
-                        Sport
-                    </div>
-                </div>
-                <ModalSport showModal={showModal3} setShowModal={setShowModal3} />
+                  {/* sport */}
+                  <div className='containerbutton' >
+                      <div className="Image" onClick={openModal3}>
+                          <img src={require('../../assets/img/SportMain.png')} width="100%" height="100%" />
+                          
+                      </div>
+                      <div className='containertext'>
+                          Sport
+                      </div>
+                  </div>
+                  <ModalSport showModal={showModal3} setShowModal={setShowModal3} />
 
 
-                {/* climbing */}
-                <div className='containerbutton' >
-                    <div className="Image" onClick={openModal4}>
-                        <img src={require('../../assets/img/climbing1.png')} width="100%" height="100%" />
-                        
-                    </div>
-                    <div className='containertext'>
-                    climbing
-                    </div>
-                </div>
-                <ModalClimbing showModal={showModal4} setShowModal={setShowModal4} />
-                
-                {/* hiking */}
-                <div className='containerbutton' >
-                    <div className="Image" onClick={openModal5}>
-                        <img src={require('../../assets/img/hiking1.png')} width="100%" height="100%" />
-                        
-                    </div>
-                    <div className='containertext'>
-                        hiking
-                    </div>
-                </div>
-                <ModalHiking showModal={showModal5} setShowModal={setShowModal5} />
+                  {/* climbing */}
+                  <div className='containerbutton' >
+                      <div className="Image" onClick={openModal4}>
+                          <img src={require('../../assets/img/climbing1.png')} width="100%" height="100%" />
+                          
+                      </div>
+                      <div className='containertext'>
+                      climbing
+                      </div>
+                  </div>
+                  <ModalClimbing showModal={showModal4} setShowModal={setShowModal4} />
+                  
+                  {/* hiking */}
+                  <div className='containerbutton' >
+                      <div className="Image" onClick={openModal5}>
+                          <img src={require('../../assets/img/hiking1.png')} width="100%" height="100%" />
+                          
+                      </div>
+                      <div className='containertext'>
+                          Hiking
+                      </div>
+                  </div>
+                  <ModalHiking showModal={showModal5} setShowModal={setShowModal5} />
 
-                {/* lesure */}
-                <div className='containerbutton' >
-                    <div className="Image" onClick={openModal6}>
-                        <img src={require('../../assets/img/leisure1.png')} width="100%" height="100%" />
-                        
-                    </div>
-                    <div className='containertext'>
-                        leisure
-                    </div>
-                </div>
-                <ModalLeisure showModal={showModal6} setShowModal={setShowModal6} />
-            </div>
+                  {/* lesure */}
+                  <div className='containerbutton' >
+                      <div className="Image" onClick={openModal6}>
+                          <img src={require('../../assets/img/leisure1.png')} width="100%" height="100%" />
+                          
+                      </div>
+                      <div className='containertext'>
+                          Leisure
+                      </div>
+                  </div>
+                  <ModalLeisure showModal={showModal6} setShowModal={setShowModal6} />
+              </div>
+              
+              
         </MainStory>
     </>
   );
 }
 
-
-// function Home (){
-    
-//     return (
-//         <>
-//             <div>
-//                 <Card/>
-//             </div>
-//     </>
-//     );
-// };
 
 
 

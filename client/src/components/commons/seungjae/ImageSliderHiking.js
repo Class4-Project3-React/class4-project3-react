@@ -29,6 +29,14 @@ const Main11 = styled.div`
   cursor: pointer;
   user-select: none;
 }
+
+.slide_active img{
+    width: 100%;
+    height: 500px;
+    border-radius: 10px 0 0 10px;
+    background: #000;
+  }
+
 `
 
 
@@ -53,18 +61,6 @@ const ImageSliderHiking = ({ slides }) => {
           image:Img5
         }
       ];
-    // const ImgDataCross ={
-    //     "images" : [
-    //         "crossfit1",
-    //         "crossfit2",
-    //         "crossfit3"
-            
-    //     ]
-    // }
-
-    // const MyImagesC = ImgDataCross.images.map( img =>{
-    //     return <img src={require('./components/img/' + img +'.png')} />
-    // })
 
   const [current, setCurrent] = useState(0);
   const length = slides.length;
@@ -91,7 +87,7 @@ const ImageSliderHiking = ({ slides }) => {
         {SliderData.map((slide, index) => {
           return (
               <>
-                  <div className={index === current ? 'slide active' : 'slide' } key={index} >
+                  <div className={index === current ? 'slide_active' : 'slide' } key={index} >
                   {index === current && (
                     <img src={slide.image} alt='travel imge' className='image' max-width="100%" width="auto" display="table"/>
                   )}
