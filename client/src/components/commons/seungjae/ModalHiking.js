@@ -1,7 +1,6 @@
 import React, {useRef, useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {MdClose} from 'react-icons/md'
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import ImageSliderHiking from "./ImageSliderHiking";
 
 
@@ -17,7 +16,7 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-
+  top:0;
 `;
 
 const ModalWrapper = styled.div`
