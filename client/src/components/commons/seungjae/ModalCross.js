@@ -1,7 +1,8 @@
 import React, {useRef, useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {MdClose} from 'react-icons/md'
-import ImageSliderCross from "./ImageSliderSport";
+import ImageSliderCross from "./ImageSliderCross";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -29,13 +30,6 @@ const ModalWrapper = styled.div`
   z-index: 10;
   border-radius: 10px;
 
-  .ImgSlider slides{
-    width: 100%;
-  height: 100%;
-  border-radius: 10px 0 0 10px;
-  background: #000;
-  background-color: grey;
-  }
   
 `;
 
@@ -56,6 +50,10 @@ const ModalContent = styled.div`
     background: #141414;
     color: #fff;
     border: none;
+  }
+  a{
+    text-decoration: none;
+    color: white;
   }
 `;
 
@@ -127,7 +125,7 @@ export const ModalCross = ({showModal, setShowModal  }) => {
                     <p>Get your life more fresh</p>
                     <br/>
                     <br/>
-                    <button>Click me (누르면 이동 사이트)? </button>
+                    <button><NavLink to="/login" ><a>Join us</a></NavLink></button>
                   </ModalContent>
                   <CloseModalButton
                     aria-label='Close modal'

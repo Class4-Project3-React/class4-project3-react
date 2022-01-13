@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useCallback} from "react";
 import styled from "styled-components";
 import {MdClose} from 'react-icons/md'
 import ImageSliderHome from "./ImageSliderHome";
+import { NavLink } from "react-router-dom";
 
 
 const Background = styled.div`
@@ -27,6 +28,7 @@ const ModalWrapper = styled.div`
   position: relative;
   z-index: 10;
   border-radius: 10px;
+
 
   .ImgSlider slides{
     width: 100%;
@@ -54,6 +56,10 @@ const ModalContent = styled.div`
     color: #fff;
     border: none;
   }
+  a{
+    text-decoration: none;
+    color: white;
+  }
 `;
 
 const CloseModalButton = styled(MdClose)`
@@ -71,9 +77,11 @@ const CloseModalButton = styled(MdClose)`
 
 const SliderHomeData ={
   "images" : [
-      "climbing1",
-      "climbing2",
-      "climbing3"
+      "hometraining1",
+      "hometraining2",
+      "hometraining3",
+      "hometraining4",
+      "hometraining5"
       
   ]
 }
@@ -126,7 +134,7 @@ export const ModalHome = ({showModal, setShowModal  }) => {
                     <p>Get your life more fresh</p>
                     <br/>
                     <br/>
-                    <button>Click me (누르면 이동 사이트)? </button>
+                    <button><NavLink to="/login" ><a>Join us</a></NavLink></button>
                   </ModalContent>
                   <CloseModalButton
                     aria-label='Close modal'
