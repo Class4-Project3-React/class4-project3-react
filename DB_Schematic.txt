@@ -44,3 +44,44 @@
             5) desc
             6) img
             7) no_article
+
+> 김재원
+    - table: mypage_profile
+        - column
+            1) id
+            2) name
+            3) profile
+            4) favorite
+
+            # table 작성 sql 작성문
+
+            CREATE TABLE mypage_profile (
+                    id INT(50) AUTO_INCREMENT,
+                    name VARCHAR(255) NOT NULL, 
+                    profile VARCHAR(255) NOT NULL,
+                    favorite VARCHAR(255) NOT NULL, 
+                    PRIMARY KEY (id)
+                );
+
+            # 더미 데이터 입력
+
+            INSERT INTO mypage_profile (name, profile, favorite) VALUE ('Jaewonee', 'wowoooo', 'conding');
+
+    - table: mypage_todo
+        - column
+            1) id
+            2) title
+            3) contents
+
+            # table 작성 sql 작성문
+
+            CREATE TABLE mypage_todo (
+                id INT(50) AUTO_INCREMENT,
+                title VARCHAR(255) NOT NULL, 
+                contents VARCHAR(255) NOT NULL, 
+                PRIMARY KEY (id)
+            );
+
+            # 더미 데이터 입력
+
+            INSERT INTO mypage_todo (title, contents) VALUE ('Todo', 'hard work!!');

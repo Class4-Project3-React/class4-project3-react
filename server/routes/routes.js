@@ -85,5 +85,12 @@ router.post('/onRegister', (req, res) => {
     )
 })
 
+// 재원 mypage router
+router.get("/api/get", controllers.getTodo_Controllers);
+router.post("/api/insert", controllers.postTodo_Controllers);
+router.delete("/api/delete/:title", controllers.deleteTodo_Controllers);
+
+router.get("/api/test/get", controllers.getProfile_Controllers);
+router.put("/api/test/update", controllers.putProfile_Controllers);
 
 module.exports = router;
