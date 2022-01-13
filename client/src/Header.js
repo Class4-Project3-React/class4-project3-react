@@ -28,27 +28,25 @@ const HeaderNav = styled.div`
       justify-content: space-around;
       font-size: 24px;
       padding-top: 12px;
-      /* padding-left: 20px;
-      padding-right: 20px; */
   }
 
   li:hover {
-      /* background-color: white; */
-      transform: scale(1.2);
+      background-color: #070b4a;
+      transform: scale(1.1);
       transition: all 0.1s linear;
       p {
-        color: #070b4a;
+        color: white;
       }
   }
 
   p {
     color: #070b4a;
   }
+
   /* 밑줄 제거 */
   a {
     text-decoration: none;
   }
-
 
   /* 폰트 */
   font-family: 'Roboto', sans-serif;
@@ -82,9 +80,7 @@ const Header = () => {
             <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
             <nav>
               <ul>
-                
                   <NavLink to="/" ><img alt="test" className="LogoImg" src={logo} width={240}/></NavLink>
-                
                 <li><NavLink to="/contents" ><p>Contents</p></NavLink></li>
                 <li><NavLink to="/boardList" ><p>Board</p></NavLink></li>
                 <li><NavLink to="/mypage" ><p>MySchedule</p></NavLink></li>
