@@ -3,7 +3,8 @@ const modelExports = module.exports = {};
 const controllers = require("../controllers/controllers");
 require("express");
 
-//======================일단 내꺼 Test용
+//======================Todo
+
 modelExports.getTodo = () => {
     return new Promise((resolve, reject) => {
         const sqlSelect = `SELECT * FROM mypage_todo;`;
