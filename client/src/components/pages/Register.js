@@ -131,11 +131,11 @@ const Register = () => {
         setInputPw(e.target.value)
     }
     const onClickRegister = () => {
-        console.log('click register')
-        console.log('ID : ', inputId)
-        console.log('Name : ', inputName)
-        console.log('Email : ', inputEmail)
-        console.log('PW : ', inputPw)
+        // console.log('click register')
+        // console.log('ID : ', inputId)
+        // console.log('Name : ', inputName)
+        // console.log('Email : ', inputEmail)
+        // console.log('PW : ', inputPw)
         axios.post('http://localhost:3001/onRegister', null, {
             params: {
                 'user_id': inputId,
