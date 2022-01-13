@@ -101,8 +101,8 @@ const CommentDiv = React.memo(function CommentDiv({ comm }) {
 
 export function CommentWrite({ addComment, page_no }) {
   const [addtext, setText] = useState('초기값');
-  console.log(addtext);
-  console.log(page_no);
+  // console.log(addtext);
+  // console.log(page_no);
   const onSubmit = e => {
     // setText(test);
     const no = page_no
@@ -111,7 +111,7 @@ export function CommentWrite({ addComment, page_no }) {
     
     axios
     .post("http://localhost:3001/contents/articles/comments", { text : "test1", no : no })
-    .then(res => setText(res.data.result))
+    .then(res => setText("잘가져오는가?", res))
     .catch((error) => 
     console.log("addComment Error: ", error));
     
