@@ -27,17 +27,3 @@ exports.contents_Article_AddComment = (req, res) => {
         console.log("Comment Insert Success", result);
     });
 };
-
-exports.ifNotLoggedin = (req, res, next) => {
-    if(!req.session.userID){
-        return res.redirect('/login');
-    }
-    next();
-}
-
-exports.ifLoggedin = (req,res,next) => {
-    if(req.session.userID){
-        return res.redirect('/');
-    }
-    next();
-}
