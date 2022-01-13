@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { SliderData } from './SliderData';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import styled from 'styled-components';
 import Img1 from '../../../assets/img/crossfit1.png'
@@ -85,21 +84,23 @@ const ImageSliderCross = ({ slides }) => {
     return null;
   }
   return (
-    <div className='slider'>
-      <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
-      <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
-      {SliderData.map((slide, index) => {
-        return (
-            <>
-                <div className={index === current ? 'slide active' : 'slide' } key={index} >
-                {index === current && (
-                  <img src={slide.image} alt='travel imge' className='image' max-width="100%" width="auto" display="table"/>
-                )}
-                </div>
-            </>
-        )          
-      })}
-    </div>
+    <Main11>
+      <div className='slider'>
+        <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
+        <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+        {SliderData.map((slide, index) => {
+          return (
+              <>
+                  <div className={index === current ? 'slide active' : 'slide' } key={index} >
+                  {index === current && (
+                    <img src={slide.image} alt='travel imge' className='image' max-width="100%" width="auto" display="table"/>
+                  )}
+                  </div>
+              </>
+          )          
+        })}
+      </div>
+    </Main11>
   );
 };
 

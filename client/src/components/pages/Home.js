@@ -8,9 +8,6 @@ import {ModalClimbing} from '../commons/seungjae/ModalClimbing'
 import {ModalHiking} from '../commons/seungjae/ModalHiking'
 import {ModalLeisure} from '../commons/seungjae/ModalLeisure'
 
-// import { SliderData } from '../commons/SliderData';
-// import { GlobalStyle } from './globalStyles';
-// import Card from './Card';
 
 const MainStory = styled.div`
   .container11{
@@ -38,7 +35,6 @@ const MainStory = styled.div`
     align-items: center;
     position: relative;
     overflow: hidden;
-
   }
 
 
@@ -49,15 +45,14 @@ const MainStory = styled.div`
     position: absolute;
     color: white;
     font-size: 30px;
+    
   }
 
   .Image{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 300px;
     justify-content: center;
     align-items: center;
-
-
     }
 
   

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { SliderData } from './SliderData';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import styled from 'styled-components';
 import Img1 from '../../../assets/img/climbing1.png'
@@ -30,6 +29,12 @@ const Main11 = styled.div`
   cursor: pointer;
   user-select: none;
 }
+`
+const slide_active = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background: #000;
 `
 
 
@@ -85,21 +90,24 @@ const ImageSliderClimbing = ({ slides }) => {
     return null;
   }
   return (
-    <div className='slider'>
-      <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
-      <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
-      {SliderData.map((slide, index) => {
-        return (
-            <>
-                <div className={index === current ? 'slide active' : 'slide' } key={index} >
-                {index === current && (
-                  <img src={slide.image} alt='travel imge' className='image' max-width="100%" width="auto" display="table"/>
-                )}
-                </div>
-            </>
-        )          
-      })}
-    </div>
+    <Main11>
+      <div className='Com'>
+        <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
+        <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+        {SliderData.map((slide, index) => {
+          return (
+              <>
+                  {/* <div className={index === current ? 'slide_active' : 'slide' } key={index} > */}
+                  <div className="slide_active" key={index} >
+                  {index === current && (
+                    <img src={slide.image} alt='travel imge' className='image' max-width="100%" width="auto" display="table"/>
+                  )}
+                  </div>
+              </>
+          )          
+        })}
+      </div>
+    </Main11>
   );
 };
 
