@@ -37,7 +37,7 @@ const Main11 = styled.div`
     border-radius: 10px 0 0 10px;
     background: #000;
   }
-`
+`;
 
 
 
