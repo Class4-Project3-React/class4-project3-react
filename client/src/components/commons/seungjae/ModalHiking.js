@@ -1,10 +1,8 @@
 import React, {useRef, useEffect, useCallback} from "react";
-// import {useSpring, animated} from 'react-spring'
 import styled from "styled-components";
 import {MdClose} from 'react-icons/md'
-// import { SliderData } from './SliderData';
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
-
+import ImageSliderHiking from "./ImageSliderHiking";
+import { NavLink } from "react-router-dom";
 
 const Background = styled.div`
   width: 100%;
@@ -14,6 +12,8 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+  top:0;
 `;
 
 const ModalWrapper = styled.div`
@@ -27,15 +27,24 @@ const ModalWrapper = styled.div`
   position: relative;
   z-index: 10;
   border-radius: 10px;
-`;
 
-const ModalImg = styled.img`
+  .ImgSlider slides{
+    width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background: #000;
+  background-color: grey;
+  }
+
+  .ImageSliderHiking img{
   width: 100%;
   height: 100%;
   border-radius: 10px 0 0 10px;
   background: #000;
-  /* background-color: grey; */
+  background-color: grey;
+  }
 `;
+
 
 
 const ModalContent = styled.div`
@@ -54,6 +63,10 @@ const ModalContent = styled.div`
     color: #fff;
     border: none;
   }
+  a{
+    text-decoration: none;
+    color: white;
+  }
 `;
 
 const CloseModalButton = styled(MdClose)`
@@ -67,22 +80,24 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
+// 이미지 데이터
+const SliderHikingData ={
+  "images" : [
+      "hiking1",
+      "hiking2",
+      "hiking3",
+      "hiking4",
+      "hiking5"
+  ]
+}
 
-export const Modal = ({showModal, setShowModal, }) => {
+const SliderHiking = SliderHikingData.images.map( img =>{
+  return <img src={require('../../../assets/img/' + img +'.png')} />
+})
+
+export const ModalHiking = ({showModal, setShowModal  }) => {
     
     const modalRef = useRef()
-
-    // 애니메이션 가쟈오기, 구성
-    // const animation = useSpring({
-    //     config: {
-    //         duration: 250
-    //     },
-    //     // 모달 표시 아니면 0
-    //     // true or false
-    //     opacity: showModal ? 1:0,
-    //     transform: showModal? `translateY(0%)` : `translateY(-100%)`
-
-    // })
 
     // 모달 바깥 부분 클릭시 clsoe
     const closeModal = e => {
@@ -100,7 +115,6 @@ export const Modal = ({showModal, setShowModal, }) => {
         }
     },[setShowModal,showModal]);
 
-
     // 함수호출
     // 위에 함수가 100번이라도 재호출 되면 짜증나므로
     useEffect(() => {
@@ -108,26 +122,28 @@ export const Modal = ({showModal, setShowModal, }) => {
         return () => document.removeEventListener('keydown',keyPress);
     },[keyPress])
 
+    
     return (
         <>
           {showModal ? (
             <Background ref={modalRef} onClick={closeModal}>
-              {/* <animated.div style={animation}> */}
                 <ModalWrapper showModal={showModal}>
-                  <ModalImg src={require('../../assets/img/sport1.png')} alt='camera' />
+                  <ImageSliderHiking slides={SliderHiking} className="ImageSlider" />
                   <ModalContent>
                     <h1>Just Do</h1>
                     <p>Get your life more fresh</p>
-                    <button>Click me (누르면 이동 사이트)? </button>
+                    <br/>
+                    <br/>
+                    <button><NavLink to="/login" ><a>Join us</a></NavLink></button>
                   </ModalContent>
                   <CloseModalButton
                     aria-label='Close modal'
                     onClick={() => setShowModal(prev => !prev)}
                   />
                 </ModalWrapper>
-              {/* </animated.div> */}
             </Background>
           ) : null}
+          
         </>
       );
     };

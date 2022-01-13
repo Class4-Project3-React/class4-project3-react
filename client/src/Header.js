@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 import logo from "../src/assets/img/logo.png"
-
+import { useEffect, useState } from 'react';
 
 
 const HeaderNav = styled.div`
@@ -40,13 +40,28 @@ const HeaderNav = styled.div`
 
   /* 폰트 */
   font-family: 'Roboto', sans-serif;
-
-
 `
 
 
 
 const Header = () => {
+    // 로그인 상태 관리
+    const [isLogin, setIsLogin] = useState(false)
+
+    useEffect(() => {
+      if(sessionStorage.getItem('user_id') === null){
+        // sessionStorage 에 user_id 라는 key 값으로 저장된 값이 없다면
+          console.log('isLogin ? :: ', isLogin)
+      } else {
+      // sessionStorage 에 user_id 라는 key 값으로 저장된 값이 있다면
+      // 로그인 상태 변경
+        setIsLogin(true)
+        console.log('isLogin ? :: ', isLogin)
+      }
+    })
+
+    // 로그인 상태 -> Logout탭 노출, 비로그인 상태 -> Login 탭 노출
+    
     return (
         <>
           <HeaderNav>
@@ -55,13 +70,14 @@ const Header = () => {
             <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
             <nav>
               <ul>
-                <a>
-                  <NavLink to="/" ><img className="LogoImg" src={logo} width={240}/></NavLink>
-                </a>
+                
+                  <NavLink to="/" ><img alt="test" className="LogoImg" src={logo} width={240}/></NavLink>
+                
                 <li><NavLink to="/contents" ><p>Contents</p></NavLink></li>
                 <li><NavLink to="/bordList" ><p>Board</p></NavLink></li>
                 <li><NavLink to="/mypage" ><p>MySchedule</p></NavLink></li>
-                <li><NavLink to="/login" ><p>Login</p></NavLink></li>
+                <li style={ isLogin ? { display: 'none' } : { display: 'inline-flex' }}><NavLink to="/login" ><p>Login</p></NavLink></li>
+                <li style={ isLogin ? { display: 'inline-flex' } : { display: 'none' }}><NavLink to="/logout" ><p>Logout</p></NavLink></li>
               </ul>
             </nav>
           </HeaderNav>
