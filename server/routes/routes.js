@@ -4,7 +4,9 @@ const controllers = require("../controllers/controllers");
 const util = require("util")
 const con = require("../utils/db");
 
-router.get('/', controllers.TestControllers); // 권원현 server 및 db 테스트용 router ('/' url 필요하신 분은 삭제하고 쓰셔도 됨)
+router.get('/contents', controllers.contents_Article_List);
+router.post('/contents/articles', controllers.contents_Article_Detail);
+router.post('/contents/articles/comments', controllers.contents_Article_AddComment);
 
 // 로그인 라우터
 router.get('/login', (req, res) => {

@@ -1,7 +1,6 @@
 import "./assets/css/App.css";
-// import Test from "./components/pages/Test";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, Contents, BordList, User, Login, Logout, Register, MyPage, LikePage } from './components/pages';
+import { Home, Contents, BoardList, User, Login, Logout, Register, MyPage, LikePage } from './components/pages';
 import Menu from './components/Menu';
 // import Card from "./components/pages/Card";
 
@@ -13,7 +12,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Home/>}/>
               <Route path="/contents" element={<Contents/>}/>
-              <Route path="/bordlist" element={<BordList/>}/>
+              <Route path="/boardlist" element={<BoardList/>}/>
               <Route path="/mypage" element={<MyPage/>}/>
               <Route path="/like" element={<LikePage/>}/>
               <Route path="/user" element={<User/>}/>
