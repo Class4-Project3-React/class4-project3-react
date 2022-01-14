@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import Axios from 'axios';
-import img_IU from '../../assets/img/img_IU.jpg';
 // import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 

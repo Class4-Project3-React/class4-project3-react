@@ -28,11 +28,21 @@
     - table: board
         - column
             1) id
-            2) title
-            3) date
-            4) textContent
-            5) imgContent
-            6) no_board
+            2) name
+            3) title
+            4) content
+            5) image
+
+            CREATE TABLE `project3_react`.`board` (
+                id INT NOT NULL AUTO_INCREMENT,
+                `name` VARCHAR(200) NOT NULL,
+                `title` VARCHAR(200) NOT NULL,
+                `content` TEXT(500) NOT NULL,
+                `image` VARCHAR(200),
+                PRIMARY KEY (id))
+                ENGINE = InnoDB
+                DEFAULT CHARACTER SET = utf8
+                COLLATE = utf8_bin;
 
 > 권원현
     - table: cont_article
