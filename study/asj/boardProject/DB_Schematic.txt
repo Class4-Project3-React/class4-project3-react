@@ -1,0 +1,42 @@
+★본인이 필요한 1)Table 이름 + 2)Column 이름(순서 중요) 적을 것
+
+
+> 김진경
+    - table: users
+        -column
+            1) id (PRIMARY KEY)
+            2) name
+            3) email
+            4) password
+
+            - 테이블 작성 sql문
+    
+            CREATE TABLE users
+            (
+                id VARCHAR(255) NOT NULL, 
+                name VARCHAR(255) NOT NULL, 
+                email VARCHAR(255) NOT NULL, 
+                password VARCHAR(255) NOT NULL, 
+                PRIMARY KEY (id)
+            );
+            
+> 안성준
+    - table: board
+        - column
+            1) id
+            2) title
+            3) date
+            4) textContent
+            5) imgContent
+            6) no_board
+
+> 권원현
+    - table: cont_article
+        - column
+            1) media
+            2) editor
+            3) date
+            4) title
+            5) desc
+            6) img
+            7) no_article

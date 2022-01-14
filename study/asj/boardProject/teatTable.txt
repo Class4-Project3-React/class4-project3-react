@@ -1,0 +1,42 @@
+SELECT * FROM express_db.users;
+SELECT * FROM express_db;
+SELECT * FROM project3_react.board;
+
+SELECT * FROM project3_react.board;
+
+SELECT * FROM project3_react.board where id = 20;
+SELECT * FROM board where id = 20;
+
+use project3_react;
+
+INSERT INTO `project3_react`.`board` (`id`, `title`, `content`) VALUES ('1', '123', 'qwe');
+INSERT INTO board (`id`, `title`, `content`) VALUES ('1', '123', 'qwe');
+
+INSERT INTO `express_db`.`users` (`id`, `name`, `email`) VALUES ('1', 'John', 'Johm@example.com');
+INSERT INTO `express_db`.`users` (`id`, `name`, `email`) VALUES ('2', 'June', 'June@example.com');
+
+UPDATE `express_db`.`users` SET `id` = '2' WHERE (`id` = '3');
+UPDATE `express_db`.`users` SET `name` = 'Jack', `email` = 'jack@exsample.co.jp' WHERE (`id` = '4');
+
+DELETE FROM `express_db`.`users` WHERE (`id` = '2');
+
+CREATE TABLE users (
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL
+    );
+    
+CREATE TABLE `project3_react`.`board` (
+  id INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(200) NOT NULL,
+  `title` VARCHAR(200) NOT NULL,
+  `content` TEXT(500) NOT NULL,
+  `image` VARCHAR(200),
+  PRIMARY KEY (id))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin;
+
+ALTER TABLE `project3_react`.`board` ADD name VARCHAR(200) NOT NULL;
+ALTER TABLE `project3_react`.`board` ADD image VARCHAR(200) NOT NULL;
+
