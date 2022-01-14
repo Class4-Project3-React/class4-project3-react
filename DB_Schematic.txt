@@ -44,6 +44,8 @@
                 DEFAULT CHARACTER SET = utf8
                 COLLATE = utf8_bin;
 
+            INSERT INTO board (id, name, title, content, image) VALUE ('25', '안성준', '아이유', '아이유', 'http://localhost:3000/upload/d9dbd43b-e8a7-4dad-90e0-5b895a0f7645.gif');
+
 > 권원현
     - table: cont_article
         - column
