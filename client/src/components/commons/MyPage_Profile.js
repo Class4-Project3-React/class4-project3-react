@@ -57,7 +57,7 @@ const ProfileCSS = styled.div`
 
     .profile_text h3{
         width: 200%;
-        border-bottom : solid black 2px;
+        border-bottom : solid lightgray 2px;
         padding: 10px;
     }
 
