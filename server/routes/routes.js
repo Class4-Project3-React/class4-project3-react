@@ -4,6 +4,7 @@ const controllers = require("../controllers/controllers");
 const util = require("util")
 const con = require("../utils/db");
 
+// Contents
 router.get('/contents', controllers.contents_Article_List);
 router.post('/contents/articles', controllers.contents_Article_Detail);
 router.post('/contents/articles/comments', controllers.contents_Article_AddComment);

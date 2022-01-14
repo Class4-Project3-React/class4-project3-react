@@ -37,7 +37,7 @@ const Main11 = styled.div`
     background: #000;
   }
 
-`
+`;
 
 
 

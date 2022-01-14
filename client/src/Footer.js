@@ -4,8 +4,8 @@ import fav from '../src/assets/img/fav.ico'
 
 const Foot = styled.div`
     
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
     
     .footer {
         /* background-color: lightgray; */

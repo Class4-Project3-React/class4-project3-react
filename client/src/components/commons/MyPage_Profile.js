@@ -2,20 +2,24 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import img1 from '../../assets/img/my_test1.png'
 import ProfileModal from "./MyPage_ProfileModal";
 
 const ProfileCSS = styled.div`
 
     .body{
-        margin-left: 20%;
-        margin-right: 20%;
+        padding-left: 20%;
+        padding-right: 20%;
         text-align: center;
         font-family: 'Roboto', sans-serif;
     }
 
     .container {
         height: 200px;
+        border-radius: 12px;
+        border: solid #000957 1px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
     }
 
     .col-md-4 {
@@ -41,11 +45,9 @@ const ProfileCSS = styled.div`
         border-radius: 50%;
     }
 
-    .col-md-8 {
-        /* background-color: lightgreen; */
+    .col-md-6 {
         height: 200px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
         
     }
@@ -53,17 +55,33 @@ const ProfileCSS = styled.div`
         text-align: left;
     }
 
+    .profile_text h3{
+        width: 200%;
+        border-bottom : solid black 2px;
+        padding: 10px;
+    }
+
     .profile_text h4{
         padding: 5px;
+        /* color: gray; */
+    }
+
+    .col-md-2 {
+        height: 200px;
+        align-items: center;
+        display: flex;
+        justify-content: center;        
     }
 
     .option {
         /* background-color: cadetblue; */
         height: 50px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         display: flex;
         align-items: center;
         position: relative;
-        border-top: solid lightgray 1px;
+        border-top: solid #000957 1px;
     }
     .option1 {
         padding: 25px;
@@ -125,30 +143,31 @@ function MyPageProfile() {
                         {mypage.map( (val,i) => {
                             return(
                                 <>                                
-                                <div className="col-md-8">
+                                <div className="col-md-6">
                                     <div className="profile_text">
-                                        <h4>Name : {val.name} </h4>
-                                        <h4>Profile : {val.profile}</h4>
-                                        <h4>Favorite : {val.favorite}</h4>
+                                        <h3> # {val.name} </h3>
+                                        <h4>Profile : {val.profile} </h4>
+                                        <h4>Favorite : {val.favorite} </h4>
                                     </div>
-                                    <div className="profile_btn">
-                                        <button onClick={ () => setOpenModal(true)}>Edit</button>
-                                    </div>
-                                    {openModal && <ProfileModal closeModal={setOpenModal} />}
+                                 
                                 </div>
+                                <div className="col-md-2">
+                                    <Button variant="dark" size="sm" onClick={ () => setOpenModal(true)}>Edit</Button>
+                                </div>
+                                {openModal && <ProfileModal closeModal={setOpenModal} />}
                                 </>
                             )
                         })}
 
                     </div>
                 </div>
-                <br/>
+                <br />
                 {/* ==================== */}
-
                 <div className='option'>
                     <Link className='option1' style={{ textDecoration: 'none' }} to="/mypage">📑 Todo</Link>
                     <Link className='option2' style={{ textDecoration: 'none' }} to="/like">❤️ Like</Link>
                 </div>
+                <br/>
             </div>
         </ProfileCSS>
         </>
