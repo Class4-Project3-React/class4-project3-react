@@ -82,7 +82,7 @@ const Header = () => {
               <ul>
                   <NavLink to="/" ><img alt="test" className="LogoImg" src={logo} width={240}/></NavLink>
                 <li><NavLink to="/contents" ><p>Contents</p></NavLink></li>
-                <li><NavLink to="/boardList" ><p>Board</p></NavLink></li>
+                <li><NavLink to="/board" ><p>Board</p></NavLink></li>
                 <li><NavLink to="/mypage" ><p>MySchedule</p></NavLink></li>
                 <li style={ isLogin ? { display: 'none' } : { display: 'inline-flex' }}><NavLink to="/login" ><p>Login</p></NavLink></li>
                 <li style={ isLogin ? { display: 'inline-flex' } : { display: 'none' }}><NavLink to="/logout" ><p>Logout</p></NavLink></li>

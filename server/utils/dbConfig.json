@@ -1,7 +1,11 @@
 {
     "host" : "localhost",
     "user" : "root",
+<<<<<<< HEAD
     "password" : "thdrn48",
+=======
+    "password" : "root",
+>>>>>>> e12d9233dc63ca5df0ca672e75026364141384f5
     "database" : "project3_react",
     "connectionLimit" : 100
 }
