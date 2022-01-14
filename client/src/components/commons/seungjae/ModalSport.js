@@ -96,7 +96,7 @@ export const ModalSport = ({showModal, setShowModal  }) => {
 
     // 모달 바깥 부분 클릭시 clsoe
     const closeModal = e => {
-        if(modalRef.showModal ===e.target) {
+        if(modalRef.current ===e.target) {
             setShowModal(false);
         }
     }

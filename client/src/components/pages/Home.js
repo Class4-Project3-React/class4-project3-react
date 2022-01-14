@@ -10,12 +10,14 @@ import {ModalLeisure} from '../commons/seungjae/ModalLeisure'
 
 
 const MainStory = styled.div`
+  
   .container11{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     position: relative;
+    /* background-color: mediumaquamarine; */
 
   }
   .container22{
@@ -168,7 +170,7 @@ function Home() {
                           
                       </div>
                       <div className='containertext'>
-                      climbing
+                      Climbing
                       </div>
                   </div>
                   <ModalClimbing showModal={showModal4} setShowModal={setShowModal4} />
