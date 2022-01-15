@@ -4,7 +4,7 @@ const controllers = require("../controllers/controllers");
 require("express");
 
 // Contents_Article_List
-modelExports.contents_Article_List_DB = () => {
+modelExports.contents_Article_List = () => {
   return new Promise((resolve, reject) => {
     let sql = "SELECT * FROM article;";
     con.getConnection((err, connection) => {
@@ -33,7 +33,7 @@ modelExports.contents_Article_List_DB = () => {
 };
 
 // Contents_Article_Modal
-modelExports.contents_Article_Detail_DB = () => {
+modelExports.contents_Article_Detail = () => {
   return new Promise((resolve, reject) => {
     let detailNum = controllers.detailNum;
     let sql = `SELECT A.no, A.media, A.editor, A.editor, A.date_article, A.title, A.desc, A.img, C.id, C.text, C.date_comment
@@ -66,11 +66,12 @@ modelExports.contents_Article_Detail_DB = () => {
 };
 
 // Article_Comment Insert
-modelExports.contents_Article_AddCommentt = () => {
+modelExports.contents_Article_AddComment = () => {
   return new Promise((resolve, reject) => {
     let comment = controllers.comment;
     let page_no = controllers.page_no;
-    let sql = `INSERT INTO comments (id, text, page, page_no) VALUES ('진경이 session', '${comment}', 'Contents', '${page_no}');`;
+    let userid = controllers.userid;
+    let sql = `INSERT INTO comments (id, text, page, page_no) VALUES ('${userid}', '${comment}', 'Contents', '${page_no}');`;
     con.getConnection((err, connection) => {
       try {
         if (err) throw err;
@@ -96,99 +97,33 @@ modelExports.contents_Article_AddCommentt = () => {
   });
 };
 
-//======================일단 내꺼 Test용
-modelExports.getTodo = () => {
-    return new Promise((resolve, reject) => {
-        const sqlSelect = `SELECT * FROM mypage_todo;`;
-        try {
-            db.getConnection((err, connection) => {
-            connection.query(sqlSelect, (err, result, fields) => {
-               resolve(result);
-               console.log("DB READ OK");
-            });
-            connection.release();
-            }); 
-        } catch(err) {
-            console.log("err 내용은", err);
-        }
-})};
+// Article_Comment Read
+modelExports.contents_Article_ReadComment = () => {
+  return new Promise((resolve, reject) => {
+    let no = controllers.no;
+    let sql = `SELECT * FROM comments WHERE page_no='${no}';`;
+    con.getConnection((err, connection) => {
+      try {
+        if (err) throw err;
+        console.log("Connect Success");
 
-modelExports.postTodo = () => {
-    let title = controllers.title;
-    let contents = controllers.contents;
+        connection.query(sql, (err, result, fields) => {
+          if (err) {
+            console.log("Error: ", err);
+          } else {
+            if (result.length === 0) {
+              console.error("DB response NOT Found");
+            } else {
+              resolve(result);
+              console.log("INSERT Comment in table Success");
+            }
+          }
+        });
+        connection.release();
+      } catch (err) {
+        console.error("pool Error: Add Comment");
+      }
+    });
+  });
+};
 
-    return new Promise((resolve, reject) => {
-        const sqlInsert = "INSERT INTO mypage_todo (title, contents) VALUES (?, ?);";
-        try{
-            db.getConnection((err, connection) => {
-                connection.query(sqlInsert, [title, contents], (err, result, fileds) => {
-                    resolve(result);
-                    console.log("Todo insert ok");
-                });
-                connection.release();
-            });
-        } catch(err){
-            console.log("err 내용은", err)
-        }
-    })
-}
-
-modelExports.deleteTodo = () => {
-    let title = controllers.title;
-
-    return new Promise((resolve, reject) => {
-        const sqlDelete = "DELETE FROM mypage_todo WHERE title = ?;";
-        try{
-            db.getConnection((err, connection) => {
-                connection.query(sqlDelete, [title] , (err, result, fileds) => {
-                    resolve(result);
-                    console.log("Todo insert ok");
-                });
-                connection.release();
-            });
-        } catch(err){
-            console.log("err내용은", err)
-        }
-    })
-}
-
-
-//====== Profile
-
-modelExports.getProfile = () => {
-    return new Promise((resolve, reject) => {
-        const sqlSelect = "SELECT * FROM mypage_profile;";
-        try {
-            db.getConnection((err,connection) => {
-                connection.query(sqlSelect, (err, result, fields) => {
-                    resolve(result);
-                    console.log("Profile DB READ OK!")
-                });
-                connection.release();
-            });
-        } catch(err) {
-            console.log("err 내용은", err)
-        }
-    })
-}
-
-modelExports.putProfile = () => {
-    return new Promise((resolve, reject) => {
-        let name = controllers.name;
-        let profile = controllers.profile;
-        let favorite = controllers.favorite;
-
-        const sqlUpdate = "UPDATE mypage_profile SET profile = ?, favorite = ? WHERE name = ?;";
-        try{
-            db.getConnection((err,connection) => {
-                connection.query(sqlUpdate, [profile, favorite ,name], (err, result, fields) => {
-                    resolve(result);
-                    console.log("Profile DB READ OK!")
-                });
-                connection.release();
-            })
-        } catch(err) {
-            console.log("err 내용은", err)
-        }
-    })
-}
