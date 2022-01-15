@@ -145,3 +145,31 @@ modelExports.board_Upload_Models = () => {
 //     console.log(req.file.filename);
 //     res.send('ok');
 // });
+
+modelExports.board_Delete_Models = () => {
+    
+    const id = controllers.id;
+
+    return new Promise ((resolve, reject) => {
+
+        const sql = "DELETE FROM board WHERE id = ?";
+
+        con.getConnection((err, connection) => {
+            try {
+                if (err) throw err;
+                console.log("board_Delete Success")
+                
+                    connection.query(sql, [id], (err, result) => {
+                        if (err){
+                            throw err;
+                        } else {
+                            resolve(result);
+                            console.log("board_Delete result = " + result);
+                        }
+                    });
+            } catch (err) {
+                console.error("board_Delete error", err);
+            }
+        });
+    });
+};
