@@ -130,3 +130,13 @@ exports.board_Upload_Controllers = (req, res) => {
     res.send(result);
   });
 };
+
+// Borad Delete
+exports.board_Delete_Controllers = (req, res) => {
+  
+  exports.id = req.params.id;
+
+  models.board.board_Delete_Models().then((result) => {
+    res.send(result);
+  });
+};

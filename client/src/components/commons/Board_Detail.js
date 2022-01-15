@@ -156,8 +156,21 @@ const BtnContainer = styled.div`
 
 const BtnBox = styled.div`
     /* background-color: red; */
-    width: 120px;
+    width: 290px;
     margin: 0 auto;
+`;
+
+const DeletelBtn = styled.button`
+    background-color: rgb(0, 0, 0, 0);
+    color: #344CB7;
+    font-size: 20px;
+    font-weight: bold;
+    width: 120px;
+    padding: 5px;
+    border: none;
+    border-bottom: solid 1px #000957;
+    cursor: pointer;
+    margin-right: 25px;
 `;
 
 const CancelBtn = styled.button`
@@ -170,6 +183,7 @@ const CancelBtn = styled.button`
     border: none;
     border-bottom: solid 1px #000957;
     cursor: pointer;
+    margin-left: 25px;
 `;
 
 function Board_Detail() {
@@ -193,6 +207,11 @@ function Board_Detail() {
             // console.log('Board_Detail ${data.state.id} = ' + `${data.state.id}`);
         });
     },[]);
+
+    const deleteSubmit = async (id) => {
+        await Axios.delete(`http://localhost:3001/board/delete/${id}`);
+        window.location.href = '/board';
+    }
 
     return(
         <>
@@ -235,6 +254,7 @@ function Board_Detail() {
 
                             <BtnContainer>
                                 <BtnBox>
+                                    <DeletelBtn onClick={() => {deleteSubmit(item.id)}}>DELETE</DeletelBtn>
                                     <Link to={"/board"}>
                                         <CancelBtn>BACK</CancelBtn>
                                     </Link>
