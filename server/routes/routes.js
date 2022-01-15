@@ -128,6 +128,6 @@ const upload = multer({
 router.get('/board/get', controllers.board_List_Controllers);
 router.get('/board/detail/:id', controllers.board_Detail_Controllers);
 router.post('/board/Insert', upload.single('image'), controllers.board_Insert_Controllers);
-
+router.post('/board/ImageUpload', upload.single('image'), controllers.board_Upload_Controllers);
 
 module.exports = router;

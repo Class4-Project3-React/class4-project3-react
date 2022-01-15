@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from "styled-components";
 import Axios from 'axios';
 // import { Link } from 'react-router-dom';
@@ -91,11 +91,16 @@ function Board_List() {
         await Axios.get("http://localhost:3001/board/get")
         .then((res) => {
             setBoardGetData(res.data);
-          console.log(res);
+            // console.log("Board_List res = " + res);
+            // console.log("Board_List res.data = " + res.data);
+            // console.log("Board_List res.data[0].id = " + res.data[1].id);
         });
     },[]);
 
-
+    // setBoardGetData({ ...boardGetData });
+    
+    
+    
     // <h2>
     //     TEST: 
     //     {item.id}
@@ -118,10 +123,10 @@ function Board_List() {
                                             // state: {id: item.id}
                                             state={{
                                                 id: item.id,
-                                                name: item.name,
-                                                title: item.title,
-                                                content: item.content,
-                                                image: item.image
+                                            //     name: item.name,
+                                            //     title: item.title,
+                                            //     content: item.content,
+                                            //     image: item.image
                                             }} 
                                                 // id: item.id
                                         >
@@ -147,9 +152,16 @@ function Board_List() {
                                         </BoardWriter>
                                     </InfoBox>
                                 </BoardBox>
+                                
                             </BoardContainer>
                     );
                 })}
+                
+                <Link to="/board/Write">
+                    <button>
+                        글씄ㅅ
+                    </button>
+                </Link>
             </BoardComponent>
         </>
         

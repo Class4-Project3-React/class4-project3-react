@@ -11,9 +11,10 @@ function Board () {
     return (
         <>
             <Board_List />
-            <Board_Write />
+            {/* <Board_Write /> */}
             {/* <Board_Detail /> */}
         </>
+        
         // <>
         //     <Route exact path="/board" element={<Board_List/>}/>
         //     <Route path="/board/write" element={<Board_Write/>}/>

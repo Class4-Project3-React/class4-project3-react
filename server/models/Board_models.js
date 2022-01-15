@@ -50,23 +50,24 @@ modelExports.board_List_Models = () => {
 modelExports.board_Detail_Models = () => {
     return new Promise((resolve, reject) => {
 
-        const id = req.body.id;
-        const sql = `SELECT * FROM board where id = ${id}`;
+        const id = controllers.id;
+        console.log("디테일 접속 ID = " + id);
+        const sql = `SELECT * FROM board where id = ?`;
 
         con.getConnection((err, connection)=>{
             try {
                 if(err) throw err;
                 console.log("board_Dtail Load Success");
 
-                // connection.query(sql, (err, result)=>{
-                //     if(err) {
-                //         throw err
-                //     } else {
-                //         resolve(result);
-                //         console.log('board_List result = ' + result);
-                //     }    
-                // });
-                // connection.release();
+                connection.query(sql, [id], (err, result)=>{
+                    if(err) {
+                        throw err
+                    } else {
+                        resolve(result);
+                        console.log('board_Detail result = ' + result);
+                    }    
+                });
+                connection.release();
 
             } catch (err) {
                 console.error("board_Dtail error", err);
@@ -111,6 +112,35 @@ modelExports.board_Insert_Models = () => {
 
 // // 제출 버튼 사용하여 express 서버에 이미지 업로드
 // // 사용 안할듯 - 게시판 추가 버튼으로 같이 돌리기. = 1
+// app.post('/board/ImageUpload', upload.single('image'), (req, res) => {
+//     console.log(req.file.filename);
+//     res.send('ok');
+// });
+
+// app.post '/board/ImageUpload'
+modelExports.board_Upload_Models = () => {
+    return new Promise ((resolve, reject) => {
+        
+        con.getConnection ((err, connection) => {
+            try {
+                if (err) throw err;
+                console.log("board_Upload Load Success")
+
+                connection.query((err, result) => {
+                    if (err){
+                        throw err;
+                    } else {
+                        resolve(result);
+                        console.log("board_Upload result = " + result);
+                    }
+                });
+            } catch (err) {
+                console.error("board_Upload error", err);
+            }
+        });
+    });
+};
+
 // app.post('/board/ImageUpload', upload.single('image'), (req, res) => {
 //     console.log(req.file.filename);
 //     res.send('ok');

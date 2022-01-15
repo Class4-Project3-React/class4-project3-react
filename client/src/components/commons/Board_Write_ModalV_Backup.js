@@ -189,7 +189,7 @@ const AddBtnImg = styled.img`
 Modal.setAppElement('#root');
 
 function Board_Write () {
-    // const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const [name, setName] = useState("");
     const [title, setTitle] = useState("");
@@ -202,8 +202,8 @@ function Board_Write () {
     const [boardItem, setBoardItem] = useState([]);
 
     const AddSubmit = async (event) => {
-        // event.preventDefault();
-        // setModalIsOpen(false);
+        event.preventDefault();
+        setModalIsOpen(false);
         const formData = new FormData();
         formData.append("name", name);
         formData.append("title", title);
@@ -219,8 +219,6 @@ function Board_Write () {
           console.log(err);
           setImgSrc("");
         }
-
-        window.location.href = '/board';
       };
 
     // const ImgSubmit = async (event) => {
@@ -235,7 +233,7 @@ function Board_Write () {
 
     return (
         <>
-            {/* <Modal 
+            <Modal 
                 isOpen={modalIsOpen} 
                 onRequestClose={() => setModalIsOpen(false)}
                 style={{
@@ -264,7 +262,7 @@ function Board_Write () {
                     textAlign: "center",
                     },
                 }}
-            > */}
+            >
                  <WriteContainer>
                     <ViewTitle>글쓰기</ViewTitle>
                     <NameBox>
@@ -321,20 +319,18 @@ function Board_Write () {
                     </ImageContainer>
 
                     <BtnContainer>
-                        {/* <Link to={"/board"}> */}
-                            {/* <button></button> */}
-                            {/* <AddBtn> ADD </AddBtn> */}
+                        <Link to="/board">
                             <AddBtn onClick={AddSubmit}> ADD </AddBtn>
-                        {/* </Link> */}
-                        {/* <CancelBtn onClick={()=> setModalIsOpen(false)}> CANCEL </CancelBtn> */}
+                        </Link>
+                        <CancelBtn onClick={()=> setModalIsOpen(false)}> CANCEL </CancelBtn>
                     </BtnContainer>
                 </WriteContainer>
-            {/* </Modal> */}
+            </Modal>
 
             <AddBtnContainer>
                 {/* <Link to="/board" > */}
                     <AddBtnImg 
-                        // src={img_Add} onClick={()=> setModalIsOpen(true)}
+                        src={img_Add} onClick={()=> setModalIsOpen(true)}
                     />
                 {/* </Link> */}
                 
