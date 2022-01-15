@@ -1,10 +1,8 @@
-// Root reducer
-
 import { combineReducers } from "redux";
-import ContArticle from "./Contents_Article";
+import ReadArticle from "./Contents_Article";
 
 const rootReducer = combineReducers({
-    ContArticle
+    ReadArticle,
 });
 
 export default rootReducer

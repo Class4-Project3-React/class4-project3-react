@@ -13,8 +13,8 @@ const fs = require('fs');
 
 // Contents
 router.get('/contents', controllers.contents_Article_List);
-router.post('/contents/articles', controllers.contents_Article_Detail);
-router.post('/contents/articles/comments', controllers.contents_Article_AddComment);
+router.post('/contents/articles/addcomments', controllers.contents_Article_AddComment);
+router.post('/contents/article/comments', controllers.contents_Article_ReadComment);
 
 // 로그인 라우터
 router.get('/login', (req, res) => {
@@ -23,7 +23,7 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/onLogin', (req, res) => {
-    console.log(`= = = > req : ${util.inspect(req)}`)
+    // console.log(`= = = > req : ${util.inspect(req)}`)
     // user_id, user_pw 변수로 선언
     const user_id = req.query.user_id
     const user_pw = req.query.user_pw
