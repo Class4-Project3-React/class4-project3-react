@@ -1,7 +1,7 @@
 {
     "host" : "localhost",
     "user" : "root",
-    "password" : "★비밀번호변경★",
+    "password" : "root",
     "database" : "project3_react",
     "connectionLimit" : 100
 }
