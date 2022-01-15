@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { Button,InputGroup,FormControl } from 'react-bootstrap';
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 const Todo_modal = styled.div`
     .todo_modal_container {
@@ -69,7 +70,7 @@ function TodoModal() {
                         />
                     </InputGroup>
                     
-                    <Button variant="secondary" size="sm" onClick={submitReview}>submit</Button>
+                    <Link to="/mypage"><Button variant="secondary" size="sm" onClick={submitReview}>submit</Button></Link>
                 </div>
             </div> 
         </Todo_modal>

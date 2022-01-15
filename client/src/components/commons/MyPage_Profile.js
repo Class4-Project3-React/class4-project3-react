@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 import img1 from '../../assets/img/my_test1.png'
 import ProfileModal from "./MyPage_ProfileModal";
 
+
 const ProfileCSS = styled.div`
 
     .body{
@@ -104,9 +105,9 @@ function MyPageProfile() {
 
     const [openModal, setOpenModal] =useState(false);
 
-    const [name, setName] = useState('');
-    const [profile, setProfile] = useState('');
-    const [favorite, setFavorite] = useState('');
+    // const [name, setName] = useState('');
+    // const [profile, setProfile] = useState('');
+    // const [favorite, setFavorite] = useState('');
     const [mypage, setMypage] = useState([]);
 
     // const [newprofile, setNewprofile] = useState('');
@@ -117,6 +118,7 @@ function MyPageProfile() {
           setMypage(response.data);
         })
       }, [])
+
 
     return (
         <>
@@ -139,26 +141,25 @@ function MyPageProfile() {
                                 <img src={img1} width='100%'></img>
                             </div>
                         </div>
-
-                        {mypage.map( (val,i) => {
+                        {mypage.map( (val, index) => {
                             return(
-                                <>                                
+                                <>                                              
                                 <div className="col-md-6">
-                                    <div className="profile_text">
+                                    <div className="profile_text" >
                                         <h3> # {val.name} </h3>
                                         <h4>Profile : {val.profile} </h4>
                                         <h4>Favorite : {val.favorite} </h4>
                                     </div>
-                                 
                                 </div>
-                                <div className="col-md-2">
-                                    <Button variant="dark" size="sm" onClick={ () => setOpenModal(true)}>Edit</Button>
-                                </div>
-                                {openModal && <ProfileModal closeModal={setOpenModal} />}
                                 </>
                             )
                         })}
 
+                        <div className="col-md-2" >
+                            <Button variant="dark" size="sm" onClick={ () => setOpenModal(true)}>Edit</Button>
+                        </div>
+                        {openModal && <ProfileModal closeModal={setOpenModal} />}
+                        
                     </div>
                 </div>
                 <br />

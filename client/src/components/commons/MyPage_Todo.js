@@ -75,6 +75,9 @@ function MyPageTodo() {
         setModal (!modal);   //! 느낌표 기호는 true 왼쪽에 붙이면 false로 바꿔주고, false왼쪽에선 true
       }  
 
+     // 새로고침 내장함수 추가! }
+
+     
     return (
         <>
         {/* 한글폰트 링크 */}
@@ -107,11 +110,11 @@ function MyPageTodo() {
                             {mypage.map( (val, i) => {
                                 return (
                                     <>
-                                    <div className="col-md-3" key={i}>
+                                    <div className="col-md-3" key={i} >
                                         <div className="item">
                                             <h4>{val.title}</h4>
                                             <p>{val.contents}</p>
-                                            <CloseButton className='x_button' size="sm" variant="outline-dark" onClick={ () => {deleteReview(val.title)}} />
+                                            <CloseButton className='x_button' size="sm" onClick={ () => {deleteReview(val.title)}} />
                                             
                                         </div>
                                     </div>

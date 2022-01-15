@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import { FormControl, Button } from 'react-bootstrap';
 import Axios from "axios";
+import { Link, useLocation } from 'react-router-dom';
+
 
 
 const ModalCSS = styled.div`
@@ -68,6 +70,8 @@ function ProfileModal({ closeModal }) {
     const [newprofile, setNewprofile] = useState('');
     const [newfavorite, setNewfavorite] = useState('');
 
+    const location = {pathname : '/'}
+
     useEffect( () => {
         Axios.get('http://localhost:3001/api/test/get').then((response)=>{
           // console.log(response.data);
@@ -85,6 +89,10 @@ function ProfileModal({ closeModal }) {
     setNewprofile('');
     setNewfavorite('');
     };
+
+    function refreshPage() {
+        window.location.reload(true);
+      }
 
     return(
         <>
@@ -117,7 +125,9 @@ function ProfileModal({ closeModal }) {
                             </div>    
                             <div className="footer">
                                 <br />
+                                {/* <button onClick={location}></button> */}
                                 <Button variant="dark" size="sm" onClick={ () => {updateProfile(val.name)}}>Submint</Button>
+                                {/* <Button variant="dark" size="sm" onClick={ () => {updateProfile(val.name)}}>Submint</Button> */}
                             </div>
                             </>
                         )
