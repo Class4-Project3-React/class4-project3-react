@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import Axios from 'axios';
 // import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import img_Add from '../../assets/img/pencil_01.png';
 
 const BoardComponent = styled.div`
@@ -193,6 +193,11 @@ function Board_List() {
         <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
+
+
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
             <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Roboto:wght@900&display=swap" rel="stylesheet"></link>
 
             <BoardComponent>
@@ -235,7 +240,7 @@ function Board_List() {
 
                                         <InfoBox>
                                         <BoardDate>
-                                            2022.01.02
+                                            {/* 2022.01.02 */}
                                         </BoardDate>
                                         <BoardWriter>
                                             {item.name}
