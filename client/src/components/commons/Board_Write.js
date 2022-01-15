@@ -6,12 +6,40 @@ import Axios from 'axios';
 import img_Add from '../../assets/img/pencil_01.png';
 import Board_List from './Board_List';
 
+const BoardPublicTitle = styled.div`
+    width: 1152px;
+    height: 80px;
+    line-height: 80px;
+    color: #000957;
+    font-size: 35px;
+    border-radius: 12px;
+    border: solid #000957 1px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+
+    margin: 0 auto;
+`;
+
+const BoardLine = styled.div`
+    width: 1152px;
+    height: 20px;
+    border-bottom: solid #000957 1px;
+
+    margin: 0 auto;
+`;
+
 const WriteContainer = styled.div`
     /* background-color: red; */
-    border: 3px solid #000957;
+    border: solid #000957 1px;
     border-radius: 15px;
     padding: 10px;
+    width: 1152px;
     height: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
 `;
 
 const ViewTitle = styled.div`
@@ -235,36 +263,10 @@ function Board_Write () {
 
     return (
         <>
-            {/* <Modal 
-                isOpen={modalIsOpen} 
-                onRequestClose={() => setModalIsOpen(false)}
-                style={{
-                    overlay: {
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    backgroundColor: "rgba(255, 255, 255, 0.75)",
-                    },
-                    content: {
-                    width: "650px",
-                    height: "800px",
-                    position: "absolute",
-                    top: "50%",
-                    left: " 50%",
-                    transform: "translate(-50%, -50%)",
-                    border: "1px solid #eee",
-                    borderRadius: "15px",
-                    background: "#fff",
-                    overflow: "auto",
-                    WebkitOverflowScrolling: "touch",
-                    outline: "none",
-                    padding: "20px",
-                    textAlign: "center",
-                    },
-                }}
-            > */}
+                <BoardPublicTitle>
+
+                </BoardPublicTitle>
+                <BoardLine />
                  <WriteContainer>
                     <ViewTitle>글쓰기</ViewTitle>
                     <NameBox>
@@ -321,23 +323,23 @@ function Board_Write () {
                     </ImageContainer>
 
                     <BtnContainer>
-                        {/* <Link to={"/board"}> */}
+                        
                             {/* <button></button> */}
                             {/* <AddBtn> ADD </AddBtn> */}
                             <AddBtn onClick={AddSubmit}> ADD </AddBtn>
-                        {/* </Link> */}
-                        {/* <CancelBtn onClick={()=> setModalIsOpen(false)}> CANCEL </CancelBtn> */}
+                        <Link to={"/board"}>
+                            <CancelBtn> CANCEL </CancelBtn>
+                        </Link>
+                        
                     </BtnContainer>
                 </WriteContainer>
-            {/* </Modal> */}
 
             <AddBtnContainer>
                 {/* <Link to="/board" > */}
-                    <AddBtnImg 
-                        // src={img_Add} onClick={()=> setModalIsOpen(true)}
-                    />
+                    {/* <AddBtnImg  */}
+                        {/* src={img_Add} onClick={()=> setModalIsOpen(true)} */}
+                    {/* /> */}
                 {/* </Link> */}
-                
             </AddBtnContainer>
         </>
     );

@@ -29,7 +29,12 @@
                 DEFAULT CHARACTER SET = utf8
                 COLLATE = utf8_bin;
 
-            INSERT INTO board (id, name, title, content, image) VALUE ('25', '안성준', '아이유', '아이유', 'http://localhost:3000/upload/d9dbd43b-e8a7-4dad-90e0-5b895a0f7645.gif');
+            INSERT INTO board (id, name, title, content, image) VALUE ('25', '안성준', '단발머리 아이유', '눈물은 나오는데 활짝 웃어 네 앞을 막고서 막 크게 웃어 내가 왜 이러는지? 부끄럼도 없는지? 자존심은 곱게 접어 하늘위로', 'http://localhost:3000/upload/d9dbd43b-e8a7-4dad-90e0-5b895a0f7645.gif');
+            INSERT INTO board (id, name, title, content, image) VALUE ('153', '정태수', '월클쏘니', '쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 ', 'http://localhost:3000/upload/56953390-112a-440a-8865-34f32ae0add2.jpeg');
+            INSERT INTO board (id, name, title, content, image) VALUE ('154', '이시은', '메시', '메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 ', 'http://localhost:3000/upload/7cfb0a78-8b68-4534-a060-b6184ed248ab.jpeg');
+            INSERT INTO board (id, name, title, content, image) VALUE ('155', '최재원', '음바페요새좀함?', '음바페가 잘하냐 음메페가 잘하냐 음바페가 잘하냐 음메페가 잘하냐 음바페가 잘하냐 음메페가 잘하냐 음바페가 잘하냐 음메페가', 'http://localhost:3000/upload/d05fc1f1-1479-4e21-abf0-82a64f8bd1d6.jpeg');
+            INSERT INTO board (id, name, title, content, image) VALUE ('156', '박승재', '선동열이 누구에요?', '선동열이 무등산 폭격기 선동열이 무등산 폭격기 선동열이 무등산 폭격기 선동열이 무등산 폭격기 선동열이 무등산 폭격기', 'http://localhost:3000/upload/39026361-6888-408c-a08c-ce42d2ed1b96.jpeg');
+            INSERT INTO board (id, name, title, content, image) VALUE ('158', '권원현', '박지성은 개고기', '개고기 먹는 박지성 개고기 먹는 박지성 개고기 먹는 박지성 개고기 먹는 박지성 개고기 먹는 박지성 ', 'http://localhost:3000/upload/7a351fa8-6b5b-4972-9da5-4c424aac363b.png');
 
 > 권원현
     - table: articles
