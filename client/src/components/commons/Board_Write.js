@@ -35,7 +35,7 @@ const BoardLine = styled.div`
 
 const WriteContainer = styled.div`
     /* background-color: red; */
-    border: solid #000957 1px;
+    /* border: solid #000957 1px; */
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
     padding: 10px;
@@ -64,28 +64,6 @@ const BoardBackGround = styled.img`
 //     font-weight: bold;
 // `;
 
-const NameBox = styled.div`
-    /* background-color: yellow; */
-    margin-top: 10px;
-`;
-
-const Name = styled.input`
-    /* background-color: green; */
-    width: 500px;
-    margin-left: 326px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: none;
-    font-size: 15px;
-    border-bottom: solid 1px #000957;
-    font-weight: bold;
-    outline : none;
-    background: transparent;
-    &::placeholder {
-        color: #577BC1;
-    }
-`;
-
 const TitleBox = styled.div`
     /* background-color: yellow; */
     margin-top: 10px;
@@ -96,9 +74,33 @@ const Title = styled.input`
     width: 500px;
     margin-left: 326px;
     padding-top: 10px;
+    padding-left: 10px;
     padding-bottom: 10px;
     border: none;
     font-size: 20px;
+    border-bottom: solid 1px #000957;
+    font-weight: bold;
+    outline : none;
+    background: transparent;
+    &::placeholder {
+        color: #577BC1;
+    }
+`;
+
+const NameBox = styled.div`
+    /* background-color: yellow; */
+    margin-top: 10px;
+`;
+
+const Name = styled.input`
+    /* background-color: green; */
+    width: 500px;
+    margin-left: 326px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border: none;
+    font-size: 15px;
     border-bottom: solid 1px #000957;
     font-weight: bold;
     outline : none;
@@ -116,6 +118,9 @@ const ContentBox = styled.div`
 
 const ContentArea = styled.textarea`
     /* background-color: blue; */
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
     width: 600px;
     height: 440px;
     resize: none;
@@ -310,24 +315,26 @@ function Board_Write () {
                  <WriteContainer>
                      <BoardBackGround src={MJ_02} />
                     {/* <ViewTitle>글쓰기</ViewTitle> */}
-                    <NameBox>
-                        <Name 
-                            type='text'
-                            name='name'
-                            onChange={(event) => {
-                                setName(event.target.value)}} 
-                            placeholder='작성자'
-                        />
-                    </NameBox>
                     <TitleBox>
                         <Title 
                             type='text'
                             name='title'
+                            autocomplete='off'
                             onChange={(event) => {
                                 setTitle(event.target.value)}} 
                             placeholder='제목'
                         />
                     </TitleBox>
+                    <NameBox>
+                        <Name 
+                            type='text'
+                            name='name'
+                            autocomplete='off'
+                            onChange={(event) => {
+                                setName(event.target.value)}} 
+                            placeholder='작성자'
+                        />
+                    </NameBox>
                     <ContentBox>
                         <ContentArea
                             type='text'
