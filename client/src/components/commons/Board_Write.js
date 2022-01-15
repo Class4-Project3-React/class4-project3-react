@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import Modal from "react-modal";
 import Axios from 'axios';
-import img_Add from '../../assets/img/pencil_01.png';
-import Board_List from './Board_List';
+// import img_Add from '../../assets/img/pencil_01.png';
+// import MJ_01 from '../../assets/img/MJ_01.jpg';
+import MJ_02 from '../../assets/img/MJ_02.jpg';
+// import Board_List from './Board_List';
 
 const BoardPublicTitle = styled.div`
     width: 1152px;
@@ -35,20 +37,32 @@ const WriteContainer = styled.div`
     /* background-color: red; */
     border: solid #000957 1px;
     border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
     padding: 10px;
     width: 1152px;
     height: 100%;
     margin: 0 auto;
     margin-top: 20px;
+    position: relative;
 `;
 
-const ViewTitle = styled.div`
-    /* background-color: orange; */
-    /* color: rgb(90, 90, 90); */
-    color: #344CB7;
-    font-size: 25px;
-    font-weight: bold;
+const BoardBackGround = styled.img`
+    opacity: 0.5;
+    width: 500px;
+    position: absolute;
+    left: 23%;
+    top: 0%;
+    touch-action:none;
+    z-index: -5;
 `;
+
+// const ViewTitle = styled.div`
+//     /* background-color: orange; */
+//     /* color: rgb(90, 90, 90); */
+//     color: #344CB7;
+//     font-size: 25px;
+//     font-weight: bold;
+// `;
 
 const NameBox = styled.div`
     /* background-color: yellow; */
@@ -57,7 +71,8 @@ const NameBox = styled.div`
 
 const Name = styled.input`
     /* background-color: green; */
-    width: 90%;
+    width: 500px;
+    margin-left: 326px;
     padding-top: 10px;
     padding-bottom: 10px;
     border: none;
@@ -65,6 +80,7 @@ const Name = styled.input`
     border-bottom: solid 1px #000957;
     font-weight: bold;
     outline : none;
+    background: transparent;
     &::placeholder {
         color: #577BC1;
     }
@@ -77,7 +93,8 @@ const TitleBox = styled.div`
 
 const Title = styled.input`
     /* background-color: green; */
-    width: 90%;
+    width: 500px;
+    margin-left: 326px;
     padding-top: 10px;
     padding-bottom: 10px;
     border: none;
@@ -85,6 +102,7 @@ const Title = styled.input`
     border-bottom: solid 1px #000957;
     font-weight: bold;
     outline : none;
+    background: transparent;
     &::placeholder {
         color: #577BC1;
     }
@@ -92,18 +110,20 @@ const Title = styled.input`
 
 const ContentBox = styled.div`
     /* background-color: pink; */
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-left: 43px;
 `;
 
 const ContentArea = styled.textarea`
     /* background-color: blue; */
-    width: 90%;
+    width: 600px;
+    height: 440px;
     resize: none;
     border: none;
     font-size: 15px;
-    height: 240px;
     outline : none;
     border: solid 1px #000957;
+    background: transparent;
     &::placeholder {
         color: #577BC1;
     }
@@ -111,30 +131,33 @@ const ContentArea = styled.textarea`
 
 const ImageContainer = styled.form`
     /* background-color: pink; */
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    top: 25%;
+    left: 63%;
     /* height: 350px; */
     overflow: hidden;
-    position: relative;
+    position: absolute;
 `;
 
 const ImgBox = styled.div`
     /* background-color: yellow; */
-    width: 250px;
-    height: 250px;
+    width: 370px;
+    height: 370px;
     overflow: hidden;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     position: relative;
     border-radius: 10px;
-    border: solid 3px #000957;
+    border: dotted 2px #000957;
+    z-index: 0;
 `;
 
 const ImgEle = styled.img`
     /* background-color: red; */
-    width: 250px;
-    /* width: 300px; */
-    /* height: 300px; */
+    width: 370px;
+    height: 370px;
     border-radius: 10px;
     position: absolute;
+    object-fit: cover;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -145,6 +168,8 @@ const ImageUploadButtonDetail = styled.label`
     background-color: rgb(255, 255, 255, 0.1);
     border-radius: 4px;
     color: #344CB7;
+    text-align: center;
+    vertical-align: middle;
     cursor: pointer;
     font-size: 12px;
     font-weight: bold;
@@ -153,8 +178,8 @@ const ImageUploadButtonDetail = styled.label`
     /* border: none; */
     border: solid 1px #000957;
     position: absolute;
-    top: 85%;
-    left: 50%;
+    bottom: 3%;
+    left: 63%;
     /* transform: translateX(-50%) translateY(-50%); */
 `;
 
@@ -175,6 +200,13 @@ const ImageUpload = styled.input`
 const BtnContainer = styled.div`
     /* background-color: violet; */
     margin-top: 10px;
+    margin-bottom: 8px;
+`;
+
+const BtnBox = styled.div`
+    /* background-color: red; */
+    width: 290px;
+    margin: 0 auto;
 `;
 
 const AddBtn = styled.button`
@@ -208,11 +240,11 @@ const AddBtnContainer = styled.div`
     bottom: 5%;
 `;
 
-const AddBtnImg = styled.img`
-    margin-left: 50%;
-    transform: translate(-50%, 0);
-    width: 70px;
-`;
+// const AddBtnImg = styled.img`
+//     margin-left: 50%;
+//     transform: translate(-50%, 0);
+//     width: 70px;
+// `;
 
 Modal.setAppElement('#root');
 
@@ -227,7 +259,7 @@ function Board_Write () {
     const [fileName, setFileName] = useState("");
     const [imgSrc, setImgSrc] = useState("");
 
-    const [boardItem, setBoardItem] = useState([]);
+    // const [boardItem, setBoardItem] = useState([]);
 
     const AddSubmit = async (event) => {
         // event.preventDefault();
@@ -263,12 +295,21 @@ function Board_Write () {
 
     return (
         <>
-                <BoardPublicTitle>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
 
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Roboto:wght@900&display=swap" rel="stylesheet"></link>
+
+                <BoardPublicTitle>
+                    WRITE DOWN YOUR EXPERIENCES
                 </BoardPublicTitle>
                 <BoardLine />
                  <WriteContainer>
-                    <ViewTitle>글쓰기</ViewTitle>
+                     <BoardBackGround src={MJ_02} />
+                    {/* <ViewTitle>글쓰기</ViewTitle> */}
                     <NameBox>
                         <Name 
                             type='text'
@@ -323,17 +364,16 @@ function Board_Write () {
                     </ImageContainer>
 
                     <BtnContainer>
-                        
+                        <BtnBox>
                             {/* <button></button> */}
                             {/* <AddBtn> ADD </AddBtn> */}
                             <AddBtn onClick={AddSubmit}> ADD </AddBtn>
-                        <Link to={"/board"}>
-                            <CancelBtn> CANCEL </CancelBtn>
-                        </Link>
-                        
+                            <Link to={"/board"}>
+                                <CancelBtn> CANCEL </CancelBtn>
+                            </Link>
+                        </BtnBox>
                     </BtnContainer>
                 </WriteContainer>
-
             <AddBtnContainer>
                 {/* <Link to="/board" > */}
                     {/* <AddBtnImg  */}
