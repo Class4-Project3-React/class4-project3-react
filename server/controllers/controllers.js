@@ -101,7 +101,9 @@ exports.board_List_Controllers = (req, res) => {
 // Board Detail
 exports.board_Detail_Controllers = (req, res) => {
 
-  exports.id = req.body.id;
+  // exports.id = req.body.id;
+  exports.id = req.params.id;
+  console.log("Controllers req.params.id = " + req.params.id)
 
   models.board.board_Detail_Models().then((result) => {
       res.send(result);
@@ -117,6 +119,14 @@ exports.board_Insert_Controllers = (req, res) => {
   exports.image = req.file.filename;;
 
   models.board.board_Insert_Models().then((result) => {
-      res.send(result);
+    // res.redirect('/board');
+    res.send(result);
+  });
+};
+
+// Board Upload
+exports.board_Upload_Controllers = (req, res) => {
+  models.board.board_Upload_Models().then((result) => {
+    res.send(result);
   });
 };
