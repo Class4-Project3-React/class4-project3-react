@@ -13,8 +13,9 @@ const fs = require('fs');
 
 // Contents
 router.get('/contents', controllers.contents_Article_List);
+router.post('/contents/articles/comments', controllers.contents_Article_ReadComment);
 router.post('/contents/articles/addcomments', controllers.contents_Article_AddComment);
-router.post('/contents/article/comments', controllers.contents_Article_ReadComment);
+router.delete('/contents/articles/comments/delete', controllers.contents_Article_DeleteComment);
 
 // 로그인 라우터
 router.get('/login', (req, res) => {
@@ -98,6 +99,7 @@ router.get("/api/get", controllers.getTodo_Controllers);
 router.post("/api/insert", controllers.postTodo_Controllers);
 router.delete("/api/delete/:title", controllers.deleteTodo_Controllers);
 
+router.get("/api/login", controllers.getLogin_Controllers);
 router.get("/api/test/get", controllers.getProfile_Controllers);
 router.put("/api/test/update", controllers.putProfile_Controllers);
 
@@ -128,6 +130,7 @@ const upload = multer({
 router.get('/board/get', controllers.board_List_Controllers);
 router.get('/board/detail/:id', controllers.board_Detail_Controllers);
 router.post('/board/Insert', upload.single('image'), controllers.board_Insert_Controllers);
-
+router.post('/board/ImageUpload', upload.single('image'), controllers.board_Upload_Controllers);
+router.delete('/board/delete/:id', controllers.board_Delete_Controllers);
 
 module.exports = router;

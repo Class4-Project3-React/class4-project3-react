@@ -26,7 +26,7 @@ const TodoCSS = styled.div`
 
     .container {
         background-color: rgb(240, 240, 240);
-        border: solid #000957 1px;
+        /* border: solid #000957 1px; */
         border-radius: 12px;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
         /* color: rgb(90, 90, 90); */
@@ -39,7 +39,7 @@ const TodoCSS = styled.div`
 
     .item {
         border-radius: 12px;
-        border: solid #000957 1px;
+        border: solid #ffffff 1px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         background-color: white;
         margin : 10px;
@@ -76,6 +76,7 @@ function MyPageTodo() {
       }, [])
     
     const deleteReview = (title) => {
+    window.location.href = '/mypage';
     Axios.delete(`http://54.localhost:3001/api/delete/${title}`);
     }
 
@@ -115,18 +116,15 @@ function MyPageTodo() {
                 <div className="container">
                     <div className="row">
                         
-                            {mypage.map( (val, i) => {
+                            {mypage.map( (val) => {
                                 return (
-                                    <>
-                                    <div className="col-md-3" key={i} >
+                                    <div className="col-md-3" key={val.id} >
                                         <div className="item">
                                             <h4>{val.title}</h4>
                                             <p>{val.contents}</p>
                                             <CloseButton className='x_button' size="sm" onClick={ () => {deleteReview(val.title)}} />
-                                            
                                         </div>
                                     </div>
-                                    </>
                                 )
                             })}
                                                 

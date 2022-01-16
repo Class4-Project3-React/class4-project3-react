@@ -40,6 +40,8 @@ function TodoModal() {
             title : title, 
             contents : contents}, 
             ]);
+            
+        window.location.href = '/mypage';
     };        
 
     return(

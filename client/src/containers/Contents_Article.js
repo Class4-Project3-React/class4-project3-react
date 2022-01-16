@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import ContentsArticle from "../components/commons/Contents_Article";
 import { read_article } from "../modules/Contents_Article";

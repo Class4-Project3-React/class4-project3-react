@@ -80,6 +80,23 @@ modelExports.getProfile = () => {
     })
 }
 
+modelExports.getLogin = () => {
+    return new Promise((resolve, reject) => {
+        const sqlSelect = "SELECT * FROM user_inform;";
+        try {
+            con.getConnection((err,connection) => {
+                connection.query(sqlSelect, (err, result, fields) => {
+                    resolve(result);
+                    console.log("Profile DB READ OK!")
+                });
+                connection.release();
+            });
+        } catch(err) {
+            console.log("err 내용은", err)
+        }
+    })
+}
+
 modelExports.putProfile = () => {
     return new Promise((resolve, reject) => {
         let name = controllers.name;

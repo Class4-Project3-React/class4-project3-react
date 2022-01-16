@@ -21,7 +21,7 @@ const ProfileCSS = styled.div`
     .container {
         height: 200px;
         border-radius: 12px;
-        border: solid #000957 1px;
+        /* border: solid #000957 1px; */
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
         background-color: rgb(240, 240, 240);
         /* color: rgb(90, 90, 90); */
@@ -113,6 +113,7 @@ function MyPageProfile() {
     // const [profile, setProfile] = useState('');
     // const [favorite, setFavorite] = useState('');
     const [mypage, setMypage] = useState([]);
+    const [name, setName] = useState([]);
 
     // const [newprofile, setNewprofile] = useState('');
 
@@ -120,6 +121,13 @@ function MyPageProfile() {
         Axios.get('http://localhost:3001/api/test/get').then((response)=>{
           // console.log(response.data);
           setMypage(response.data);
+        })
+      }, [])
+
+    useEffect( () => {
+        Axios.get('http://localhost:3001/api/login').then((response)=>{
+          // console.log(response.data);
+          setName(response.data);
         })
       }, [])
 
@@ -145,19 +153,27 @@ function MyPageProfile() {
                                 <img src={img1} width='100%'></img>
                             </div>
                         </div>
-                        {mypage.map( (val, index) => {
+
+
+                        {mypage.map( (val) => {
                             return(
-                                <>                                              
-                                <div className="col-md-6">
+                                <div className="col-md-6" key={val.id} >
                                     <div className="profile_text" >
                                         <h3> # {val.name} </h3>
                                         <h4>Profile : {val.profile} </h4>
                                         <h4>Favorite : {val.favorite} </h4>
                                     </div>
-                                </div>
-                                </>
+                                </div>                    
                             )
                         })}
+                        
+                   
+
+                        {/* {name.map( (val, i) => {
+                            return(
+                                <div key={i}>{val.user_name}</div>
+                            )
+                        })} */}
 
                         <div className="col-md-2" >
                             <Button variant="dark" size="sm" onClick={ () => setOpenModal(true)}>Edit</Button>

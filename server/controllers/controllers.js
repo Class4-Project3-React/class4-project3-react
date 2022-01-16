@@ -1,7 +1,7 @@
 const session = require("express-session");
 const models = require("../models/models");
 
-// Contents_Article List
+// Contents_Article List READ
 exports.contents_Article_List = (req, res) => {
   models.contents.contents_Article_List().then((result) => {
     res.send({
@@ -10,14 +10,13 @@ exports.contents_Article_List = (req, res) => {
   });
 };
 
-// Contents_Article Card 내용
-exports.contents_Article_Detail = (req, res) => {
-  exports.detailNum = req.body.no;
-  models.contents.contents_Article_Detail().then((result) => {
+// Contents_Article 댓글 READ
+exports.contents_Article_ReadComment = (req, res) => {
+  exports.no = req.body.no;
+  models.contents.contents_Article_ReadComment().then((result) => {
     res.send({
-      result: result,
-    });
-  });
+      result: result
+    })}).catch(err => console.log("컨트롤러 err", err));
 };
 
 // Contents_Article 댓글 INSERT
@@ -30,13 +29,18 @@ exports.contents_Article_AddComment = (req, res) => {
   });
 };
 
-exports.contents_Article_ReadComment = (req, res) => {
-  exports.no = req.body.no;
-  models.contents.contents_Article_ReadComment().then((result) => {
+// Contents_Article 댓글 DELETE
+exports.contents_Article_DeleteComment = (req, res) => {
+  exports.delText = req.body.text;
+  exports.delNo = req.body.no;
+  models.contents.contents_Article_DeleteComment().then((result) => {
     res.send({
       result: result
-    })}).catch(err => console.log("컨트롤러 err", err));
+    });
+    console.log("Delete Comment Success")
+  });
 };
+
 
 //=========================================
 
@@ -76,6 +80,14 @@ exports.getProfile_Controllers = (req, res) => {
     });
 };
 
+exports.getLogin_Controllers = (req, res) => {
+    models.mypage.getLogin().then( (result) => {
+        console.log("Profile : ", result);
+        console.log("Type : ", typeof(result));
+        res.send(result);
+    });
+};
+
 exports.putProfile_Controllers = (req, res) => {
 
     exports.name = req.body.name;
@@ -101,7 +113,9 @@ exports.board_List_Controllers = (req, res) => {
 // Board Detail
 exports.board_Detail_Controllers = (req, res) => {
 
-  exports.id = req.body.id;
+  // exports.id = req.body.id;
+  exports.id = req.params.id;
+  console.log("Controllers req.params.id = " + req.params.id)
 
   models.board.board_Detail_Models().then((result) => {
       res.send(result);
@@ -117,6 +131,24 @@ exports.board_Insert_Controllers = (req, res) => {
   exports.image = req.file.filename;;
 
   models.board.board_Insert_Models().then((result) => {
-      res.send(result);
+    // res.redirect('/board');
+    res.send(result);
+  });
+};
+
+// Board Upload
+exports.board_Upload_Controllers = (req, res) => {
+  models.board.board_Upload_Models().then((result) => {
+    res.send(result);
+  });
+};
+
+// Borad Delete
+exports.board_Delete_Controllers = (req, res) => {
+  
+  exports.id = req.params.id;
+
+  models.board.board_Delete_Models().then((result) => {
+    res.send(result);
   });
 };

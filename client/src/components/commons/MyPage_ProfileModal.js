@@ -4,7 +4,8 @@ import { FormControl, Button } from 'react-bootstrap';
 import Axios from "axios";
 import { Link, useLocation } from 'react-router-dom';
 
-
+const Body = styled.div``
+const Footer = styled.div``
 
 const ModalCSS = styled.div`
     
@@ -80,19 +81,20 @@ function ProfileModal({ closeModal }) {
       }, [])
 
     const updateProfile = (name) => {
-    Axios.put('http://localhost:3001/api/test/update', {
-        name : name, 
-        profile : newprofile,
-        favorite : newfavorite 
-    });
+        window.location.href = '/mypage';
+        
+        Axios.put('http://localhost:3001/api/test/update', {
+            name : name, 
+            profile : newprofile,
+            favorite : newfavorite 
+        }
+        );
 
     setNewprofile('');
     setNewfavorite('');
     };
 
-    function refreshPage() {
-        window.location.reload(true);
-      }
+
 
     return(
         <>
@@ -111,10 +113,9 @@ function ProfileModal({ closeModal }) {
                         <h3>Change Your Profile !</h3>
                     </div>
 
-                    {mypage.map( (val,i) => {
+                    {mypage.map( (val) => {
                         return(
-                            <>
-                            <div className="body">
+                            <Body className="body" key={val.id}>
                                 <br />
                                 <p> Name : {val.name} </p>
                                 <p> Profile : </p>
@@ -122,14 +123,14 @@ function ProfileModal({ closeModal }) {
                                 <br/>
                                 <p> Favorite : </p>
                                 <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" ype='text' onChange={ (e) => {setNewfavorite(e.target.value)}} />
-                            </div>    
-                            <div className="footer">
+                            <Footer>
                                 <br />
                                 {/* <button onClick={location}></button> */}
                                 <Button variant="dark" size="sm" onClick={ () => {updateProfile(val.name)}}>Submint</Button>
                                 {/* <Button variant="dark" size="sm" onClick={ () => {updateProfile(val.name)}}>Submint</Button> */}
-                            </div>
-                            </>
+                            </Footer>
+                            </Body>    
+                            
                         )
                     })}
 
