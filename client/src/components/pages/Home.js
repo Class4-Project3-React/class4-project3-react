@@ -18,6 +18,8 @@ const MainStory = styled.div`
     height: 100vh;
     position: relative;
     /* background-color: mediumaquamarine; */
+    padding-left: 120px;
+    padding-right: 120px;
 
   }
   .container22{
@@ -29,7 +31,7 @@ const MainStory = styled.div`
   }
 
   .containerbutton{
-    width: 200px;
+    width: 150px;
     margin: auto;
     /* background-color: red; */
     display: flex;

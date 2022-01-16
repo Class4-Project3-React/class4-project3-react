@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
 import axios from "axios";
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+  crossorigin="anonymous"
+/>
 
 const Container = styled.div`
   background-color: mediumaquamarine;
@@ -15,29 +22,28 @@ const Container = styled.div`
 
 const ParentDiv = styled.div`
   background-color: moccasin;
-  width: calc(100vw-120px);
+  width: 1152px;
+  margin: auto;
   display: flex;
 `;
 
 const ChildDiv = styled.div`
   background-color: yellow;
   width: 100%;
-  height: 500px;
   display: flex;
   float: left;
   justify-content: center;
   flex-direction: row;
   margin-top: 2vw;
-  overflow: scroll;
+  overflow: hidden;
   ul {
     width: 100%;
     padding-right: 2rem;
-  };
+  }
 `;
 
 const Image = styled.img`
-  width: calc(100%/4); /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
-  height: calc(1440px/5); /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
+  width: calc(1132px/3); /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
   margin-top: 10px;
   margin-right: 10px; /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
   cursor: pointer;
@@ -95,123 +101,162 @@ const Comm_Input = styled.div`
   background-color: ivory;
 `;
 
+// ==============================================================================================
+
 Modal.setAppElement("#root");
 
-const CommentDiv = React.memo(function CommentDiv({ comm }) {
+function CommentDetail({ comm, setRerender }) {
+  const userid = sessionStorage.getItem('user_id');
+  
+  const deleteComment = () => {
+    if (userid !== comm.id) {
+      alert("본인의 댓글이 아닌 것은 삭제할 수 없습니다");
+    }
+    else {
+      if (!window.confirm("댓글을 삭제 하시겠습니까?")) {
+        alert("댓글 삭제가 취소 되었습니다");
+      } else {
+        alert("댓글이 삭제 되었습니다");
+        axios
+          .delete("http://localhost:3001/contents/articles/comments/delete", {
+            data: { text: "작성자에 의해 삭제 된 메시지입니다", no: comm.no },
+          })
+          .then((res) => setRerender("씨발이거네 ㅋㅋ")) // ★리렌더링의 핵심(자식)
+          .catch((err) => console.err(err));
+      }
+    }};
+
   return (
     <Comm_Container>
       <Comm_Id>{comm.id}</Comm_Id>
       <Comm_Desc>{comm.text}</Comm_Desc>
       <Comm_Date>{comm.date_comment}</Comm_Date>
+      <button type="button" onClick={deleteComment}>삭제</button>
     </Comm_Container>
   );
-});
+};
 
-export function CommentWrite({ addComment, page_no }) {
-  const [addtext, setText] = useState('');
-  
-  const onChange = (e) => setText(e.target.value)
-  const onSubmit = () => {
-    const no = page_no;
+function CommentDiv({ page_no }) {
+  const [comment, setComment] = useState("");
+  const [newText, setNew] = useState("");
+  const [reRender, setRerender] = useState(true);
+  const userid = sessionStorage.getItem("user_id");
 
-    axios
-      .post("http://localhost:3001/contents/articles/comments", {
-        text: addtext,
-        no: no,
-      })
-      .then((res) => setText(res))
-      .catch((error) => console.log("addComment Error: ", error));
+  const read_comment = async () => {
+    const readComment = await axios.post(
+      "http://localhost:3001/contents/articles/comments",
+      { no: page_no }
+    );
+    return {
+      payload: readComment.data,
+    };
+  };
 
-    setText(""); // input 초기화
+  useEffect(() => {
+    read_comment().then(function (result) {
+      setComment(result.payload);
+      console.log("무한 렌더링 검사", comment);
+    });
+  }, [reRender]); // ★리렌더링의 핵심(부모)
+
+  const onChange = (e) => {
+    setNew(e.target.value);
+  };
+
+  const addComment = () => {
+    if (userid == null) {
+      alert("로그인 후 이용 가능합니다");
+      setNew("");
+    } else {
+      if (newText == "") {
+        alert("내용을 입력 해주세요");
+        setNew("");
+      } else {
+        axios
+          .post("http://localhost:3001/contents/articles/addcomments", {
+            userid: userid,
+            text: newText,
+            no: page_no,
+          })
+          .then((res) => {
+            setComment(res.data); setRerender(!reRender);
+          });
+        setNew(""); // ★리렌더링의 핵심
+        setRerender(!reRender);
+      }
+    }
   };
 
   return (
-    <Comm_Input>
-      <input value={addtext} placeholder="댓글을 작성해주세요!" onChange={onChange}/>
-      <button type="submit" onClick={onSubmit}>
-        등록
-      </button>
-    </Comm_Input>
+    <>
+      <Comm_Input>
+        <input
+          value={newText}
+          placeholder="댓글을 입력하세요."
+          onChange={onChange}
+        />
+        <button type="submit" onClick={addComment}>등록</button>
+      </Comm_Input>
+      <div>
+        {comment && comment.result.map((todo) => (
+            <CommentDetail key={todo.no} comm={todo} setRerender={setRerender} />
+          ))}
+      </div>
+    </>
   );
 }
 
-const ModalDiv = React.memo(function ModalDiv({ show, autoClose, detail }) {
+const ModalDiv = React.memo(function ModalDiv({ todo, show, close }) {
   return (
     <Modal
       isOpen={show}
-      onRequestClose={autoClose}
+      onRequestClose={close}
       style={{ content: ModalConDesign }}
     >
       <ModalContainer>
         <Art_Image>
-          <Image src={`../../assets/img/${detail.img}.jpg`} />
+          <Image src={require(`../../assets/img/${todo.img}.jpg`)} />
         </Art_Image>
-        <Art_Media>{detail[0].media}</Art_Media>
-        <Art_Title>{detail[0].title}</Art_Title>
-        <Art_Date>{detail[0].date_article}</Art_Date>
-        <Art_Editor>{detail[0].editor}</Art_Editor>
-        <Art_Desc>{detail[0].desc}</Art_Desc>
-        {detail.map(todo => (<CommentDiv key={todo.no} comm={todo} />))}
-        <CommentWrite page_no={detail[0].no} />
+        <Art_Media>{todo.media}</Art_Media>
+        <Art_Title>{todo.title}</Art_Title>
+        <Art_Date>{todo.date_article}</Art_Date>
+        <Art_Editor>{todo.editor}</Art_Editor>
+        <Art_Desc>{todo.desc}</Art_Desc>
+        <CommentDiv page_no={todo.no} />
       </ModalContainer>
     </Modal>
   );
 });
 
-const CardDiv = React.memo(function CardDiv({}) {
+const CardDiv = React.memo(function CardDiv({ todo }) {
   const [show, setShow] = useState(false);
-  const [data, setData] = useState([{ img: "leejung4" }]);
-  const [detail, setDetail] = useState([{}]);
-
-  // console.log("data: ", data.no);
-  // console.log("detail: ", detail);
-
-  const handle = (no) => {
+  const handle = () => {
     setShow(!show);
-
-    axios
-      .get("http://localhost:3001/contents")
-      .then((res) => setData(res.data.result))
-      .catch((error) => {
-        console.log("Get Article List Error", error);
-      });
-
-    axios
-      .post("http://localhost:3001/contents/articles", { no: no })
-      .then((res) => {setDetail(res.data.result); console.log(res.data.result)})
-      .catch((error) => {
-        console.log("Post Article Detail Error", error);
-      });
-    // ★여기다가 댓글 get용 axios get 작성
   };
 
-  const ClickAndESC = () => {
+  const close = () => {
     setShow(false);
   };
 
   return (
-    <il>
-      {data.map((todo) => (
-        <Image
-          key={todo.no}
-          src={require(`../../assets/img/${todo.img}.jpg`)}
-          onClick={() => handle(todo.no)}
-        />
-      ))}
-      <ModalDiv show={show} autoClose={() => ClickAndESC()} detail={detail} />
-    </il>
+    <>
+      <Image
+        src={require(`../../assets/img/${todo.img}.jpg`)}
+        onClick={() => handle()}
+      />
+      <ModalDiv todo={todo} show={show} close={close} />
+    </>
   );
 });
 
-function ContentsArticle({ addComment }) {
+function ContentsArticle({ list }) {
+  const data = list.data;
   return (
     <Container>
-      <h1>Article</h1>
       <ParentDiv>
         <ChildDiv>
-          <ul>
-            <CardDiv />
-          </ul>
+          {data &&
+            data.result.map((todo) => <CardDiv key={todo.no} todo={todo} />)}
         </ChildDiv>
       </ParentDiv>
     </Container>
