@@ -13,8 +13,9 @@ const fs = require('fs');
 
 // Contents
 router.get('/contents', controllers.contents_Article_List);
+router.post('/contents/articles/comments', controllers.contents_Article_ReadComment);
 router.post('/contents/articles/addcomments', controllers.contents_Article_AddComment);
-router.post('/contents/article/comments', controllers.contents_Article_ReadComment);
+router.delete('/contents/articles/comments/delete', controllers.contents_Article_DeleteComment);
 
 // 로그인 라우터
 router.get('/login', (req, res) => {

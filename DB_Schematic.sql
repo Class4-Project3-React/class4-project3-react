@@ -13,7 +13,7 @@
                 PRIMARY KEY (user_id)
             );
             
-            insert into user_inform (user_id, user_name, user_email, user_pw) value ('userId1', 'kjk', 'test@test.com', 'userPw1')
+            insert into user_inform (`user_id`, `user_name`, `user_email`, `user_pw`) value ('userId1', 'kjk', 'test@test.com', 'userPw1')
 
 > 안성준
     - table: board
@@ -29,15 +29,15 @@
                 DEFAULT CHARACTER SET = utf8
                 COLLATE = utf8_bin;
 
-            INSERT INTO board (id, name, title, content, image) VALUE ('25', '안성준', '단발머리 아이유', '눈물은 나오는데 활짝 웃어 네 앞을 막고서 막 크게 웃어 내가 왜 이러는지? 부끄럼도 없는지? 자존심은 곱게 접어 하늘위로', 'http://localhost:3000/upload/d9dbd43b-e8a7-4dad-90e0-5b895a0f7645.gif');
-            INSERT INTO board (id, name, title, content, image) VALUE ('153', '정태수', '월클쏘니', '쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 ', 'http://localhost:3000/upload/56953390-112a-440a-8865-34f32ae0add2.jpeg');
-            INSERT INTO board (id, name, title, content, image) VALUE ('154', '이시은', '메시', '메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 ', 'http://localhost:3000/upload/7cfb0a78-8b68-4534-a060-b6184ed248ab.jpeg');
-            INSERT INTO board (id, name, title, content, image) VALUE ('155', '최재원', '음바페요새좀함?', '음바페가 잘하냐 음메페가 잘하냐 음바페가 잘하냐 음메페가 잘하냐 음바페가 잘하냐 음메페가 잘하냐 음바페가 잘하냐 음메페가', 'http://localhost:3000/upload/d05fc1f1-1479-4e21-abf0-82a64f8bd1d6.jpeg');
-            INSERT INTO board (id, name, title, content, image) VALUE ('156', '박승재', '선동열이 누구에요?', '선동열이 무등산 폭격기 선동열이 무등산 폭격기 선동열이 무등산 폭격기 선동열이 무등산 폭격기 선동열이 무등산 폭격기', 'http://localhost:3000/upload/39026361-6888-408c-a08c-ce42d2ed1b96.jpeg');
-            INSERT INTO board (id, name, title, content, image) VALUE ('158', '권원현', '박지성은 개고기', '개고기 먹는 박지성 개고기 먹는 박지성 개고기 먹는 박지성 개고기 먹는 박지성 개고기 먹는 박지성 ', 'http://localhost:3000/upload/7a351fa8-6b5b-4972-9da5-4c424aac363b.png');
+            INSERT INTO board (`id`, `name`, `title`, `content`, `image`) VALUE ('25', '안성준', '단발머리 아이유', '눈물은 나오는데 활짝 웃어 네 앞을 막고서 막 크게 웃어 내가 왜 이러는지? 부끄럼도 없는지? 자존심은 곱게 접어 하늘위로', 'http://localhost:3000/upload/d9dbd43b-e8a7-4dad-90e0-5b895a0f7645.gif');
+            INSERT INTO board (`id`, `name`, `title`, `content`, `image`) VALUE ('153', '정태수', '월클쏘니', '쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 쏘니가 월클이냐 아니냐 ', 'http://localhost:3000/upload/56953390-112a-440a-8865-34f32ae0add2.jpeg');
+            INSERT INTO board (`id`, `name`, `title`, `content`, `image`) VALUE ('154', '이시은', '메시', '메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 메시냐 호날두냐 ', 'http://localhost:3000/upload/7cfb0a78-8b68-4534-a060-b6184ed248ab.jpeg');
+            INSERT INTO board (`id`, `name`, `title`, `content`, `image`) VALUE ('155', '최재원', '음바페요새좀함?', '음바페가 잘하냐 음메페가 잘하냐 음바페가 잘하냐 음메페가 잘하냐 음바페가 잘하냐 음메페가 잘하냐 음바페가 잘하냐 음메페가', 'http://localhost:3000/upload/d05fc1f1-1479-4e21-abf0-82a64f8bd1d6.jpeg');
+            INSERT INTO board (`id`, `name`, `title`, `content`, `image`) VALUE ('156', '박승재', '선동열이 누구에요?', '선동열이 무등산 폭격기 선동열이 무등산 폭격기 선동열이 무등산 폭격기 선동열이 무등산 폭격기 선동열이 무등산 폭격기', 'http://localhost:3000/upload/39026361-6888-408c-a08c-ce42d2ed1b96.jpeg');
+            INSERT INTO board (`id`, `name`, `title`, `content`, `image`) VALUE ('158', '권원현', '박지성은 개고기', '개고기 먹는 박지성 개고기 먹는 박지성 개고기 먹는 박지성 개고기 먹는 박지성 개고기 먹는 박지성 ', 'http://localhost:3000/upload/7a351fa8-6b5b-4972-9da5-4c424aac363b.png');
 
 > 권원현
-    - table: articles
+    - table: article
     - sql:
             CREATE TABLE article
             (
@@ -51,9 +51,9 @@
                 PRIMARY KEY (no)
             );
 
-            INSERT INTO articles (no, media, editor, date_article, title, desc, img) VALUE ('1', '매일경제', '권원현', '2022-01-12 17:08:22', '타이틀1', '내용1', 'leejung1');
-            INSERT INTO articles (no, media, editor, date_article, title, desc, img) VALUE ('2', '조선일보', '리정', '2022-01-12 17:08:09', '타이틀2', '내용2', 'leejung2');
-            INSERT INTO articles (no, media, editor, date_article, title, desc, img) VALUE ('3', '동아일보', '노제', '2022-01-12 17:07:46', '타이틀3', '내용3', 'leejung3');
+            INSERT INTO article (`no`, `media`, `editor`, `date_article`, `title`, `desc`, `img`) VALUE ('1', '매일경제', '권원현', '2022-01-12 17:08:22', '타이틀1', '내용1', 'leejung1');
+            INSERT INTO article (`no`, `media`, `editor`, `date_article`, `title`, `desc`, `img`) VALUE ('2', '조선일보', '리정', '2022-01-12 17:08:09', '타이틀2', '내용2', 'leejung2');
+            INSERT INTO article (`no`, `media`, `editor`, `date_article`, `title`, `desc`, `img`) VALUE ('3', '동아일보', '노제', '2022-01-12 17:07:46', '타이틀3', '내용3', 'leejung3');
     
     - table: comments
     - sql:
@@ -72,9 +72,9 @@
                 ADD CONSTRAINT FK_comments_page_no_article_no FOREIGN KEY (page_no)
                     REFERENCES article (no) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
-            INSERT INTO comments (no, id, text, date_comment, page, page_no) VALUE ('1', 'null', '첫 댓글', '2022-01-12 17:08:22', 'Contents', '1');
-            INSERT INTO comments (no, id, text, date_comment, page, page_no) VALUE ('2', 'null', '첫 댓글', '2022-01-12 17:08:22', 'Contents', '2');
-            INSERT INTO comments (no, id, text, date_comment, page, page_no) VALUE ('3', 'null', '첫 댓글', '2022-01-12 17:08:22', 'Contents', '3');
+            INSERT INTO comments (`no`, `id`, `text`, `date_comment`, `page`, `page_no`) VALUE ('1', 'null', '첫 댓글', '2022-01-12 17:08:22', 'Contents', '1');
+            INSERT INTO comments (`no`, `id`, `text`, `date_comment`, `page`, `page_no`) VALUE ('2', 'null', '첫 댓글', '2022-01-12 17:08:22', 'Contents', '2');
+            INSERT INTO comments (`no`, `id`, `text`, `date_comment`, `page`, `page_no`) VALUE ('3', 'null', '첫 댓글', '2022-01-12 17:08:22', 'Contents', '3');
 
 > 김재원
     - table: mypage_profile
@@ -87,7 +87,7 @@
                     PRIMARY KEY (id)
                 );
 
-            INSERT INTO mypage_profile (name, profile, favorite) VALUE ('Jaewonee', 'wowoooo', 'conding');
+            INSERT INTO mypage_profile (`name`, `profile`, `favorite`) VALUE ('Jaewonee', 'wowoooo', 'conding');
 
     - table: mypage_todo
     - sql:
@@ -98,4 +98,4 @@
                 PRIMARY KEY (id)
             );
 
-            INSERT INTO mypage_todo (title, contents) VALUE ('Todo', 'hard work!!');
+            INSERT INTO mypage_todo (`title`, `contents`) VALUE ('Todo', 'hard work!!');

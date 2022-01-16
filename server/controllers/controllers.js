@@ -1,7 +1,7 @@
 const session = require("express-session");
 const models = require("../models/models");
 
-// Contents_Article List
+// Contents_Article List READ
 exports.contents_Article_List = (req, res) => {
   models.contents.contents_Article_List().then((result) => {
     res.send({
@@ -10,14 +10,13 @@ exports.contents_Article_List = (req, res) => {
   });
 };
 
-// Contents_Article Card 내용
-exports.contents_Article_Detail = (req, res) => {
-  exports.detailNum = req.body.no;
-  models.contents.contents_Article_Detail().then((result) => {
+// Contents_Article 댓글 READ
+exports.contents_Article_ReadComment = (req, res) => {
+  exports.no = req.body.no;
+  models.contents.contents_Article_ReadComment().then((result) => {
     res.send({
-      result: result,
-    });
-  });
+      result: result
+    })}).catch(err => console.log("컨트롤러 err", err));
 };
 
 // Contents_Article 댓글 INSERT
@@ -30,13 +29,18 @@ exports.contents_Article_AddComment = (req, res) => {
   });
 };
 
-exports.contents_Article_ReadComment = (req, res) => {
-  exports.no = req.body.no;
-  models.contents.contents_Article_ReadComment().then((result) => {
+// Contents_Article 댓글 DELETE
+exports.contents_Article_DeleteComment = (req, res) => {
+  exports.delText = req.body.text;
+  exports.delNo = req.body.no;
+  models.contents.contents_Article_DeleteComment().then((result) => {
     res.send({
       result: result
-    })}).catch(err => console.log("컨트롤러 err", err));
+    });
+    console.log("Delete Comment Success")
+  });
 };
+
 
 //=========================================
 

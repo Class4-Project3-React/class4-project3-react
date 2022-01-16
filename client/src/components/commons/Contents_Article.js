@@ -1,7 +1,14 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
 import axios from "axios";
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+  crossorigin="anonymous"
+/>
 
 const Container = styled.div`
   background-color: mediumaquamarine;
@@ -15,20 +22,20 @@ const Container = styled.div`
 
 const ParentDiv = styled.div`
   background-color: moccasin;
-  width: calc(100vw-120px);
+  width: 1152px;
+  margin: auto;
   display: flex;
 `;
 
 const ChildDiv = styled.div`
   background-color: yellow;
   width: 100%;
-  height: 500px;
   display: flex;
   float: left;
   justify-content: center;
   flex-direction: row;
   margin-top: 2vw;
-  overflow: scroll;
+  overflow: hidden;
   ul {
     width: 100%;
     padding-right: 2rem;
@@ -36,12 +43,7 @@ const ChildDiv = styled.div`
 `;
 
 const Image = styled.img`
-  width: calc(
-    100% / 4
-  ); /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
-  height: calc(
-    1440px / 5
-  ); /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
+  width: calc(1132px/3); /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
   margin-top: 10px;
   margin-right: 10px; /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
   cursor: pointer;
@@ -103,24 +105,46 @@ const Comm_Input = styled.div`
 
 Modal.setAppElement("#root");
 
-const CommentDetail = React.memo(function CommentDetail({ comm }) {
+function CommentDetail({ comm, setRerender }) {
+  const userid = sessionStorage.getItem('user_id');
+  
+  const deleteComment = () => {
+    if (userid !== comm.id) {
+      alert("본인의 댓글이 아닌 것은 삭제할 수 없습니다");
+    }
+    else {
+      if (!window.confirm("댓글을 삭제 하시겠습니까?")) {
+        alert("댓글 삭제가 취소 되었습니다");
+      } else {
+        alert("댓글이 삭제 되었습니다");
+        axios
+          .delete("http://localhost:3001/contents/articles/comments/delete", {
+            data: { text: "작성자에 의해 삭제 된 메시지입니다", no: comm.no },
+          })
+          .then((res) => setRerender("씨발이거네 ㅋㅋ")) // ★리렌더링의 핵심(자식)
+          .catch((err) => console.err(err));
+      }
+    }};
+
   return (
     <Comm_Container>
       <Comm_Id>{comm.id}</Comm_Id>
       <Comm_Desc>{comm.text}</Comm_Desc>
       <Comm_Date>{comm.date_comment}</Comm_Date>
+      <button type="button" onClick={deleteComment}>삭제</button>
     </Comm_Container>
   );
-});
+};
 
-export function CommentDiv({ page_no }) {
-  const [comment, setText] = useState("");
+function CommentDiv({ page_no }) {
+  const [comment, setComment] = useState("");
   const [newText, setNew] = useState("");
+  const [reRender, setRerender] = useState(true);
   const userid = sessionStorage.getItem("user_id");
 
   const read_comment = async () => {
     const readComment = await axios.post(
-      "http://localhost:3001/contents/article/comments",
+      "http://localhost:3001/contents/articles/comments",
       { no: page_no }
     );
     return {
@@ -130,10 +154,10 @@ export function CommentDiv({ page_no }) {
 
   useEffect(() => {
     read_comment().then(function (result) {
-      setText(result.payload);
-      console.log("렌더링 잘되는지?", comment);
+      setComment(result.payload);
+      console.log("무한 렌더링 검사", comment);
     });
-  }, [newText]); // ★리렌더링의 핵심
+  }, [reRender]); // ★리렌더링의 핵심(부모)
 
   const onChange = (e) => {
     setNew(e.target.value);
@@ -148,7 +172,6 @@ export function CommentDiv({ page_no }) {
         alert("내용을 입력 해주세요");
         setNew("");
       } else {
-        console.log("댓글 DB에 넘기기 전", comment);
         axios
           .post("http://localhost:3001/contents/articles/addcomments", {
             userid: userid,
@@ -156,9 +179,10 @@ export function CommentDiv({ page_no }) {
             no: page_no,
           })
           .then((res) => {
-            setText(res.data);
+            setComment(res.data); setRerender(!reRender);
           });
         setNew(""); // ★리렌더링의 핵심
+        setRerender(!reRender);
       }
     }
   };
@@ -171,14 +195,13 @@ export function CommentDiv({ page_no }) {
           placeholder="댓글을 입력하세요."
           onChange={onChange}
         />
-        <button type="submit" onClick={addComment}>
-          등록
-        </button>
+        <button type="submit" onClick={addComment}>등록</button>
       </Comm_Input>
-      {comment &&
-        comment.result.map((todo) => (
-          <CommentDetail key={todo.no} comm={todo} />
-        ))}
+      <div>
+        {comment && comment.result.map((todo) => (
+            <CommentDetail key={todo.no} comm={todo} setRerender={setRerender} />
+          ))}
+      </div>
     </>
   );
 }
@@ -228,7 +251,6 @@ const CardDiv = React.memo(function CardDiv({ todo }) {
 
 function ContentsArticle({ list }) {
   const data = list.data;
-  console.log("최초 기사 data", data);
   return (
     <Container>
       <ParentDiv>
