@@ -56,8 +56,8 @@ const ParentDiv = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  margin-top: 20px;
-  margin-left: 5px;
+  /* margin-top: 20px; */
+  /* margin-left: 5px; */
   cursor: pointer;
 `;
 
@@ -75,30 +75,66 @@ const ModalConDesign = {
 // 모달 inner
 const ModalContainer = styled.div`
   background-color: papayawhip;
-  width: 70vw;
+  width: 40vw;
 `;
+
+const Art_contents1 = styled.div`
+  display: flex;
+  /* 폰트 */
+  font-family: 'Roboto', sans-serif;
+  justify-content: space-between;
+  padding-top: 12px;
+`
+
+const Art_contents2 = styled.div`
+  display: flex;
+  float: right;
+`
+
 const Art_Media = styled.div`
   background-color: red;
+  font-size: 16px;
 `;
 const Art_Title = styled.div`
   background-color: orange;
+  font-family: 'Roboto', 'sans-serif';
+  font-size: 28px;
+
 `;
 const Art_Date = styled.div`
   background-color: yellow;
 `;
 const Art_Editor = styled.div`
   background-color: green;
+  padding-right: 10px;
+  font-size: 16px;
 `;
 const Art_Image = styled.div`
-  background-color: blue;
+  background-color: red;
 `;
 const Art_Desc = styled.div`
   background-color: white;
+  padding-top: 36px;
+  padding-bottom: 36px;
 `;
 
+
 // 댓글
+const Comm_box1 = styled.div`
+  padding-top: 36px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', 'sans-serif';
+`
+
+const Comm_box2 = styled.div`
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+`
+
 const Comm_Container = styled.div`
-  background-color: lightgray;
+  /* background-color: lightgray; */
 `;
 const Comm_Id = styled.div`
   background-color: green;
@@ -140,10 +176,17 @@ function CommentDetail({ comm, setRerender }) {
 
   return (
     <Comm_Container>
-      <Comm_Id>{comm.id}</Comm_Id>
-      <Comm_Desc>{comm.text}</Comm_Desc>
-      <Comm_Date>{comm.date_comment}</Comm_Date>
-      <button type="button" onClick={deleteComment}>삭제</button>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
+      <Comm_box1>
+        <Comm_Id>{comm.id}</Comm_Id>
+        <Comm_Date>{comm.date_comment}</Comm_Date>
+      </Comm_box1>
+      <Comm_box2>
+        <Comm_Desc>{comm.text}</Comm_Desc>
+        <button type="button" onClick={deleteComment}>삭제</button>
+      </Comm_box2>
     </Comm_Container>
   );
 };
@@ -209,6 +252,7 @@ function CommentDiv({ page_no }) {
         />
         <button type="submit" onClick={addComment}>등록</button>
       </Comm_Input>
+      <hr></hr>
       <div>
         {comment && comment.result.map((todo) => (
             <CommentDetail key={todo.no} comm={todo} setRerender={setRerender} />
@@ -220,19 +264,28 @@ function CommentDiv({ page_no }) {
 
 const ModalDiv = React.memo(function ModalDiv({ todo, show, close }) {
   return (
+    
     <Modal
       isOpen={show}
       onRequestClose={close}
       style={{ content: ModalConDesign }}
     >
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
+
       <ModalContainer>
         <Art_Image>
           <Image src={require(`../../assets/img/${todo.img}.jpg`)} />
         </Art_Image>
-        <Art_Media>{todo.media}</Art_Media>
-        <Art_Title>{todo.title}</Art_Title>
-        <Art_Date>{todo.date_article}</Art_Date>
-        <Art_Editor>{todo.editor}</Art_Editor>
+        <Art_contents1>
+          <Art_Title>{todo.title}</Art_Title>
+          <Art_Date>{todo.date_article}</Art_Date>
+        </Art_contents1>
+        <Art_contents2>
+          <Art_Editor>{todo.editor}</Art_Editor>
+          <Art_Media>{todo.media}</Art_Media>
+        </Art_contents2>
         <Art_Desc>{todo.desc}</Art_Desc>
         <CommentDiv page_no={todo.no} />
       </ModalContainer>
