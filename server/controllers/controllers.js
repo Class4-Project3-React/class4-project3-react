@@ -93,6 +93,47 @@ exports.putProfile_Controllers = (req, res) => {
     });
 };
 
+
+//========================================= 로그인, 회원가입
+
+// 로그인 GET
+exports.getLogin = (req, res) => {
+    models.logreg.getLoginDB()
+    // 임시로 값을 넣어 주었다.
+    res.send({data: 'login get 성공'})
+}
+
+// 로그인 POST
+exports.postLogin = (req, res) => {
+    // 입력받은 id,pw를 Login_models에서 사용가능
+    exports.userId = req.query.user_id
+    exports.userPw = req.query.user_pw
+
+    models.logreg.postLoginDB().then((result) => {
+        res.send(result);
+    })
+}
+
+// 회원가입 GET
+exports.getRegister = (req, res) => {
+    models.logreg.getRegisterDB()
+    // 임시로 값을 넣어 주었다.
+    res.send({data: 'register get 성공'})
+}
+
+// 회언가입 POST
+exports.postRegister = (req, res) => {
+    // 입력받은 id,pw를 Login_models에서 사용가능
+    exports.userId = req.query.user_id
+    exports.userPw = req.query.user_pw
+    exports.userName = req.query.user_name
+    exports.userEmail = req.query.user_email
+
+    models.logreg.postRegisterDB().then((result) => {
+        res.send(result)
+    })
+}
+
 //=========================================
 
 // Board List
