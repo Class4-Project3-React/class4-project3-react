@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 <link
   rel="stylesheet"
@@ -11,41 +12,52 @@ import axios from "axios";
 />
 
 const Container = styled.div`
-  background-color: mediumaquamarine;
-  h1 {
-    text-align: center;
+  width: 1152px;
+  margin: 0 auto;
+  clear: both;
+  .parentDiv {
+    justify-content: space-around;
+    background-color: red;
   }
-  font-family: "Roboto", sans-serif;
-  padding-left: 120px;
-  padding-right: 120px;
+  .childDiv {
+    justify-content: space-around;
+    width: calc(1152px/3);
+    height: 350px;
+    overflow: hidden;
+    margin-right: 5px;
+  }
+`;
+
+const TitleDiv = styled.div`
+  height: 80px;
+  line-height: 80px;
+  color: #000957;
+  font-size: 35px;
+  border-radius: 12px;
+  border: solid #000957 1px;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+`
+
+const BoardLine = styled.div`
+  height: 20px;
+  border-bottom: solid #000957 1px;
 `;
 
 const ParentDiv = styled.div`
-  background-color: moccasin;
-  width: 1152px;
   margin: auto;
+  margin-bottom: 200px;
   display: flex;
-`;
-
-const ChildDiv = styled.div`
-  background-color: yellow;
-  width: 100%;
-  display: flex;
-  float: left;
   justify-content: center;
-  flex-direction: row;
-  margin-top: 2vw;
-  overflow: hidden;
-  ul {
-    width: 100%;
-    padding-right: 2rem;
-  }
 `;
 
 const Image = styled.img`
-  width: calc(1132px/3); /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
-  margin-top: 10px;
-  margin-right: 10px; /* 나중에 카드 쓰는 사람끼리 통일할 것 일단 임시로 ㄱㄱ */
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 5px;
   cursor: pointer;
 `;
 
@@ -239,27 +251,37 @@ const CardDiv = React.memo(function CardDiv({ todo }) {
   };
 
   return (
-    <>
-      <Image
-        src={require(`../../assets/img/${todo.img}.jpg`)}
-        onClick={() => handle()}
-      />
-      <ModalDiv todo={todo} show={show} close={close} />
-    </>
+      <div className="col-md-4 childDiv">
+        <Image
+          src={require(`../../assets/img/${todo.img}.jpg`)}
+          onClick={() => handle()}
+        />
+        <ModalDiv todo={todo} show={show} close={close} />
+      </div>
   );
 });
 
 function ContentsArticle({ list }) {
   const data = list.data;
   return (
-    <Container>
-      <ParentDiv>
-        <ChildDiv>
-          {data &&
-            data.result.map((todo) => <CardDiv key={todo.no} todo={todo} />)}
-        </ChildDiv>
-      </ParentDiv>
-    </Container>
+    <>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
+
+      <Container>
+        <TitleDiv>Article</TitleDiv>
+        <BoardLine />
+        <ParentDiv>
+          <div className="row parenDiv">
+            {/* <ChildDiv> */}
+              {data &&
+                data.result.map((todo) => <CardDiv key={todo.no} todo={todo} />)}
+            {/* </ChildDiv> */}
+          </div>
+        </ParentDiv>
+      </Container>
+    </>
   );
 }
 
