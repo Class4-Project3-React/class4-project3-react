@@ -70,7 +70,7 @@ function TodoModal() {
                         />
                     </InputGroup>
                     
-                    <Link to="/mypage"><Button variant="secondary" size="sm" onClick={submitReview}>submit</Button></Link>
+                    <Link to="/mypage"><Button variant="dark" size="sm" onClick={submitReview}>submit</Button></Link>
                 </div>
             </div> 
         </Todo_modal>

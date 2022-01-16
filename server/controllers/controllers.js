@@ -1,8 +1,9 @@
+const session = require("express-session");
 const models = require("../models/models");
 
 // Contents_Article List
 exports.contents_Article_List = (req, res) => {
-  models.contents.contents_Article_List_DB().then((result) => {
+  models.contents.contents_Article_List().then((result) => {
     res.send({
       result: result,
     });
@@ -12,7 +13,7 @@ exports.contents_Article_List = (req, res) => {
 // Contents_Article Card 내용
 exports.contents_Article_Detail = (req, res) => {
   exports.detailNum = req.body.no;
-  models.contents.contents_Article_Detail_DB().then((result) => {
+  models.contents.contents_Article_Detail().then((result) => {
     res.send({
       result: result,
     });
@@ -23,12 +24,21 @@ exports.contents_Article_Detail = (req, res) => {
 exports.contents_Article_AddComment = (req, res) => {
   exports.comment = req.body.text;
   exports.page_no = req.body.no;
-  models.contents.contents_Article_AddCommentt().then((result) => {
-    console.log("Insert Comment Success");
+  exports.userid = req.body.userid;
+  models.contents.contents_Article_AddComment().then((result) => {
+    console.log("Insert Comment Success")
   });
 };
 
-//=============== 재원 controllers ====================
+exports.contents_Article_ReadComment = (req, res) => {
+  exports.no = req.body.no;
+  models.contents.contents_Article_ReadComment().then((result) => {
+    res.send({
+      result: result
+    })}).catch(err => console.log("컨트롤러 err", err));
+};
+
+//=========================================
 
 // Todo
 exports.getTodo_Controllers = (req ,res) => {

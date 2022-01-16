@@ -10,6 +10,8 @@ import ProfileModal from "./MyPage_ProfileModal";
 const ProfileCSS = styled.div`
 
     .body{
+        /* padding-left: 120px;
+        padding-right: 120px; */
         padding-left: 20%;
         padding-right: 20%;
         text-align: center;
@@ -21,6 +23,8 @@ const ProfileCSS = styled.div`
         border-radius: 12px;
         border: solid #000957 1px;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+        background-color: rgb(240, 240, 240);
+        /* color: rgb(90, 90, 90); */
     }
 
     .col-md-4 {

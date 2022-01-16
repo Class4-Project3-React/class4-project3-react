@@ -15,18 +15,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const TodoCSS = styled.div`
 
     .body{
+        /* padding-left: 120px;
+        padding-right: 120px; */
         padding-left: 20%;
         padding-right: 20%;
         text-align: center;
         font-family: 'Roboto', sans-serif;
+        /* background-color: rgb(240, 240, 240); */
     }
 
     .container {
-        /* background-color: rgb(226, 226, 226); */
+        background-color: rgb(240, 240, 240);
+        border: solid #000957 1px;
+        border-radius: 12px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+        /* color: rgb(90, 90, 90); */
     }
 
-    .col-md-4 {
-        /* border: solid black 2px; */
+    .col-md-3 {
+        /* border: solid red 2px; */
+        /* background-color: red; */
     }
 
     .item {
@@ -92,7 +100,7 @@ function MyPageTodo() {
 
         <TodoCSS>
             <div className="body">                
-                <Button variant="secondary" size="sm" onClick={modalChange}>Add your TodoList!</Button>
+                <Button variant="dark" size="sm" onClick={modalChange}>Add your TodoList!</Button>
                 <br/>
                 <div>
                     {
