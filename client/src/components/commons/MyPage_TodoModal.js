@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { Button,InputGroup,FormControl } from 'react-bootstrap';
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 const Todo_modal = styled.div`
     .todo_modal_container {
@@ -30,7 +31,7 @@ function TodoModal() {
     const [mypage, setMypage] = useState([]);
 
     const submitReview = () => {
-        Axios.post('http://localhost:3001/api/insert', {
+        Axios.post('http://54.180.117.235/api/insert', {
             title : title, 
             contents : contents 
         });
@@ -39,6 +40,8 @@ function TodoModal() {
             title : title, 
             contents : contents}, 
             ]);
+            
+        window.location.href = '/mypage';
     };        
 
     return(
@@ -69,7 +72,7 @@ function TodoModal() {
                         />
                     </InputGroup>
                     
-                    <Button variant="secondary" size="sm" onClick={submitReview}>submit</Button>
+                    <Link to="/mypage"><Button variant="dark" size="sm" onClick={submitReview}>submit</Button></Link>
                 </div>
             </div> 
         </Todo_modal>

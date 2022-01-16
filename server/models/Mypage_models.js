@@ -3,7 +3,8 @@ const modelExports = module.exports = {};
 const controllers = require("../controllers/controllers");
 require("express");
 
-//======================일단 내꺼 Test용
+//======================Todo
+
 modelExports.getTodo = () => {
     return new Promise((resolve, reject) => {
         const sqlSelect = `SELECT * FROM mypage_todo;`;
@@ -65,6 +66,23 @@ modelExports.deleteTodo = () => {
 modelExports.getProfile = () => {
     return new Promise((resolve, reject) => {
         const sqlSelect = "SELECT * FROM mypage_profile;";
+        try {
+            con.getConnection((err,connection) => {
+                connection.query(sqlSelect, (err, result, fields) => {
+                    resolve(result);
+                    console.log("Profile DB READ OK!")
+                });
+                connection.release();
+            });
+        } catch(err) {
+            console.log("err 내용은", err)
+        }
+    })
+}
+
+modelExports.getLogin = () => {
+    return new Promise((resolve, reject) => {
+        const sqlSelect = "SELECT * FROM user_inform;";
         try {
             con.getConnection((err,connection) => {
                 connection.query(sqlSelect, (err, result, fields) => {

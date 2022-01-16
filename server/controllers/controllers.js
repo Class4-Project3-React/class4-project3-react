@@ -80,6 +80,14 @@ exports.getProfile_Controllers = (req, res) => {
     });
 };
 
+exports.getLogin_Controllers = (req, res) => {
+    models.mypage.getLogin().then( (result) => {
+        console.log("Profile : ", result);
+        console.log("Type : ", typeof(result));
+        res.send(result);
+    });
+};
+
 exports.putProfile_Controllers = (req, res) => {
 
     exports.name = req.body.name;
