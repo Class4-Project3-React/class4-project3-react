@@ -167,7 +167,7 @@ function Board_List() {
     const [boardGetData, setBoardGetData] = useState([]);
 
     useEffect(async () => {
-        await Axios.get("http://54.180.117.235/board/get")
+        await Axios.get("http://52.78.37.198/board/get")
         .then((res) => {
             setBoardGetData(res.data);
             // console.log("Board_List res = " + res);
