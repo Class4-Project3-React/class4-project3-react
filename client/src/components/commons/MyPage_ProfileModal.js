@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
+import { FormControl, Button } from 'react-bootstrap';
 import Axios from "axios";
 
 
@@ -20,8 +21,8 @@ const ModalCSS = styled.div`
     }
 
     .modalContainer {
-        width: 500px;
-        height: 500px;
+        width: 450px;
+        height: 450px;
         border-radius: 12px;
         background-color: white;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -99,7 +100,7 @@ function ProfileModal({ closeModal }) {
                         <button onClick={ ()=> closeModal(false)}>X</button>
                     </div>
                     <div className="title">
-                        <h2>Change Your Profile !</h2>
+                        <h3>Change Your Profile !</h3>
                     </div>
 
                     {mypage.map( (val,i) => {
@@ -108,12 +109,15 @@ function ProfileModal({ closeModal }) {
                             <div className="body">
                                 <br />
                                 <p> Name : {val.name} </p>
-                                <p> Profile : <input type='text' onChange={ (e) => {setNewprofile(e.target.value)}} /> </p>
-                                <p> Favorite : <input type='text' onChange={ (e) => {setNewfavorite(e.target.value)}} /> </p>
+                                <p> Profile : </p>
+                                <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" ype='text' onChange={ (e) => {setNewprofile(e.target.value)}} />
+                                <br/>
+                                <p> Favorite : </p>
+                                <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" ype='text' onChange={ (e) => {setNewfavorite(e.target.value)}} />
                             </div>    
                             <div className="footer">
                                 <br />
-                                <button onClick={ () => {updateProfile(val.name)}}>Submint</button>
+                                <Button variant="dark" size="sm" onClick={ () => {updateProfile(val.name)}}>Submint</Button>
                             </div>
                             </>
                         )

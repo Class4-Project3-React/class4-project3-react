@@ -113,14 +113,14 @@ export const ModalHiking = ({showModal, setShowModal  }) => {
             setShowModal(false)
             console.log('click');
         }
-    },[setShowModal,showModal]);
+    },[setShowModal,showModal]); //호출
 
     // 함수호출
     // 위에 함수가 100번이라도 재호출 되면 짜증나므로
     useEffect(() => {
         document.addEventListener('keydown', keyPress);
         return () => document.removeEventListener('keydown',keyPress);
-    },[keyPress])
+    },[keyPress]) //호출 키프레스 호출
 
     
     return (

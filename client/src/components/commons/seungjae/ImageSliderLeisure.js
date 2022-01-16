@@ -36,7 +36,7 @@ const Main11 = styled.div`
     border-radius: 10px 0 0 10px;
     background: #000;
   }
-`
+`;
 
 
 
@@ -86,7 +86,7 @@ const ImageSliderLeisure = ({ slides }) => {
         {SliderData.map((slide, index) => {
           return (
               <>
-                  <div className={index === current ? 'slide_active' : 'slide' } key={index} >
+                  <div className={index === current ? 'slide_active' : 'slide' }  >
                   {index === current && (
                     <img src={slide.image} alt='travel imge' className='image' max-width="100%" width="auto" display="table"/>
                   )}

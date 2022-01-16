@@ -1,38 +1,28 @@
 import axios from "axios";
 
 // 1) action type
-const ADD_COMMENT = "contents/article/ADD_COMMENT";
+const READ_ARTICLE = "contents/article/READ_ARTICLE";
 
 // 2) action creator
-export const add_comment = (text, no) => ({
-  type: ADD_COMMENT,
-  text,
-  no,
-});
+export const read_article = async () => {
+  const readArticle = await axios.get("http://localhost:3001/contents");
+  return {
+    type: READ_ARTICLE,
+    payload: readArticle.data
+  };
+}
 
 const initialState = [
   {
-    text: '모듈쪽 초기값',
-    no: 1,
+    data: {}
   },
 ];
 
 // 3) reducer
-export default function ContArticle(state = initialState, action) {
+export default function ReadArticle(state = initialState, action) {
   switch (action.type) {
-    case ADD_COMMENT:
-      return state
-      // axios
-      //     .post("http://localhost:3001/contents/articles/comments",
-      //     {
-      //       no: "testNumber"
-      //     })
-      //     .then(function (response) {
-      //       console.log(response + "test");
-      //     })
-      //     .catch((error) => {
-      //       console.log(error.response);
-      //     })
+    case READ_ARTICLE:
+      return { ...state, data: {...action.payload} };
     default:
       return state;
     };

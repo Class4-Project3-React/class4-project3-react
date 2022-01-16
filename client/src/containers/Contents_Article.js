@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import ContentsArticle, { CommentWrite } from "../components/commons/Contents_Article";
-import { add_comment } from "../modules/Contents_Article";
+import ContentsArticle from "../components/commons/Contents_Article";
+import { read_article } from "../modules/Contents_Article";
 
 function ArticleContainer() {
-    const todos = useSelector(state => state.ContArticle);
+    const readArticle = useSelector(state => state.ReadArticle);
     const dispatch = useDispatch();
 
-    const addComment = () => dispatch(add_comment());
+    useEffect(() => {
+        read_article().then(function(result) {
+            dispatch(result)
+        }).catch(err => console.err("dispatch 에러 내용:", err))
+    }, []);
 
-    return <ContentsArticle addComment={addComment} />
+    return (
+        <div>
+                <ContentsArticle list={readArticle} />
+        </div>
+    );
 };
 
 export default ArticleContainer
