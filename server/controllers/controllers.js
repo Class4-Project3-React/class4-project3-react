@@ -106,8 +106,19 @@ exports.getRegister = (req, res) => {
     // 임시로 값을 넣어 주었다.
     res.send({data: 'register get 성공'})
 }
-// 회언가입 POST
 
+// 회언가입 POST
+exports.postRegister = (req, res) => {
+    // 입력받은 id,pw를 Login_models에서 사용가능
+    exports.userId = req.query.user_id
+    exports.userPw = req.query.user_pw
+    exports.userName = req.query.user_name
+    exports.userEmail = req.query.user_email
+
+    models.logreg.postRegisterDB().then((result) => {
+        res.send(result)
+    })
+}
 
 
 
