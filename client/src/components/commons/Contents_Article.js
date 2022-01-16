@@ -130,7 +130,7 @@ function CommentDetail({ comm, setRerender }) {
       } else {
         alert("댓글이 삭제 되었습니다");
         axios
-          .delete("http://localhost:3001/contents/articles/comments/delete", {
+          .delete("http://54.180.117.235/contents/articles/comments/delete", {
             data: { text: "작성자에 의해 삭제 된 메시지입니다", no: comm.no },
           })
           .then((res) => setRerender("씨발이거네 ㅋㅋ")) // ★리렌더링의 핵심(자식)
@@ -156,7 +156,7 @@ function CommentDiv({ page_no }) {
 
   const read_comment = async () => {
     const readComment = await axios.post(
-      "http://localhost:3001/contents/articles/comments",
+      "http://54.180.117.235/contents/articles/comments",
       { no: page_no }
     );
     return {
@@ -185,7 +185,7 @@ function CommentDiv({ page_no }) {
         setNew("");
       } else {
         axios
-          .post("http://localhost:3001/contents/articles/addcomments", {
+          .post("http://54.180.117.235/contents/articles/addcomments", {
             userid: userid,
             text: newText,
             no: page_no,
