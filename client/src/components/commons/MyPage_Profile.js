@@ -6,9 +6,12 @@ import { Button } from 'react-bootstrap';
 import img1 from '../../assets/img/my_test1.png'
 import ProfileModal from "./MyPage_ProfileModal";
 
+
 const ProfileCSS = styled.div`
 
     .body{
+        /* padding-left: 120px;
+        padding-right: 120px; */
         padding-left: 20%;
         padding-right: 20%;
         text-align: center;
@@ -18,8 +21,10 @@ const ProfileCSS = styled.div`
     .container {
         height: 200px;
         border-radius: 12px;
-        border: solid #000957 1px;
+        /* border: solid #000957 1px; */
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+        background-color: rgb(240, 240, 240);
+        /* color: rgb(90, 90, 90); */
     }
 
     .col-md-4 {
@@ -57,7 +62,7 @@ const ProfileCSS = styled.div`
 
     .profile_text h3{
         width: 200%;
-        border-bottom : solid black 2px;
+        border-bottom : solid lightgray 2px;
         padding: 10px;
     }
 
@@ -104,10 +109,11 @@ function MyPageProfile() {
 
     const [openModal, setOpenModal] =useState(false);
 
-    const [name, setName] = useState('');
-    const [profile, setProfile] = useState('');
-    const [favorite, setFavorite] = useState('');
+    // const [name, setName] = useState('');
+    // const [profile, setProfile] = useState('');
+    // const [favorite, setFavorite] = useState('');
     const [mypage, setMypage] = useState([]);
+    const [name, setName] = useState([]);
 
     // const [newprofile, setNewprofile] = useState('');
 
@@ -117,6 +123,14 @@ function MyPageProfile() {
           setMypage(response.data);
         })
       }, [])
+
+    useEffect( () => {
+        Axios.get('http://localhost:3001/api/login').then((response)=>{
+          // console.log(response.data);
+          setName(response.data);
+        })
+      }, [])
+
 
     return (
         <>
@@ -140,25 +154,32 @@ function MyPageProfile() {
                             </div>
                         </div>
 
-                        {mypage.map( (val,i) => {
+
+                        {mypage.map( (val) => {
                             return(
-                                <>                                
-                                <div className="col-md-6">
-                                    <div className="profile_text">
+                                <div className="col-md-6" key={val.id} >
+                                    <div className="profile_text" >
                                         <h3> # {val.name} </h3>
                                         <h4>Profile : {val.profile} </h4>
                                         <h4>Favorite : {val.favorite} </h4>
                                     </div>
-                                 
-                                </div>
-                                <div className="col-md-2">
-                                    <Button variant="dark" size="sm" onClick={ () => setOpenModal(true)}>Edit</Button>
-                                </div>
-                                {openModal && <ProfileModal closeModal={setOpenModal} />}
-                                </>
+                                </div>                    
                             )
                         })}
+                        
+                   
 
+                        {/* {name.map( (val, i) => {
+                            return(
+                                <div key={i}>{val.user_name}</div>
+                            )
+                        })} */}
+
+                        <div className="col-md-2" >
+                            <Button variant="dark" size="sm" onClick={ () => setOpenModal(true)}>Edit</Button>
+                        </div>
+                        {openModal && <ProfileModal closeModal={setOpenModal} />}
+                        
                     </div>
                 </div>
                 <br />

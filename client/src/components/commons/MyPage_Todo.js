@@ -15,23 +15,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const TodoCSS = styled.div`
 
     .body{
+        /* padding-left: 120px;
+        padding-right: 120px; */
         padding-left: 20%;
         padding-right: 20%;
         text-align: center;
         font-family: 'Roboto', sans-serif;
+        /* background-color: rgb(240, 240, 240); */
     }
 
     .container {
-        /* background-color: rgb(226, 226, 226); */
+        background-color: rgb(240, 240, 240);
+        /* border: solid #000957 1px; */
+        border-radius: 12px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+        /* color: rgb(90, 90, 90); */
     }
 
-    .col-md-4 {
-        /* border: solid black 2px; */
+    .col-md-3 {
+        /* border: solid red 2px; */
+        /* background-color: red; */
     }
 
     .item {
         border-radius: 12px;
-        border: solid #000957 1px;
+        border: solid #ffffff 1px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         background-color: white;
         margin : 10px;
@@ -68,6 +76,7 @@ function MyPageTodo() {
       }, [])
     
     const deleteReview = (title) => {
+    window.location.href = '/mypage';
     Axios.delete(`http://54.localhost:3001/api/delete/${title}`);
     }
 
@@ -75,6 +84,9 @@ function MyPageTodo() {
         setModal (!modal);   //! 느낌표 기호는 true 왼쪽에 붙이면 false로 바꿔주고, false왼쪽에선 true
       }  
 
+     // 새로고침 내장함수 추가! }
+
+     
     return (
         <>
         {/* 한글폰트 링크 */}
@@ -89,7 +101,7 @@ function MyPageTodo() {
 
         <TodoCSS>
             <div className="body">                
-                <Button variant="secondary" size="sm" onClick={modalChange}>Add your TodoList!</Button>
+                <Button variant="dark" size="sm" onClick={modalChange}>Add your TodoList!</Button>
                 <br/>
                 <div>
                     {
@@ -104,18 +116,15 @@ function MyPageTodo() {
                 <div className="container">
                     <div className="row">
                         
-                            {mypage.map( (val, i) => {
+                            {mypage.map( (val) => {
                                 return (
-                                    <>
-                                    <div className="col-md-3" key={i}>
+                                    <div className="col-md-3" key={val.id} >
                                         <div className="item">
                                             <h4>{val.title}</h4>
                                             <p>{val.contents}</p>
-                                            <CloseButton className='x_button' size="sm" variant="outline-dark" onClick={ () => {deleteReview(val.title)}} />
-                                            
+                                            <CloseButton className='x_button' size="sm" onClick={ () => {deleteReview(val.title)}} />
                                         </div>
                                     </div>
-                                    </>
                                 )
                             })}
                                                 

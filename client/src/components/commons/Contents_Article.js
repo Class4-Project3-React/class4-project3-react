@@ -164,7 +164,7 @@ function CommentDiv({ page_no }) {
     };
   };
 
-  useEffect(() => {
+  useEffect(() => { // useEffect syntax = useEffect((1.여기 컴포넌트가 렌더링 된 후 "무조건 실행할 함수 또는 명령(CONSOLE도 됨)", [2.])
     read_comment().then(function (result) {
       setComment(result.payload);
       console.log("무한 렌더링 검사", comment);

@@ -30,6 +30,7 @@ router.get("/api/get", controllers.getTodo_Controllers);
 router.post("/api/insert", controllers.postTodo_Controllers);
 router.delete("/api/delete/:title", controllers.deleteTodo_Controllers);
 
+router.get("/api/login", controllers.getLogin_Controllers);
 router.get("/api/test/get", controllers.getProfile_Controllers);
 router.put("/api/test/update", controllers.putProfile_Controllers);
 
