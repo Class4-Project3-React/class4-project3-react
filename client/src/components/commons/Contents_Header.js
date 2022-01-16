@@ -3,19 +3,19 @@ import styled from "styled-components";
 import ReactPlayer from "react-player";
 
 const Container = styled.div`
-    background-color: mediumaquamarine;
-    padding: 10px;
-    margin: 5vw 0;
+    width: 1152px;
+    margin: auto;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    font-family: 'Roboto', sans-serif;
 `;
 
 const ParentDiv = styled.div`
-  background-color: moccasin;
   align-items: center;
   display: flex;
 `;
 
 const ChildDiv_1 = styled.div`
-  background-color: yellow;
   text-align: center;
   width: 60vw;
   height: 50vh;
@@ -24,6 +24,7 @@ const ChildDiv_1 = styled.div`
   align-items: center;
   font-size: 4vw;
   font-weight: bold;
+  padding-right: 80px;
 `;
 
 const ChildDiv_2 = styled.div`
@@ -34,6 +35,11 @@ const ChildDiv_2 = styled.div`
 
 function ContentsHeader() {
     return (
+        <>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet" />
+
         <Container>
             <ParentDiv>
                 <ChildDiv_1>
@@ -51,6 +57,7 @@ function ContentsHeader() {
                 </ChildDiv_2>
             </ParentDiv>
         </Container>
+        </>
     );
 };
 
