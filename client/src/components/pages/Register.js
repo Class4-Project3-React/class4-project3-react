@@ -127,7 +127,7 @@ const Register = () => {
         // console.log('Name : ', inputName)
         // console.log('Email : ', inputEmail)
         // console.log('PW : ', inputPw)
-        axios.post('http://52.78.37.198/onRegister', null, {
+        axios.post('http://localhost:3001/onRegister', null, {
             params: {
                 'user_id': inputId,
                 'user_name' : inputName,
@@ -142,7 +142,7 @@ const Register = () => {
         .catch()
     }
     useEffect(() => {
-        axios.get('http://52.78.37.198/register')
+        axios.get('http://localhost:3001/register')
         .then(res => console.log(res))
         .catch()
     }, [])

@@ -118,14 +118,14 @@ function MyPageProfile() {
     // const [newprofile, setNewprofile] = useState('');
 
     useEffect( () => {
-        Axios.get('http://52.78.37.198/api/test/get').then((response)=>{
+        Axios.get('http://localhost:3001/api/test/get').then((response)=>{
           // console.log(response.data);
           setMypage(response.data);
         })
       }, [])
 
     useEffect( () => {
-        Axios.get('http://52.78.37.198/api/login').then((response)=>{
+        Axios.get('http://localhost:3001/api/login').then((response)=>{
           // console.log(response.data);
           setName(response.data);
         })
