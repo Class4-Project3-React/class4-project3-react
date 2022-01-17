@@ -4,10 +4,9 @@ import fav from '../src/assets/img/fav.ico'
 
 const Foot = styled.div`
     
-    padding-left: 10%;
-    padding-right: 10%;
     
     .footer {
+        width: 1152px;
         /* background-color: lightgray; */
         height: 75px;
         vertical-align: middle;
@@ -18,6 +17,8 @@ const Foot = styled.div`
         margin-top: 15px;
         color: gray;
         font-size: 13px;
+        margin: 0 auto;
+        margin-top: 20px;
     } 
 
     .footer a {

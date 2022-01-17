@@ -5,7 +5,7 @@ const READ_ARTICLE = "contents/article/READ_ARTICLE";
 
 // 2) action creator
 export const read_article = async () => {
-  const readArticle = await axios.get("http://52.78.37.198/contents");
+  const readArticle = await axios.get("http://localhost:3001/contents");
   return {
     type: READ_ARTICLE,
     payload: readArticle.data

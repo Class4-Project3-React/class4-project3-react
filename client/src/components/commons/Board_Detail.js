@@ -196,7 +196,7 @@ function Board_Detail() {
     const [boardGetDetail, setBoardGetDetail] = useState([]);
 
     useEffect(async () => {
-        await Axios.get(`http://52.78.37.198/board/detail/${linkData.state.id}`)
+        await Axios.get(`http://localhost:3001/board/detail/${linkData.state.id}`)
         .then((res) => {
             setBoardGetDetail(res.data);
             // console.log('Board_Detail res = ' + res);
@@ -209,7 +209,7 @@ function Board_Detail() {
     },[]);
 
     const deleteSubmit = async (id) => {
-        await Axios.delete(`http://52.78.37.198/board/delete/${id}`);
+        await Axios.delete(`http://localhost:3001/board/delete/${id}`);
         window.location.href = '/board';
     }
 
