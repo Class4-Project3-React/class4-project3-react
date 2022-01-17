@@ -112,7 +112,7 @@ const Login = () => {
         console.log('click login')
         console.log('ID : ', inputId)
         console.log('PW : ', inputPw)
-        axios.post('http://54.180.117.235/onLogin', null, { //axios 모듈에서 .post 는 아래와 같이 매개변수 3개이고, params 를 config 로 전달해야 하기 때문에 중간에 data 값을 null 로 넣어 주었다.
+        axios.post('http://localhost:3001/onLogin', null, { //axios 모듈에서 .post 는 아래와 같이 매개변수 3개이고, params 를 config 로 전달해야 하기 때문에 중간에 data 값을 null 로 넣어 주었다.
             params: {
             'user_id': inputId,
             'user_pw': inputPw
@@ -152,8 +152,8 @@ const Login = () => {
     // 2. useEffect에 배열로 지정한 useState의 값이 변경되면 실행된다.
     // https://ko-de-dev-green.tistory.com/18
     useEffect(() => {
-        axios.get('http://54.180.117.235/login') 
-        // 404 에러해결 : 서버의 포트에서 받아와야 하는데 그냥 /login이라고 하면 클라이언트의 포트(localhost:3000/login)으로 받아온다. 실제론 54.180.117.235/login에서 받아와야 함
+        axios.get('http://localhost:3001/login') 
+        // 404 에러해결 : 서버의 포트에서 받아와야 하는데 그냥 /login이라고 하면 클라이언트의 포트(localhost:3000/login)으로 받아온다. 실제론 localhost:3001/login에서 받아와야 함
         .then(res => console.log(res))
         .catch()
     },[]) // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가

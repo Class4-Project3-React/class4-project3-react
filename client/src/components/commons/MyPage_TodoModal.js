@@ -31,7 +31,7 @@ function TodoModal() {
     const [mypage, setMypage] = useState([]);
 
     const submitReview = () => {
-        Axios.post('http://54.180.117.235/api/insert', {
+        Axios.post('http://localhost:3001/api/insert', {
             title : title, 
             contents : contents 
         });

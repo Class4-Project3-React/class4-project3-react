@@ -277,7 +277,7 @@ function Board_Write () {
         formData.append("image", image);
         formData.append("fileName", fileName);
         try {
-            const res = await Axios.post("http://54.180.117.235/board/Insert", formData);
+            const res = await Axios.post("http://localhost:3001/board/Insert", formData);
             console.log(res);
             setImgSrc("");
         } catch (err) {
@@ -293,7 +293,7 @@ function Board_Write () {
     //     const formData = new FormData();
     //     formData.append("image", image);
     //     formData.append("fileName", fileName);
-    //     const res = await Axios.post("http://54.180.117.235/board/ImageUpload", formData);
+    //     const res = await Axios.post("http://localhost:3001/board/ImageUpload", formData);
     //     console.log(res);
     // }
 

@@ -92,28 +92,22 @@ const Art_contents2 = styled.div`
 `
 
 const Art_Media = styled.div`
-  background-color: red;
   font-size: 16px;
 `;
 const Art_Title = styled.div`
-  background-color: orange;
   font-family: 'Roboto', 'sans-serif';
   font-size: 28px;
 
 `;
 const Art_Date = styled.div`
-  background-color: yellow;
 `;
 const Art_Editor = styled.div`
-  background-color: green;
   padding-right: 10px;
   font-size: 16px;
 `;
 const Art_Image = styled.div`
-  background-color: red;
 `;
 const Art_Desc = styled.div`
-  background-color: white;
   padding-top: 36px;
   padding-bottom: 36px;
 `;
@@ -134,19 +128,14 @@ const Comm_box2 = styled.div`
 `
 
 const Comm_Container = styled.div`
-  /* background-color: lightgray; */
 `;
 const Comm_Id = styled.div`
-  background-color: green;
 `;
 const Comm_Desc = styled.div`
-  background-color: khaki;
 `;
 const Comm_Date = styled.div`
-  background-color: lavender;
 `;
 const Comm_Input = styled.div`
-  background-color: ivory;
 `;
 
 // ==============================================================================================
@@ -166,7 +155,7 @@ function CommentDetail({ comm, setRerender }) {
       } else {
         alert("댓글이 삭제 되었습니다");
         axios
-          .delete("http://54.180.117.235/contents/articles/comments/delete", {
+          .delete("http://localhost:3001/contents/articles/comments/delete", {
             data: { text: "작성자에 의해 삭제 된 메시지입니다", no: comm.no },
           })
           .then((res) => setRerender("씨발이거네 ㅋㅋ")) // ★리렌더링의 핵심(자식)
@@ -199,7 +188,7 @@ function CommentDiv({ page_no }) {
 
   const read_comment = async () => {
     const readComment = await axios.post(
-      "http://54.180.117.235/contents/articles/comments",
+      "http://localhost:3001/contents/articles/comments",
       { no: page_no }
     );
     return {
@@ -228,7 +217,7 @@ function CommentDiv({ page_no }) {
         setNew("");
       } else {
         axios
-          .post("http://54.180.117.235/contents/articles/addcomments", {
+          .post("http://localhost:3001/contents/articles/addcomments", {
             userid: userid,
             text: newText,
             no: page_no,

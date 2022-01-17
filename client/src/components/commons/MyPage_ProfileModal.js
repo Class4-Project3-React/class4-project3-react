@@ -74,7 +74,7 @@ function ProfileModal({ closeModal }) {
     const location = {pathname : '/'}
 
     useEffect( () => {
-        Axios.get('http://54.180.117.235/api/test/get').then((response)=>{
+        Axios.get('http://localhost:3001/api/test/get').then((response)=>{
           // console.log(response.data);
           setMypage(response.data);
         })
@@ -83,7 +83,7 @@ function ProfileModal({ closeModal }) {
     const updateProfile = (name) => {
         window.location.href = '/mypage';
         
-        Axios.put('http://54.180.117.235/api/test/update', {
+        Axios.put('http://localhost:3001/api/test/update', {
             name : name, 
             profile : newprofile,
             favorite : newfavorite 
